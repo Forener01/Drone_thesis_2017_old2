@@ -1,0 +1,23 @@
+outdoor: 0
+looprate: 30
+# max_bitrate: 4000
+bitrate: 4000
+navdata_demo: 0
+flight_without_shell: 0
+altitude_max: 4000
+altitude_min: 500
+euler_angle_max: 0.21
+control_vz_max: 700
+control_yaw: 1.75
+# detect_type: 10
+# enemy_colors: 3
+detections_select_h: 32
+detections_select_v_hsync: 128
+enemy_without_shell: 0
+ultrasound_freq: $(arg freq)
+realtime_navdata: true
+realtime_video: true
+# Covariance Values (3x3 matrices reshaped to 1x9)
+cov/imu_la: [0.1, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0, 0.0, 0.1]
+cov/imu_av: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+cov/imu_or: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 100000.0]

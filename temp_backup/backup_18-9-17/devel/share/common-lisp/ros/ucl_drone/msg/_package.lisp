@@ -1,0 +1,25 @@
+(cl:defpackage ucl_drone-msg
+  (:use )
+  (:export
+   "<DRONEROLE>"
+   "DRONEROLE"
+   "<TARGETDETECTED>"
+   "TARGETDETECTED"
+   "<KEYPOINT>"
+   "KEYPOINT"
+   "<PROCESSEDIMAGEMSG>"
+   "PROCESSEDIMAGEMSG"
+   "<POSE3D>"
+   "POSE3D"
+   "<CELLUPDATE>"
+   "CELLUPDATE"
+   "<POSEREF>"
+   "POSEREF"
+   "<STRATEGY>"
+   "STRATEGY"
+   "<STRATEGYMSG>"
+   "STRATEGYMSG"
+   "<DRONEROLES>"
+   "DRONEROLES"
+  ))
+

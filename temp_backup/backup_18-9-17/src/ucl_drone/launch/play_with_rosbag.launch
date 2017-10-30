@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!-- This is a sample lanuch file, please change it based on your needs -->
+<launch>
+  <!-- IPv4 address of your drones -->
+  <arg name="drone_name" default="drone_5" />
+  <arg name="mb1_ip" default="192.168.1.5" />
+  <arg name="mb2_ip" default="192.168.1.15" />
+  <!-- Ultrasound frequency (7 or 8). -->
+  <arg name="freq" default="8" />
+
+
+  <group ns="ucl_$(arg drone_name)">
+    <arg name="main_motherboard" default="motherboard1" />
+
+    <!-- [begin] RELAY TOPICS BETWEEN UCL_DRONE_GUI AND ARDRONE_AUTONOMY -->
+    <!-- if you need something more complex, create your node and replace the corresponding relay -->
+    <node name="relay_navdata" pkg="topic_tools" type="relay"  args="$(arg main_motherboard)/ardrone/navdata navdata">
+    </node>
+    <node name="relay_emergency" pkg="topic_tools" type="relay"  args="emergency_toggle $(arg main_motherboard)/ardrone/reset">
+    </node>
+    <node name="relay_land" pkg="topic_tools" type="relay"  args="land $(arg main_motherboard)/ardrone/land">
+    </node>
+    <node name="relay_takeoff" pkg="topic_tools" type="relay"  args="takeoff $(arg main_motherboard)/ardrone/takeoff">
+    </node>
+    <!-- [end] RELAY TOPICS BETWEEN UCL_DRONE_GUI AND ARDRONE_AUTONOMY -->
+
+    <group ns="motherboard2">
+      <node name="image_proc" pkg="image_proc" type="image_proc" ns="ardrone/front"/>
+    </group>
+
+    <!-- <node name="ucl_drone_controller" pkg="ucl_drone" type="controller" output="screen">
+      <param name="drone_prefix" value="motherboard1/"/>
+    </node> -->
+
+
+        <node name="vision_gui" pkg="ucl_drone" type="vision_gui" output="screen">
+        </node>
+
+        <node name="ucl_drone_pose_estimation" pkg="ucl_drone" type="pose_estimation" output="screen">
+          <param name="drone_prefix" value="motherboard1/"/>
+        </node>
+
+
+
+        <node name="ucl_drone_computer_vision" pkg="ucl_drone" type="computer_vision" output="screen">
+        <param name="drone_prefix" value="motherboard2/"/>
+        <param name="video_channel" value="ardrone/front/image_rect"/><!--_color"/>-->
+        <param name="cam_type" value="front"/>
+      <param name="autonomy_unavailable" value="True"/>
+        <!-- <param name="drone_prefix" value="motherboard1/"/> -->
+          <!--<param name="video_channel" value="ardrone/front/image_raw"/>-->
+        </node>
+
+        <node name="ucl_drone_simple_map" pkg="ucl_drone" type="simple_map" output="screen">
+        </node>
+
+
+
+</group>
+
+</launch>

@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<!-- This is a sample launch file, please change it based on your needs -->
+<launch>
+  <!-- IPv4 address of your drones -->
+  <arg name="drone_name1" default="drone_5" />
+  <arg name="mb1_ip" default="192.168.1.8" />
+
+  <arg name="drone_name2" default="drone_4" />
+  <arg name="mb_normal_ip" default="192.168.1.3" />
+
+  <!-- Ultrasound frequency (7 or 8). -->
+  <arg name="freq" default="8" />
+
+
+
+  <group ns="ucl_$(arg drone_name1)">
+
+          <arg name="main_motherboard" default="motherboard1" />
+
+          <!-- [begin] RELAY TOPICS BETWEEN UCL_DRONE_GUI AND ARDRONE_AUTONOMY -->
+          <!-- if you need something more complex, create your node and replace the corresponding relay -->
+          <node name="relay_navdata" pkg="topic_tools" type="relay"  args="$(arg main_motherboard)/ardrone/navdata navdata">
+          </node>
+          <node name="relay_emergency" pkg="topic_tools" type="relay"  args="emergency_toggle $(arg main_motherboard)/ardrone/reset">
+          </node>
+          <node name="relay_land" pkg="topic_tools" type="relay"  args="land $(arg main_motherboard)/ardrone/land">
+          </node>
+          <node name="relay_takeoff" pkg="topic_tools" type="relay"  args="takeoff $(arg main_motherboard)/ardrone/takeoff">
+          </node>
+          <!-- [end] RELAY TOPICS BETWEEN UCL_DRONE_GUI AND ARDRONE_AUTONOMY -->
+
+  <node name="ucl_drone_controller" pkg="ucl_drone" type="controller" output="screen">
+      <param name="drone_prefix" value="motherboard1/"/>
+    </node>
+    <node name="ucl_drone_path_planning" pkg="ucl_drone" type="path_planning" output="screen">
+      <param name="drone_prefix" value="motherboard1/"/>
+    </node>
+    <group ns="motherboard1">
+      <param name="tf_prefix" value="$(arg drone_name1)/ucl_mb1" />
+      <node name="ardrone_driver" pkg="ardrone_autonomy" type="ardrone_driver"
+            output="screen" clear_params="true" args="-ip $(arg mb1_ip)">
+        <param name="tf_prefix" value="$(arg drone_name1)/autonomy_mb1" />
+        <param name="outdoor" value="0" />
+        <param name="looprate" value="30" />
+        <!-- <param name="max_bitrate" value="4000" />
+        <param name="bitrate" value="4000" />-->
+        <param name="navdata_demo" value="0" />
+        <param name="flight_without_shell" value="0" />
+        <param name="altitude_max" value="4000" />
+        <param name="altitude_min" value="50" />
+        <param name="euler_angle_max" value="0.21" />
+        <param name="control_vz_max" value="700" />
+        <param name="control_yaw" value="1.75" />
+        <!-- <param name="detect_type" value="10" />
+        <param name="enemy_colors" value="3" />
+        <param name="detections_select_h" value="32" />
+        <param name="detections_select_v_hsync" value="128" />
+        <param name="enemy_without_shell" value="0" />-->
+        <param name="ultrasound_freq" value="$(arg freq)" />
+        <param name="realtime_navdata" value="true" />
+        <param name="realtime_video" value="true" />
+        <!-- Covariance Values (3x3 matrices reshaped to 1x9)-->
+        <rosparam param="cov/imu_la">[0.1, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0, 0.0, 0.1]</rosparam>
+        <rosparam param="cov/imu_av">[1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]</rosparam>
+        <rosparam param="cov/imu_or">[1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 100000.0]</rosparam>
+      </node>
+    </group>
+    <node name="ucl_drone_simple_map" pkg="ucl_drone" type="simple_map" output="screen">
+    </node>
+    <node name="ucl_drone_computer_vision" pkg="ucl_drone" type="computer_vision" output="screen">
+      <param name="drone_prefix" value="motherboard1/"/>
+      <param name="video_channel" value="ardrone/bottom/image_raw"/>
+      <param name="cam_type" value="bottom"/>
+    </node>
+    <node name="ucl_drone_strategy" pkg="ucl_drone" type="strategy" output="screen">
+      <param name="drone_name" value="ucl_$(arg drone_name1)" />
+    </node>
+    <node name="ucl_drone_pose_estimation" pkg="ucl_drone" type="pose_estimation" output="screen">
+      <param name="drone_prefix" value="motherboard1/"/>
+    </node>
+    <node name="ucl_drone_vision_gui" pkg="ucl_drone" type="vision_gui" output="screen">
+    </node>
+</group>
+
+
+
+
+
+
+<group ns="ucl_$(arg drone_name2)">
+
+            <arg name="main_motherboard" default="motherboard_normal" />
+
+            <!-- [begin] RELAY TOPICS BETWEEN UCL_DRONE_GUI AND ARDRONE_AUTONOMY -->
+            <!-- if you need something more complex, create your node and replace the corresponding relay -->
+            <node name="relay_navdata" pkg="topic_tools" type="relay"  args="$(arg main_motherboard)/ardrone/navdata navdata">
+            </node>
+            <node name="relay_emergency" pkg="topic_tools" type="relay"  args="emergency_toggle $(arg main_motherboard)/ardrone/reset">
+            </node>
+            <node name="relay_land" pkg="topic_tools" type="relay"  args="land $(arg main_motherboard)/ardrone/land">
+            </node>
+            <node name="relay_takeoff" pkg="topic_tools" type="relay"  args="takeoff $(arg main_motherboard)/ardrone/takeoff">
+            </node>
+            <!-- [end] RELAY TOPICS BETWEEN UCL_DRONE_GUI AND ARDRONE_AUTONOMY -->
+
+<<<<<<< HEAD
+     <node name="ucl_drone_controller" pkg="ucl_drone" type="controller" output="screen">
+=======
+    <node name="ucl_drone_controller" pkg="ucl_drone" type="controller" output="screen">
+>>>>>>> 2dc0cca9e13039cfa89e9a70198d018f2d66b6f6
+      <param name="drone_prefix" value="motherboard_normal/"/>
+    </node>
+    <node name="ucl_drone_path_planning" pkg="ucl_drone" type="path_planning" output="screen">
+      <param name="drone_prefix" value="motherboard_normal/"/>
+    </node>
+  <group ns="motherboard_normal">
+    <param name="tf_prefix" value="$(arg drone_name2)/ucl_mbn" />
+    <node name="ardrone_driver" pkg="ardrone_autonomy" type="ardrone_driver"
+          output="screen" clear_params="true" args="-ip $(arg mb_normal_ip)">
+
+      <param name="tf_prefix" value="$(arg drone_name2)/autonomy_mbn" />
+      <param name="outdoor" value="0" />
+      <param name="looprate" value="30" />
+      <!-- <param name="max_bitrate" value="4000" />
+      <param name="bitrate" value="4000" />-->
+      <param name="navdata_demo" value="0" />
+      <param name="flight_without_shell" value="0" />
+      <param name="altitude_max" value="4000" />
+      <param name="altitude_min" value="50" />
+      <param name="euler_angle_max" value="0.21" />
+      <param name="control_vz_max" value="700" />
+      <param name="control_yaw" value="1.75" />
+      <!-- <param name="detect_type" value="10" />
+      <param name="enemy_colors" value="3" />
+      <param name="detections_select_h" value="32" />
+      <param name="detections_select_v_hsync" value="128" />
+      <param name="enemy_without_shell" value="0" />-->
+      <param name="ultrasound_freq" value="$(arg freq)" />
+      <param name="realtime_navdata" value="true" />
+      <param name="realtime_video" value="true" />
+      <!-- Covariance Values (3x3 matrices reshaped to 1x9)-->
+      <rosparam param="cov/imu_la">[0.1, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0, 0.0, 0.1]</rosparam>
+      <rosparam param="cov/imu_av">[1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]</rosparam>
+      <rosparam param="cov/imu_or">[1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 100000.0]</rosparam>
+    </node>
+  </group>
+
+  <node name="ucl_drone_simple_map" pkg="ucl_drone" type="simple_map" output="screen">
+  </node>
+  <node name="ucl_drone_computer_vision" pkg="ucl_drone" type="computer_vision" output="screen">
+    <param name="drone_prefix" value="motherboard_normal/"/>
+    <param name="video_channel" value="ardrone/bottom/image_raw"/>
+    <param name="cam_type" value="bottom"/>
+  </node>
+  <node name="ucl_drone_strategy" pkg="ucl_drone" type="strategy" output="screen">
+    <param name="drone_name" value="ucl_$(arg drone_name2)" />
+  </node>
+
+  <node name="ucl_drone_pose_estimation" pkg="ucl_drone" type="pose_estimation" output="screen">
+    <param name="drone_prefix" value="motherboard_normal/"/>
+  </node>
+  <node name="ucl_drone_vision_gui" pkg="ucl_drone" type="vision_gui" output="screen">
+  </node>
+
+</group>
+
+
+<node name="ucl_drone_multi_strategy" pkg="ucl_drone" type="multi_strategy" output="screen">
+</node>
+
+
+
+</launch>

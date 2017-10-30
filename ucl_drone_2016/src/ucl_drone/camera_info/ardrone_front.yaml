@@ -1,0 +1,20 @@
+image_width: 640
+image_height: 360
+camera_name: ucl_drone_5_motherboard2_ardrone_front
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [564.580010, 0.000000, 311.270533, 0.000000, 563.206060, 184.755562, 0.000000, 0.000000, 1.000000]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [-0.511605, 0.270084, 0.000568, 0.000973, 0.000000]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [459.411918, 0.000000, 308.303145, 0.000000, 0.000000, 527.671134, 184.943995, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000]

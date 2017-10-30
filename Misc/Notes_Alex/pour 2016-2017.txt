@@ -1,0 +1,60 @@
+
+à l'attention des étudiants 2016-2017
+
+
+Adresse et nom utilisateur pour :
+- wiki ROS
+	pseudo:	dronesinma
+	mdp:	asimov42
+	mail:	drones-inma@uclouvain.be
+
+- github
+	pseudo:	dronesinma
+	mdp:	asimov42
+	mail:	drones-inma@uclouvain.be
+
+- mail uclouvain officiel
+	page d'acces: https://mail.uclouvain.be/owa/ (voir https://www.uclouvain.be/si-mail.html)
+	identifiant:    dronesinma
+	pwd:            AQWzsx123
+	mail: 	     drones-inma@uclouvain.be
+
+- gmail (utilisée pour gérer le compte youtube)
+	nom:	inma
+	prenom:	drones
+	mail:	dronesinma@gmail.com
+	mdp:	asimov42
+
+
+procédure de connection sans routeur
+procédure de génération de la doc
+
+
+
+Marche à suivre pour le mémoire:
+Q1:
+0. Etre sûr d'aimer coder (le mémoire c'est que ça), en plusieurs langages. Surtout C++. Avoir de bonnes capacités de débug.
+1. Lire les mémoires précédents. Surtout le dernier.
+2. Comprendre ce qu'est ROS, OpenCV, SLAM, PCL, SDK Parrot, Catkin, ce qu'on ne peut faire sur le drone (firmware), les capteurs qu'on a.
+3. Comprendre le code 2015-2016
+4. Fixer un objectif précis. Même ce qui paraît pas du tout ambitieux sera difficile à finir. Chercher le plus SIMPLE, et le plus VENDEUR.
+5. Faire un premier état de l'art au premier quadri, en même temps que le roadmap
+6. Faire tous les petits tuto ROS pour comprendre rapidement et de manière ludique et appliquée.
+7. Décider d'un objectif faisable et commencer à coder en Q1 !!!
+
+Q2: 
+1. Revoir le planning, mettre à jour les objectifs
+2. Coder, débuger, tester.
+3. Rédiger
+4. Présenter
+
+Autre:
+- Tenir un journal de bord en .txt qui contient chaque piste imaginée, abandonnée, chaque bug rencontré, sa solution, etc. Essayer de garder
+  une trace de TOUT. Sinon on oublie, on refait le travail plusieurs fois, et on ne sait pas quoi rédiger dans le mémoire.
+
+
+A ne pas faire:
+- Remettre en cause l'utilisation des drones de Parrot. Le mémoire est trop court pour se poser des questions de hardware. 
+  prendre ça comme une contrainte.
+- Ne pas laisser de doc pour les suivants, avoir un code non modulaire, et ou non commenté. On a jamais réussi à ne fut-ce que faire tourner le
+  code de 2014-2015. Et ça c'est pas une blague.

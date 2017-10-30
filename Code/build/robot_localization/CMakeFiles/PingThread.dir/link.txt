@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -std=c++0x    -shared -Wl,-soname,libPingThread.so -o /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/libPingThread.so CMakeFiles/PingThread.dir/src/PingThread.cpp.o 

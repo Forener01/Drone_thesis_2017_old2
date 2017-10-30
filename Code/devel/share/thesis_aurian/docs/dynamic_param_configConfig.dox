@@ -1,0 +1,8 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~Kp_xy" : \b [double] Proportional Coefficient in X direction min: 0.0, default: 0.5, max: 2.0
+- \b "~Ki_xy" : \b [double] Integral Coefficient in X direction min: 0.0, default: 0.01, max: 0.5
+- \b "~Kd_xy" : \b [double] Derivative Coefficient in X direction min: 0.0, default: 0.006, max: 0.05
+

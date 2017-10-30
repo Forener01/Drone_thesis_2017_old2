@@ -1,0 +1,42 @@
+
+A. Dans un premier terminal:
+	1) cd Bureau/backup/TFE_Drone
+	2) Pour chaque drone
+		1) Se connecter au drone via wifi
+		2) bash autoconfarparrot
+	3) désactiver l'interface réseau
+	4) sudo su ifconfig eth0 192.168.1.23
+	5) sudo su dhclient eth1
+	
+B. Dans un deuxième terminal
+	1) roscore
+
+C. Dans un troisième terminal
+	1) roslaunch ardrone_tutorials keyboard_controller.launch
+	
+D. accès aux fichiers de ardrone_tutorials
+	1) roscd ardrone_tutorials
+		- launch files: paramètre de démarrage du noeud (on déclare ici un groupe pour chaque drone)
+		- src : fichiers de controle (on instantie les controleurs pour chaque drone) 
+
+Pour tuer ROS : ctrl+c
+Pour tuer un driver en arrière plan, le mieux c'est de tuer ROS
+Pour checker les topics ouverts : rostopic list
+Pour checker les noeuds ouverts : rosnode list
+Pour tuer un topic :
+Pour trouver les IP des drones aux alentours : nmap -pn 192.168.1.1-10
+Pour se connecter au linux du drone : telnet suivi de l'ip du drone
+Pour "annuler" le ifconfig en cas de problème : ifdown eth0
+
+Commandes ROS:
+rostopic 
+rosnode
+rosnode list
+rosnode kill (+nom du node)
+
+Enregistrer des donnŽes : 
+$ rosbag record -O ARDroneFlight.bag /ardrone/navdata /cmd_vel
+
+Tuto : http://robohub.org/up-and-flying-with-the-ar-drone-and-ros-handling-feedback/
+
+

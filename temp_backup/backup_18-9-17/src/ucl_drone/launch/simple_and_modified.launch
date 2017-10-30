@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<!-- This is a sample launch file, please change it based on your needs -->
+<launch>
+  <!-- IPv4 address of your drones -->
+  <arg name="drone_name1" default="drone_5" />
+  <arg name="mb1_ip" default="192.168.1.5" />
+  <arg name="mb2_ip" default="192.168.1.15" />
+
+  <arg name="drone_name2" default="drone_4" />
+  <arg name="mb_normal_ip" default="192.168.1.4" />
+
+  <!-- Ultrasound frequency (7 or 8). -->
+  <arg name="freq" default="8" />
+
+
+
+  <group ns="ucl_$(arg drone_name1)">
+
+
+      <node name="ucl_drone_pose_estimation" pkg="ucl_drone" type="pose_estimation" output="screen">
+        <param name="drone_prefix" value="motherboard1/"/>
+      </node>
+      <!-- <node name="ucl_drone_controller" pkg="ucl_drone" type="controller" output="screen">
+        <param name="drone_prefix" value="motherboard1/"/>
+      </node> -->
+      <!--
+      <node name="ucl_drone_simple_map" pkg="ucl_drone" type="simple_map" output="screen">
+      </node>
+      -->
+
+
+    <group ns="motherboard1">
+      <param name="tf_prefix" value="$(arg drone_name1)/ucl_mb1" />
+      <node name="ardrone_driver" pkg="ardrone_autonomy" type="ardrone_driver"
+            output="screen" clear_params="true" args="-ip $(arg mb1_ip)">
+
+        <param name="tf_prefix" value="$(arg drone_name1)/autonomy_mb1" />
+        <param name="outdoor" value="0" />
+        <param name="looprate" value="30" />
+        <!-- <param name="max_bitrate" value="4000" />
+        <param name="bitrate" value="4000" />-->
+        <param name="navdata_demo" value="0" />
+        <param name="flight_without_shell" value="0" />
+        <param name="altitude_max" value="4000" />
+        <param name="altitude_min" value="50" />
+        <param name="euler_angle_max" value="0.21" />
+        <param name="control_vz_max" value="700" />
+        <param name="control_yaw" value="1.75" />
+        <!-- <param name="detect_type" value="10" />
+        <param name="enemy_colors" value="3" />
+        <param name="detections_select_h" value="32" />
+        <param name="detections_select_v_hsync" value="128" />
+        <param name="enemy_without_shell" value="0" />-->
+        <param name="ultrasound_freq" value="$(arg freq)" />
+        <param name="realtime_navdata" value="true" />
+        <param name="realtime_video" value="true" />
+        <!-- Covariance Values (3x3 matrices reshaped to 1x9)-->
+        <rosparam param="cov/imu_la">[0.1, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0, 0.0, 0.1]</rosparam>
+        <rosparam param="cov/imu_av">[1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]</rosparam>
+        <rosparam param="cov/imu_or">[1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 100000.0]</rosparam>
+      </node>
+
+      <!--<node name="ucl_drone_imgproc" pkg="ucl_drone" type="imgproc" output="screen">
+    </node>-->
+    </group>
+
+    <group ns="motherboard2">
+      <param name="tf_prefix" value="$(arg drone_name1)/ucl_mb2" />
+      <node name="ardrone_driver" pkg="ardrone_autonomy" type="ardrone_driver"
+            output="screen" clear_params="true" args="-ip $(arg mb2_ip)">
+
+        <param name="tf_prefix" value="$(arg drone_name1)/autonomy_mb2" />
+        <!--<remap from="ardrone/image_raw" to="ardrone2/image_raw"/>-->
+        <param name="outdoor" value="0" />
+        <param name="looprate" value="30" />
+        <!-- <param name="max_bitrate" value="4000" />
+        <param name="bitrate" value="4000" />-->
+        <!-- <param name="detect_type" value="10" />
+        <param name="enemy_colors" value="3" />
+        <param name="detections_select_h" value="32" />
+        <param name="detections_select_v_hsync" value="128" />
+        <param name="enemy_without_shell" value="0" /> -->
+        <!-- <param name="ultrasound_freq" value="$(arg freq)" /> -->
+        <param name="realtime_navdata" value="true" />
+        <param name="realtime_video" value="true" />
+        <!-- Covariance Values (3x3 matrices reshaped to 1x9)-->
+        <rosparam param="cov/imu_la">[0.1, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0, 0.0, 0.1]</rosparam>
+        <rosparam param="cov/imu_av">[1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]</rosparam>
+        <rosparam param="cov/imu_or">[1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 100000.0]</rosparam>
+      </node>
+      <node name="image_proc" pkg="image_proc" type="image_proc" ns="ardrone/front"/>
+<!--
+      <node name="ucl_drone_imgproc" pkg="ucl_drone" type="imgproc" output="screen">
+      </node>--><!--<remap from="ardrone/image_raw" to="ardrone2/image_raw"/>-->
+    </group>
+
+
+      <node name="ucl_drone_strategy" pkg="ucl_drone" type="strategy" output="screen">
+          <param name="drone_name" value="ucl_$(arg drone_name1)" />
+      </node>
+
+</group>
+
+
+
+
+
+
+<group ns="ucl_$(arg drone_name2)">
+
+
+    <node name="ucl_drone_pose_estimation" pkg="ucl_drone" type="pose_estimation" output="screen">
+      <param name="drone_prefix" value="motherboard_normal/"/>
+    </node>
+    <!-- <node name="ucl_drone_controller" pkg="ucl_drone" type="controller" output="screen">
+      <param name="drone_prefix" value="motherboard1/"/>
+    </node> -->
+    <!--
+    <node name="ucl_drone_simple_map" pkg="ucl_drone" type="simple_map" output="screen">
+    </node>
+    -->
+
+
+  <group ns="motherboard_normal">
+    <param name="tf_prefix" value="$(arg drone_name2)/ucl_mbn" />
+    <node name="ardrone_driver" pkg="ardrone_autonomy" type="ardrone_driver"
+          output="screen" clear_params="true" args="-ip $(arg mb_normal_ip)">
+
+      <param name="tf_prefix" value="$(arg drone_name2)/autonomy_mbn" />
+      <param name="outdoor" value="0" />
+      <param name="looprate" value="30" />
+      <!-- <param name="max_bitrate" value="4000" />
+      <param name="bitrate" value="4000" />-->
+      <param name="navdata_demo" value="0" />
+      <param name="flight_without_shell" value="0" />
+      <param name="altitude_max" value="4000" />
+      <param name="altitude_min" value="50" />
+      <param name="euler_angle_max" value="0.21" />
+      <param name="control_vz_max" value="700" />
+      <param name="control_yaw" value="1.75" />
+      <!-- <param name="detect_type" value="10" />
+      <param name="enemy_colors" value="3" />
+      <param name="detections_select_h" value="32" />
+      <param name="detections_select_v_hsync" value="128" />
+      <param name="enemy_without_shell" value="0" />-->
+      <param name="ultrasound_freq" value="$(arg freq)" />
+      <param name="realtime_navdata" value="true" />
+      <param name="realtime_video" value="true" />
+      <!-- Covariance Values (3x3 matrices reshaped to 1x9)-->
+      <rosparam param="cov/imu_la">[0.1, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0, 0.0, 0.1]</rosparam>
+      <rosparam param="cov/imu_av">[1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]</rosparam>
+      <rosparam param="cov/imu_or">[1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 100000.0]</rosparam>
+    </node>
+
+    <!--<node name="ucl_drone_imgproc" pkg="ucl_drone" type="imgproc" output="screen">
+  </node>-->
+  </group>
+
+
+  <node name="ucl_drone_strategy" pkg="ucl_drone" type="strategy" output="screen">
+      <param name="drone_name" value="ucl_$(arg drone_name2)" />
+  </node>
+
+</group>
+
+
+<node name="ucl_drone_multi_strategy" pkg="ucl_drone" type="multi_strategy" output="screen">
+</node>
+
+
+
+</launch>

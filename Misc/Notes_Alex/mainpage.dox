@@ -1,0 +1,21 @@
+/**
+
+\mainpage
+
+\htmlinclude manifest.html
+
+\b nav_view is....
+
+**/
+
+
+
+
+
+
+By default, this is:
+
+    FILE_PATTERNS: *.c *.cpp *.h *.cc *.hh *.py *.dox 
+	
+	- builder: doxygen
+  file_patterns: '*.cpp *.hpp *.dox *.md'

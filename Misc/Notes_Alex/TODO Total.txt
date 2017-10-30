@@ -1,0 +1,134 @@
+
+# TODO
+
+## Odométrie 
+  - reset plus propre pour tout mettre à zéro
+  - Faire un (E)KF 
+
+## OpenCV
+  - tester la synchronisation entre images: éteindre la lampe et mesurer nbre d'img de décalage
+  - Vérifier la taille d'un descripteur SIFT (128 quoi?)
+    - pouvoir chiffrer (année préc ont prétendu que pas possible de matcher en temps réel)
+    - lister les solutions envisagées
+  - rendre matching plus robuste (il faut aussi lister les idées)
+    - revenir aux drniers points vus si perdu
+    - possibilité intermédiaire : revenir à la base si perdu
+    - voir plus longtemps un descripteur
+    - retirer les outliers dans les match entre paires d'images pour améliorer triangulation
+  - lire le yaml de calibration au lieu de recopier dans le launch
+  - Différents algorithmes de compression vidéo sont disponibles, il serait intéressant de mesurer les performances de compression, les résultats avec opencv ainsi que la linéarité de chacun.
+    "FAST" – FastFeatureDetector
+    "STAR" – StarFeatureDetector
+    "SIFT" – SIFT (nonfree module)
+    "SURF" – SURF (nonfree module)
+    "ORB" – ORB
+    "BRISK" – BRISK
+    "MSER" – MSER
+    "GFTT" – GoodFeaturesToTrackDetector
+    "HARRIS" – GoodFeaturesToTrackDetector with Harris detector enabled
+    "Dense" – DenseFeatureDetector
+    "SimpleBlob" – SimpleBlobDetector
+    "FREAK"
+    "BRIEF"
+	https://en.wikipedia.org/wiki/Feature_detection_%28computer_vision%29
+  - vérifier une bonne fois pour ttes si pas moyen de changer les fps des caméras
+  - pourquoi qd détecteur trouve rien dès le début, erreur à l'excécution.
+  - Prendre +ieurs images de référence pour une même target (floues, scales différentes, etc)
+  
+  
+## map
+  - faire la triangulation
+  - comprendre ce qui se passe dans triangulation si aucun déplacement:
+    - comprendre le cube dans le viewer
+    - qu'est-ce qui se passe quand on bouge (erreurs sur position) mais pas l'image???
+    - implémenter un déplacement minimum?
+  - comparer notre matrice de tranformation avec celle trouvée par eight-point algorithm
+  - multimapping : 
+	- prévoir un param d'offset au décollage dans le .launch, récupéré par les odométries respectives
+	- communication de la map
+	- rendre d'abord le KBSLAM plus robuste car c'est pr lui que multimap est utile
+  - multi-layer où on met la position du drone. A l'affichage, gros point rouge ou repère (voir tum PTAM)
+  - retirer le buffer de 10 dans la création de la map et gérer plus proprement le handle du viewer qui prend la main sans laisser la place à l'ajout de points
+  - Faire un bundle adjustment
+  - délais pr mapper plus propre que attendre 20 sec
+		- faire un srvce depuis noeud qui fait proc de décollage. Une fois stable, commencer mapping sur base de ultrason
+  
+  
+## Timing
+  - brief, brisk orb (binary)
+  - passer surf et/ou Pnp sur GPU
+  - Est-ce qu'on copie bien ce qu'il faut dans les callbacks, pointeur? contenu? shared pointer? est-ce optimal?
+    Comment ROS gère les shared pointer?
+    Envisager shared memory http://answers.ros.org/question/199990/implement-shared-memory-data-publishing-between-nodelets/
+  - Eviter de transmettre l'image (pour la 2D gui)
+  - Tester bitrate wireshark pr routeur (pk 12fps et pas 15, voir switch de 15 à 30??!)
+  
+  
+## Environnement
+  - interface graphique
+	- battery percentage ne se met pas correctement à jour 
+	- il faut appuyer 2 fois sur les boutons (parfois :p)
+  - faire de la doc
+  - avoir un interrupt très général et très safe pour arrêter le drone
+	- utiliser l'emergency d'ardrone_autonomy
+	- utiliser interface graphique
+  - avoir un reset général depuis gui qui permet de pas ctrl+c et relaunch
+	- effacer keyframes list qd reset 
+    - effacer tout ce qu'on met en mémoire lorsque ferme programme
+  - mettre des .launch dans les .launch pour appeler plus facilement des drones modifiés et non modifiés, avec un minimum de param 
+dans l'appel et un max de param prévus (même si mis a défault) dans le .launch spécifique
+<launch>
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="worlds/mud.world"/> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+</launch>
+  - expliquer dans la doc que l'appareillage change en fct du pc (les 2 lignes eth...)
+  - modifier appareillage pour qu'il scanne certains drones spécifiques et non tout (pour travailler à plusieurs ds le même local)
+  - écrire un .txt qui contient toutes les mac, ssid, noms et numéro software des drones 
+    changer le ssid du drone guigui
+    étiquetter les noms (ip) sur les nouveaux drones
+    ajouter tous les drones aux routeurs
+	
+
+## proprifier code
+	- mettre un ros info pour la lecture de l'ultrasson
+	- proprifier .launch
+	- mettre plus dans les main
+	- moins hardcoder de choses
+	- rassembler les tresholds
+		- choice of descriptors
+		- choice of extractor
+		- nb of keypoints we want per image (availability depends on descriptor type)
+		- other parameters proper to descriptor type (size of descriptor, sigma of Gaussian in SIFT, etc)
+		- minimum number of keypoints in frame before tracking lost
+		- minimum number of RANSAC inliers before tracking lost 
+		- percentage of unknown points before keyframe change
+		- minimum number of known points before keyframe change
+		- minimum distance between descriptors for a good descriptor match
+		- target detection minimum descriptor distance to have a good descriptor match (flann)
+		- target detection minimum nb of good descriptor matches before claiming target is detected
+		- target suppression minimum descriptor distance to suppres target points (radius)
+		- execution rates of nodes
+		- execution rate of 3D Viewer diminisher (applied execution rate is ("execution rate of map")/("this number") )
+		- type of algorithm for PnP (P3P, EPNP, ...)
+		- all the buffers (1 element for (nearly?) all, due to big delays... is delay and jitter dependent)
+		- elapsed time after which we disregard too old visual pose estimations
+	- découper en sous fonctions
+	- changer nom simple_map
+	- changer le nom de multi strategy et systeme de passage d'adressage
+	- rendre nappe très robuste pour mapping (bonnes images) pour la passer à l'année prochaine. Et qques rosbag aussi pour permettre de recréer environnement.
+	
+	
+## Général:
+  - ranger 
+	- dropbox
+    - pc
+    - onglets firefox
+    - doc pour state of the art
+

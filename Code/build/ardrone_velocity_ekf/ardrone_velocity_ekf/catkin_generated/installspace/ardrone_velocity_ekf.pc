@@ -1,0 +1,8 @@
+prefix=/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/install
+
+Name: ardrone_velocity_ekf
+Description: Description of ardrone_velocity_ekf
+Version: 0.0.0
+Cflags: -I/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/install/include
+Libs: -L/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/install/lib 
+Requires: dynamic_reconfigure geometry_msgs nav_msgs roscpp rospy std_msgs tf2

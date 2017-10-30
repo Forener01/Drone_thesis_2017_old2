@@ -1,0 +1,67 @@
+#!/bin/bash
+
+# version 2.0 (2-10-2015)
+
+# changelog:
+# version 1.0: Nicolas Rowier
+# version 2.0: Arnaud Jacques
+#   manage multiple drone connections
+#====================================
+
+#check network manager is runnig
+if [[ $(nmcli -t -f RUNNING nm) == *"inactif"* ]] ; then
+  echo Network Manager is not running
+  echo "use this command line: sudo service network-manager start"
+  #sleep 5
+  exit 1
+fi
+
+#check nm-applet is off
+if [[ $(nmcli nm enable | grep désactivé) == *"désactivé"* ]] ; then
+  echo Network Manager is disabled
+  echo "use this command line: nmcli nm enable true"
+  #sleep 15
+  exit 1
+fi
+
+conf_path="./"
+conf_int="wlan0"
+#current setting
+cur_essid=$(iwconfig $conf_int | grep ESSID | cut -d\" -f2)
+cur_ip="192.168.1.1"
+ardrone_essid=$(sudo iwlist wlan0 scan | grep ESSID | grep ardrone |cut -d\" -f2)
+#ap setting
+essid="drone"
+
+#check curent essid
+if [[ $cur_essid != *"ardrone"* ]] ; then
+  echo ARDrone not connected, current connection will be lost
+  #exit 1
+fi
+
+for next_essid in $ardrone_essid 
+do
+  echo Connection to $next_essid
+	nmcli dev wifi connect $next_essid
+	sleep 1
+	#check connection
+	if ping $cur_ip -c1 -q
+	then
+		#load setting
+		if [ ! -e "$conf_path$next_essid" ]
+		then
+			echo Create a $conf_path$next_essid file with ip address
+		fi
+		ip=$(cat "$conf_path$next_essid")
+		#configure on the ardrone
+		telnet $cur_ip << EOF
+killall udhcpd;
+iwconfig ath0 mode managed essid $essid;
+ifconfig ath0 $ip netmask 255.255.255.0 up;
+EOF
+	fi
+done
+
+nmcli nm enable false
+sudo ifconfig eth0 192.168.1.23
+sudo dhclient eth1

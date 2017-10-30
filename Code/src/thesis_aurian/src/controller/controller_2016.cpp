@@ -1,0 +1,387 @@
+/*!
+ *  This file is part of ucl_drone 2016.
+ *  For more information, refer
+ *  to the corresponding header file.
+ *
+ * This file receives information from path_planning and pose_estimation and
+ * publishes mainly in
+ * cmd_vel to communicate with the drone.
+ * It controls the position of the drone.
+ *
+ *  \authors Julien Gerardy & Felicien Schiltz
+ *  \date 2016
+ *
+ */
+
+#include <thesis_aurian/controller_2016.hpp>
+
+static bool urgency_signal = false; // true when Ctrl-C (Emergency stop)
+
+// Constructor
+Controller_2016::Controller_2016() {
+  /*
+  List of subscribers and publishers. This node subscribes to pose_estimation to
+  get the real-time
+  position of the drone. It also subsribes to path_planning to know the new pose
+  that the drone must
+  reach.
+
+  In order to do that, this node publish in the topic cmd_vel in order to give
+  the computed speed
+  commands to the drone. It also can send message in order to make the drone
+  taking off or landing
+  and to change its state (emergency or ok).
+
+  The message reset pose is used to reset the pose when the drone finishes to
+  take off. It allows
+  the pose_estimation to reset and to erase the drift that happenned during
+  launching.
+  */
+
+  // Subscribers
+  pose_sub = nh.subscribe("pose", 10, &Controller_2016::poseCb, this);
+  poseref_sub = nh.subscribe("poseref", 10, &Controller_2016::poseRefCb, this);
+
+  // Publishers
+  vel_pub = nh.advertise<geometry_msgs::Twist>("cmd_vel", 1);
+  takeoff_pub = nh.advertise<std_msgs::Empty>("ardrone/takeoff", 1, true);
+  land_pub = nh.advertise<std_msgs::Empty>("ardrone/land", 1);
+  reset_pub = nh.advertise<std_msgs::Empty>("ardrone/reset", 1, true);
+
+  // Here are the parameters used before we got the first pose_ref from the
+  // path_planning
+
+  // Parameters
+  alt_ref = 1.0; // default reference altitude (unit: m)
+  x_ref = 0.0;
+  y_ref = 0.0;
+  yaw_ref = 0.0;
+  isControlling = false;
+
+  /*Here are the gains used for the PID controller. Those are tuned for an
+   * AR.Drone 2.0 with the
+   * indoor skin.
+   */
+  // Initializing the variables we need
+
+  // altitude
+  Kp_alt = 1.8; // old 1.8
+  Ki_alt = 0.0;
+  Kd_alt = 2.0;
+  /*working values inside : Kp_alt=7 & Kd_alt=2
+  working values dronelab : Kp_alt=1.5 & Kd_alt =2*/
+
+  // yaw
+  Kp_yaw = 3.0;
+  Ki_yaw = 0.0;
+  Kd_yaw = 0.3;
+  /*working values : Kp_yaw=3 */
+
+  // XY
+  Kp_plan = 0.06;
+  Ki_plan = 0.002;
+  Kd_plan = 0.2;
+  /* working values : Kp_plan=0.06 ki_plan = 0.002 kd_plan = 0.2*/
+
+  // integral_alt_error = 0;
+  // integral_yaw_error = 0;
+  // integral_xy_error = 0;
+  // integral_f_error = 0;
+  // integral_l_error = 0;
+
+  // Limitation of the rotZ speed in order to stay stable.
+  anti_windup_yaw = 0.5;
+
+  // Initialization of some variables useful for regulation (see below).
+  alt_desired_old = 0.0;
+  yaw_desired_old = 0.0;
+  x_desired_old = 0.0;
+  y_desired_old = 0.0;
+  old_yaw_desired = 0.0;
+}
+
+Controller_2016::~Controller_2016() {}
+
+// Regulation in the XY plane. The X and Y regulator are exactly the same. It is
+// important to know
+// that the drone is controlled by Forward-Backward, Left-Right motion in its
+// own repere. So we need
+// to use a rotation matrix to match drone command and good drone movement.
+
+void Controller_2016::reguXY(double *xvel_cmd, double *yvel_cmd, double x_mes,
+                             double y_mes, double x_desired, double y_desired,
+                             double yaw, double regu_new_time_xy) {
+  // printf("reguXY x_desired : %lf y_desired : %lf \n", x_desired, y_desired);
+  double p_term_l;
+  double d_term_l = 0; // In case time_diff = 0
+  double i_term_l;
+  double p_term_f;
+  double d_term_f = 0; // In case time_diff = 0
+  double i_term_f;
+  double last_vel_x_command;
+  double last_vel_y_command;
+
+  double time_difference = (regu_new_time_xy - regu_old_time_xy);
+
+  // If navdata has the same timestamp, send the last command (in order to avoid
+  // null division)
+  if (time_difference != 0) {
+    if (x_desired_old != x_desired ||
+        y_desired_old !=
+            y_desired) // If pose_ref has changed, integral error is reset.
+    {
+      integral_xy_error = 0;
+    }
+    double dist =
+        sqrt(pow((x_mes - x_desired), 2) + pow((y_mes - y_desired), 2));
+    dist_old = dist;
+    double delta_x = x_desired - x_mes;
+    double delta_y = y_desired - y_mes;
+
+    x_desired_old = x_desired;
+    y_desired_old = y_desired;
+    regu_old_time_xy = regu_new_time_xy;
+
+    // axis transformation (from absolute axis to drone axis in order to give it
+    // velocities
+    // commands)
+    double c_theta = cos(yaw);
+    double s_theta = sin(yaw);
+
+    // Proportional term
+
+    p_term_f = delta_x * c_theta - delta_y * s_theta;
+    p_term_l = delta_x * s_theta + delta_y * c_theta;
+
+    // Differential term
+    d_term_f = (p_term_f - p_term_f_old) / time_difference;
+    d_term_l = (p_term_l - p_term_l_old) / time_difference;
+    p_term_f_old = p_term_f;
+    p_term_l_old = p_term_l;
+
+    // Integral term
+    i_term_f += p_term_f * time_difference;
+    i_term_l += p_term_l * time_difference;
+    last_vel_x_command =
+        (Kp_plan * p_term_f + i_term_f * Ki_plan + Kd_plan * d_term_f);
+    last_vel_y_command =
+        (Kp_plan * p_term_l + i_term_l * Ki_plan + Kd_plan * d_term_l);
+
+    // Velocities command in the drone repere.
+    *xvel_cmd = last_vel_x_command;
+    *yvel_cmd = last_vel_y_command;
+  }
+
+  else {
+    *xvel_cmd = last_vel_x_command;
+    *yvel_cmd = last_vel_y_command;
+  }
+}
+
+// Regulation in altitude, according to the Z axis.
+void Controller_2016::reguAltitude(double *zvel_cmd, double alt_mes,
+                                   double alt_desired, double regu_new_time_z) {
+  double p_term;
+  double d_term = 0; // In case time_diff = 0
+  double i_term;
+  double last_vel_z_command;
+
+  double time_difference = (regu_new_time_z - regu_old_time_z);
+  // If navdata has the same timestamp, send the last command
+  if (time_difference != 0) {
+    if (alt_desired_old !=
+        alt_desired) // Reset of the integral term if target has changed
+    {
+      integral_alt_error = 0;
+    }
+
+    alt_desired_old = alt_desired;
+    regu_old_time_z = regu_new_time_z;
+
+    double delta_alt = -alt_mes + alt_desired;
+
+    // Proportional term
+
+    p_term = delta_alt;
+
+    // Differential term
+    if (time_difference != 0) {
+      d_term = (delta_alt - old_delta_alt) / time_difference;
+      old_delta_alt = delta_alt;
+    }
+
+    integral_alt_error += delta_alt * time_difference;
+
+    // Integral term
+
+    // i_term = integral_alt_error;
+    i_term = 0;
+
+    // Z velocity command sent to the drone
+
+    last_vel_z_command = (Kp_alt * p_term + i_term * Ki_alt + Kd_alt * d_term);
+
+    if (last_vel_z_command > anti_windup_yaw) {
+      last_vel_z_command = anti_windup_yaw;
+    } else if (last_vel_z_command < -anti_windup_yaw) {
+      last_vel_z_command = -anti_windup_yaw;
+    }
+
+    *zvel_cmd = last_vel_z_command;
+    // printf("zvel_cmd: %lf \n", last_vel_z_command);
+    /*printf("p_term: %lf\n",p_term);
+    printf("d_term: %lf\n",d_term);
+    printf("i_term: %lf\n",i_term);*/
+  }
+
+  else {
+    *zvel_cmd = last_vel_z_command;
+  }
+}
+
+// Regulation of theta, the yaw angle.
+void Controller_2016::reguYaw(double *yawvel_cmd, double yaw_mes,
+                              double yaw_desired, double regu_new_time) {
+  // ROS_INFO_STREAM("Regulating yaw");
+  double p_term;
+  double d_term = 0; // In case time_diff = 0
+  double i_term;
+
+  double time_difference = (regu_new_time - regu_old_time_yaw);
+  double new_vel_yaw_cmd;
+
+  // If navdata has the same timestamp, send the last command
+  if (time_difference != 0) {
+    if (yaw_desired_old !=
+        yaw_desired) // Reset of yaw integral error if the target has changed.
+    {
+      integral_yaw_error = 0;
+    }
+    yaw_desired_old = yaw_desired;
+    regu_old_time_yaw = regu_new_time;
+    double delta_yaw = -yaw_mes + yaw_desired;
+
+    // The yaw angle is included in [-pi;pi] interval. In order to make it go
+    // from -179° to 179°
+    // without taking the large side (passing through 0) we implemented a way to
+    // make it take the
+    // shorter way to go to a position. If its proportional term is greater than
+    // a half turn, we
+    // make it take the other side.
+
+    if (delta_yaw > 3.14159) {
+      delta_yaw -= 2 * 3.14159;
+    } else if (delta_yaw < -3.14159) {
+      delta_yaw += 2 * 3.14159;
+    }
+    p_term = delta_yaw;
+    if (time_difference != 0) {
+      d_term = (delta_yaw - old_delta_yaw) / time_difference;
+      old_delta_yaw = delta_yaw;
+    }
+    integral_yaw_error += delta_yaw * time_difference;
+    i_term = integral_yaw_error;
+    // i_term = 0;
+    new_vel_yaw_cmd = (Kp_yaw * p_term + i_term * Ki_yaw + Kd_yaw * d_term);
+
+    // rotational speed limitation (wrongly called anti_windup).
+    if (new_vel_yaw_cmd > anti_windup_yaw) {
+      new_vel_yaw_cmd = anti_windup_yaw;
+    } else if (new_vel_yaw_cmd < -anti_windup_yaw) {
+      new_vel_yaw_cmd = -anti_windup_yaw;
+    }
+
+    // Velocity sent to the drone.
+    last_vel_yaw_command = new_vel_yaw_cmd;
+    *yawvel_cmd = last_vel_yaw_command;
+  } else {
+    *yawvel_cmd = last_vel_yaw_command;
+  }
+}
+
+// This function publishes the computed velocities in the topic to the drone.
+void Controller_2016::sendVelToDrone(double pitch, double roll, double yaw_vel,
+                                     double zvel_cmd) {
+  geometry_msgs::Twist cmdT;
+  cmdT.angular.z = yaw_vel;
+  cmdT.linear.z = zvel_cmd;
+  cmdT.linear.x = pitch;
+  cmdT.linear.y = roll;
+
+  // printf("cmdT.angular.z : %lf \n", cmdT.angular.z);
+  // assume that while actively controlling,
+  // the above for will never be equal to zero, so i will never hover.
+  // cmdT.angular.x = cmdT.angular.y = 0; // TODO: good idea ?
+
+  vel_pub.publish(cmdT);
+}
+
+// This function is called when this node receives a message from the topic
+// "pose_estimation". So it
+// takes this message and put it in a variable where it will be used in the
+// other functions.
+void Controller_2016::poseCb(const nav_msgs::Odometry &odo_msg) {
+  current_pose = odo_msg;
+
+  double period = 0.5;
+  ROS_DEBUG_THROTTLE(period, "Odom_x received: %f",
+                     current_pose.pose.pose.position.x);
+  ROS_DEBUG_THROTTLE(period, "Odom_y received: %f",
+                     current_pose.pose.pose.position.y);
+
+  controlLoop();
+}
+
+// This function is called when this node receives a message from the topic
+// "poseref". So it
+// takes this message and put it in a variable where it will be used in the
+// other functions.
+void Controller_2016::poseRefCb(const geometry_msgs::Pose &poseRef) {
+  target_pose = poseRef;
+
+  ROS_DEBUG("Target pose x received: %f", target_pose.position.x);
+  ROS_DEBUG("Target pose y received: %f", target_pose.position.y);
+}
+
+// This function is really important. It is here that all the regulation
+// functions are called and
+// their results are sent to the drone.
+void Controller_2016::controlLoop() {
+  double xvel_cmd;
+  double yvel_cmd;
+  double yawvel_cmd;
+  double zvel_cmd;
+
+  reguXY(&xvel_cmd, &yvel_cmd, current_pose.pose.pose.position.x,
+         current_pose.pose.pose.position.y, target_pose.position.x,
+         target_pose.position.y, current_pose.pose.pose.orientation.z,
+         current_pose.header.stamp.sec +
+             current_pose.header.stamp.nsec / pow(10, 9));
+  reguYaw(&yawvel_cmd, current_pose.pose.pose.orientation.z,
+          target_pose.orientation.z,
+          current_pose.header.stamp.sec +
+              current_pose.header.stamp.nsec / pow(10, 9));
+  reguAltitude(&zvel_cmd, current_pose.pose.pose.position.z,
+               target_pose.position.z,
+               current_pose.header.stamp.sec +
+                   current_pose.header.stamp.nsec / pow(10, 9));
+  // sendVelToDrone(0,0,0,zvel_cmd,false);                 //Test
+  sendVelToDrone(xvel_cmd, yvel_cmd, yawvel_cmd, zvel_cmd); // ALL
+}
+
+// Main function, launching the controLoop function.
+int main(int argc, char **argv) {
+  ros::init(argc, argv, "controller_2016");
+  ros::NodeHandle nh;
+  Controller_2016 bc;
+  ros::Rate loop_rate(2000);
+
+  ROS_INFO_STREAM("controller_2016 node started!");
+
+  while (ros::ok()) {
+    ros::spinOnce();
+    loop_rate.sleep();
+  }
+
+  return 0;
+}

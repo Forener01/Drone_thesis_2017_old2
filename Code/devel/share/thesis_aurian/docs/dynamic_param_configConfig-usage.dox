@@ -1,0 +1,9 @@
+\subsubsection usage Usage
+\verbatim
+<node name="ardrone_velocity" pkg="ardrone_velocity" type="ardrone_velocity">
+  <param name="Kp_xy" type="double" value="0.5" />
+  <param name="Ki_xy" type="double" value="0.01" />
+  <param name="Kd_xy" type="double" value="0.006" />
+</node>
+\endverbatim
+

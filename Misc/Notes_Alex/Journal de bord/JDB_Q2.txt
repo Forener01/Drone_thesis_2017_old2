@@ -1,0 +1,5 @@
+#Q2_S1
+
+-Installation de PTAM de Zurich
+-Rédaction d’un petit rapport pour la réunion du 04/02 avec les promoteurs. 
+-Brainstorming sur une architecture pour porter le TFE 2015 sur ROS.

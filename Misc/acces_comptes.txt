@@ -1,0 +1,24 @@
+
+Adresse et nom utilisateur pour :
+
+- wiki ROS
+	pseudo:	dronesinma
+	mdp:	asimov42
+	mail:	drones-inma@uclouvain.be
+
+- github
+	pseudo:	dronesinma
+	mdp:	asimov42
+	mail:	drones-inma@uclouvain.be
+
+- mail uclouvain officiel
+	page d'acces: https://mail.uclouvain.be/owa/ (voir https://www.uclouvain.be/si-mail.html)
+	identifiant:    dronesinma
+	pwd:            AQWzsx123
+	mail: 	     drones-inma@uclouvain.be
+
+- gmail (utilisée pour gérer le compte youtube)
+	nom:	inma
+	prenom:	drones
+	mail:	dronesinma@gmail.com
+	mdp:	asimov42

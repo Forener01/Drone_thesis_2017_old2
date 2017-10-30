@@ -1,0 +1,21 @@
+
+Septembre : 
+-Lecture des TFE précédents
+-Installation de ROS sur les ordinateurs
+-Découverte et compréhension de ROS
+-Etat de l’art sur le SLAM
+
+Octobre : 
+-Brainstorming sur le sujet de notre mémoire
+-Recherche sur OpenCV de codes utiles à notre mémoire
+-Manipulation des drones avec le code de TUM
+
+Novembre : 
+
+-Recherche hardware pour une nouvelle caméra
+-Recherche software pour adapter le code à une caméra ventrale
+-Recherche software pour comprendre pourquoi le code de TUM n’actualise pas les keypoints
+-Recherche hardware et software pour comprendre pourquoi le toggle cam ne fonctionne pas comme prévu
+
+Décembre : 
+-Commande de la nouvelle caméra ventrale

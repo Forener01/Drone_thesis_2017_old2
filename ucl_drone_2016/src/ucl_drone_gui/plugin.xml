@@ -1,0 +1,20 @@
+<library path="lib/libucl_drone_gui">
+  <class name="ucl_drone_gui/MyPlugin" type="ucl_drone_gui::MyPlugin" base_class_type="rqt_gui_cpp::Plugin">
+    <description>
+      ucl_drone_gui provide a simple interface to manage several drones
+    </description>
+    <qtgui>
+      <!-- optional grouping...
+      <group>
+        <label>Group</label>
+      </group>
+      <group>
+        <label>Subgroup</label>
+      </group>
+      -->
+      <label>ucl_drone_gui</label>
+      <icon type="theme">system-help</icon>
+      <statustip>Simple user interface for ucl_drone.</statustip>
+    </qtgui>
+  </class>
+</library>

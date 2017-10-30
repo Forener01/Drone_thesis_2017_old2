@@ -1,0 +1,8 @@
+prefix=/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/install
+
+Name: ucl_drone_gui
+Description: Description of ucl_drone_gui
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/install/lib -lucl_drone_gui
+Requires: roscpp rqt_gui_cpp std_msgs

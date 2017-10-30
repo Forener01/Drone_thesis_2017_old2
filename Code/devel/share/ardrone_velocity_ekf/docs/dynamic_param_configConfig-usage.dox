@@ -1,0 +1,19 @@
+\subsubsection usage Usage
+\verbatim
+<node name="velocity_control" pkg="ardrone_velocity_ekf" type="velocity_control">
+  <param name="Kp" type="double" value="0.15" />
+  <param name="Ki" type="double" value="0.07" />
+  <param name="Kd" type="double" value="0.07" />
+  <param name="Kp_yaw" type="double" value="0.0" />
+  <param name="limit_x" type="double" value="0.5" />
+  <param name="limit_y" type="double" value="0.5" />
+  <param name="windup" type="double" value="0.6" />
+  <param name="beta" type="double" value="1.0" />
+  <param name="derv_filter" type="double" value="0.0" />
+  <param name="derv_median" type="double" value="0.0" />
+  <param name="derv_smith" type="double" value="1.0" />
+  <param name="derv_error" type="double" value="0.0" />
+  <param name="derv_vel" type="double" value="1.0" />
+</node>
+\endverbatim
+

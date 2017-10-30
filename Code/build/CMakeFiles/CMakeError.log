@@ -1,0 +1,149 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2659521496/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2659521496.dir/build.make CMakeFiles/cmTryCompileExec2659521496.dir/build
+make[1]: entrant dans le répertoire « /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp »
+/usr/bin/cmake -E cmake_progress_report /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2659521496.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2659521496.dir/CheckSymbolExists.c.o   -c /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec2659521496
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2659521496.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec2659521496.dir/CheckSymbolExists.c.o  -o cmTryCompileExec2659521496 -rdynamic 
+CMakeFiles/cmTryCompileExec2659521496.dir/CheckSymbolExists.c.o : Dans la fonction « main » :
+CheckSymbolExists.c:(.text+0x16) : référence indéfinie vers « pthread_create »
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec2659521496] Erreur 1
+make[1]: quittant le répertoire « /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp »
+make: *** [cmTryCompileExec2659521496/fast] Erreur 2
+
+File /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1200067793/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1200067793.dir/build.make CMakeFiles/cmTryCompileExec1200067793.dir/build
+make[1]: entrant dans le répertoire « /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp »
+/usr/bin/cmake -E cmake_progress_report /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1200067793.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1200067793.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1200067793
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1200067793.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1200067793.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1200067793 -rdynamic -lpthreads 
+/usr/bin/ld : ne peut trouver -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec1200067793] Erreur 1
+make[1]: quittant le répertoire « /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp »
+make: *** [cmTryCompileExec1200067793/fast] Erreur 2
+
+
+Determining if the Q_WS_WIN exist failed with the following output:
+Change Dir: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1102299992/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1102299992.dir/build.make CMakeFiles/cmTryCompileExec1102299992.dir/build
+make[1]: entrant dans le répertoire « /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp »
+/usr/bin/cmake -E cmake_progress_report /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec1102299992.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec1102299992.dir/CheckSymbolExists.cxx.o -c /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_WIN’ was not declared in this scope
+   return ((int*)(&Q_WS_WIN))[argc];
+                   ^
+make[1]: *** [CMakeFiles/cmTryCompileExec1102299992.dir/CheckSymbolExists.cxx.o] Erreur 1
+make[1]: quittant le répertoire « /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp »
+make: *** [cmTryCompileExec1102299992/fast] Erreur 2
+
+File /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_WIN
+  return ((int*)(&Q_WS_WIN))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_QWS exist failed with the following output:
+Change Dir: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec902268618/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec902268618.dir/build.make CMakeFiles/cmTryCompileExec902268618.dir/build
+make[1]: entrant dans le répertoire « /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp »
+/usr/bin/cmake -E cmake_progress_report /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec902268618.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec902268618.dir/CheckSymbolExists.cxx.o -c /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_QWS’ was not declared in this scope
+   return ((int*)(&Q_WS_QWS))[argc];
+                   ^
+make[1]: quittant le répertoire « /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp »
+make[1]: *** [CMakeFiles/cmTryCompileExec902268618.dir/CheckSymbolExists.cxx.o] Erreur 1
+make: *** [cmTryCompileExec902268618/fast] Erreur 2
+
+File /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_QWS
+  return ((int*)(&Q_WS_QWS))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_MAC exist failed with the following output:
+Change Dir: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3728870440/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3728870440.dir/build.make CMakeFiles/cmTryCompileExec3728870440.dir/build
+make[1]: entrant dans le répertoire « /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp »
+/usr/bin/cmake -E cmake_progress_report /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3728870440.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec3728870440.dir/CheckSymbolExists.cxx.o -c /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_MAC’ was not declared in this scope
+   return ((int*)(&Q_WS_MAC))[argc];
+                   ^
+make[1]: *** [CMakeFiles/cmTryCompileExec3728870440.dir/CheckSymbolExists.cxx.o] Erreur 1
+make[1]: quittant le répertoire « /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp »
+make: *** [cmTryCompileExec3728870440/fast] Erreur 2
+
+File /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_MAC
+  return ((int*)(&Q_WS_MAC))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
