@@ -17,6 +17,10 @@
 #define VEL_CONTROL 1
 #define POSE_CONTROL 2
 
+// Legend for path types
+#define STRAIGHTLINE 0
+#define SQUARE 1
+
 class TestController {
 public:
   TestController();
@@ -37,7 +41,9 @@ public:
   void test(double sleeptime, double speed, double hovertime);
   void batteryCb(const ardrone_autonomy::Navdata &mynavdata);
   // void print_battery(void);
+private:
   int test_type;
+  int path_type;
   // double battery;
 };
 #endif // TEST_CONTROLLER_HPP

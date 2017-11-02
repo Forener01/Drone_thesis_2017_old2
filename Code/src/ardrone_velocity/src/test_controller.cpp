@@ -210,12 +210,12 @@ int main(int argc, char **argv) {
 
   ros::Rate loop_rate(50);
 
-  double hovertime = 2.0;  // unit of s
-  double sleeptime = 20.0; // unit of s
-  double speed = 0.1;      // unit of m/s
+  double hovertime = 1.5;  // unit of s
+  double sleeptime = 10.0; // unit of s
+  double speed = 0.2;      // unit of m/s
 
   ros::Duration(10.0).sleep();
-
+  ROS_INFO_STREAM_ONCE("PID test!");
   // ROS_INFO("The battery percentage is %f", mytest.battery);
   mytest.takeoff();
   ROS_INFO_STREAM_ONCE("The drone is taking off !");
@@ -223,7 +223,7 @@ int main(int argc, char **argv) {
 
   ROS_INFO_STREAM_ONCE("The drone is in hover mode !");
   mytest.hover();
-  ros::Duration(15.0).sleep();
+  ros::Duration(hovertime).sleep();
 
   // Launching the test
   // ROS_INFO_STREAM_ONCE(

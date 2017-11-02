@@ -77,6 +77,7 @@ void Controller_TUD::velocity_control(void) {
 
   double error_x;
   double error_y;
+  double error_z;
 
   geometry_msgs::Twist cmd_vel_out;
 
@@ -115,11 +116,13 @@ void Controller_TUD::velocity_control(void) {
   // We calculate the velocity error
   error_x = m_current_command.linear.x - m_odo_msg.twist.twist.linear.x;
   error_y = m_current_command.linear.y - m_odo_msg.twist.twist.linear.y;
+  error_z = m_current_command.linear.z - m_odo_msg.twist.twist.linear.z;
 
   // ADDED
 
   error_msg.linear.x = error_x;
   error_msg.linear.y = error_y;
+  error_msg.linear.z = error_z;
 
   if (m_current_command.linear.x == 0.0) {
     if (error_x < 0.0) {
@@ -150,6 +153,22 @@ void Controller_TUD::velocity_control(void) {
       percent_err_msg.linear.y = -error_y / m_current_command.linear.y;
     } else {
       percent_err_msg.linear.y = error_y / m_current_command.linear.y;
+    }
+  }
+
+  if (m_current_command.linear.z == 0.0) {
+    if (error_y < 0.0) {
+      percent_err_msg.linear.z = -error_z;
+    } else {
+      percent_err_msg.linear.z = error_z;
+    }
+
+  } else {
+    if ((error_y < 0.0 && m_current_command.linear.z > 0.0) ||
+        (error_y > 0.0 && m_current_command.linear.z < 0.0)) {
+      percent_err_msg.linear.z = -error_z;
+    } else {
+      percent_err_msg.linear.z = error_z;
     }
   }
 
