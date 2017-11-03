@@ -32,22 +32,19 @@ OLD
 
 # A faire
 - Lire toutes les références
-
-- régler pblm string char dans test_controller.cpp
-
 - Checker refs.md
 - Checker utilisation de ar_nav package
-- Checker tum_autonomy
 
 - Envoyer mail à Tobias
 
-- Recherche détection contour et filtre couleur
+- Terminer comparaisons des 2 contrôleurs en vitesse 
+- Adapter pour contrôle en position 
+- Adapter pour contrôle en vitesse altitude
 
-- Utiliser ardrone_velocity_ekf (TU Darmstadt)
-- Utiliser contrôleur UCL 2016
-
-- Adapter ardrone_velocity pour contrôle en position 
-- Adapter ardrone_velocity pour contrôle en vitesse altitude
+# Commentaires
+- TUM_ardrone font leur propre intégration visuelle sur base des raw images de 
+la caméra frontale/ventrale. Ensuite, ils contrôlent ça, et le tout est lié à
+leur PTAM => trop compliqué de reprendre quoique ce soit.
 
 # Structure Rapport TFE
 - Abstract: 1p

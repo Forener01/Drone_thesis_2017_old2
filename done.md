@@ -42,6 +42,7 @@
 **S5 16/10**
 - Essai controller_2016: pas calibré pour odometry topic uniquement
 - Développer outil de débug de topic
+- Adaptation de ardrone_velocity_ekf
 
 **S6 23/10**
 - Prise en main de rosbag avec Rosbag Cookbook
@@ -51,4 +52,6 @@
 - Etat de l'art pour la partie computer vision + lectures d'articles
 
 **S7 30/10**
+- Recherche détection contour et filtre couleur
 - Recherche "edge detector computer vision" sur scopus: 200 premiers résultats traités (65 docs retenus).
+- Checker tum_autonomy

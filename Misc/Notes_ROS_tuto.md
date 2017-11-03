@@ -161,6 +161,8 @@ different plotting backends.
 topics including publishers, subscribers, publishing rate, and ROS Messages.
 - rqt_bag provides a GUI plugin for displaying and replaying ROS bag files.
 
+save topic's data to a .txt file: rostopic echo -b file.bag -p /topic > data.txt
+
 # Coding
 - include
 include <ros/ros.h>
