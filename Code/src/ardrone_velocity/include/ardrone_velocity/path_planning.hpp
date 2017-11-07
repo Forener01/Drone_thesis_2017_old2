@@ -24,10 +24,11 @@ private:
   ros::Subscriber odom_sub, poseref_sub, poseout_sub;
   ros::Publisher poseref_pub, veltoPID_pub;
 
-  geometry_msgs::Twist velIn;
+  geometry_msgs::Twist velInPID;
   geometry_msgs::Pose current_pose_ref, pose_out;
   nav_msgs::Odometry odo_msg;
-  double K;
+  double K, tol;
+  double distX, distY, distZ;
 };
 
 #endif // PATH_PLANNING_HPP

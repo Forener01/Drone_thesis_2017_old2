@@ -7,31 +7,31 @@ Path_Planning::Path_Planning() {
   ros::param::get("~test_type", test_type);
   // Subscribers
   odom_sub =
-      nh.subscribe("ardrone/odometry", 100, &Path_Planning::odomCb, this);
+      nh.subscribe("ardrone/odometry", 1000, &Path_Planning::odomCb, this);
   poseref_sub =
-      nh.subscribe("pose_ref_topic", 100, &Path_Planning::poserefCb, this);
+      nh.subscribe("tud/pose_ref_topic", 1000, &Path_Planning::poserefCb, this);
   // poseout_sub = nh.subscribe("pose_out", 1, &Path_Planning::pose_to_velCb,
   // this);
   // Publishers
   // pose_pub = nh.advertise<geometry_msgs::Pose>("pose_out", 1);
   // poseref_pub = nh.advertise<geometry_msgs::Pose>("pose_ref", 1);
-  veltoPID_pub = nh.advertise<geometry_msgs::Twist>("cmd_PID_topic", 100);
+  veltoPID_pub = nh.advertise<geometry_msgs::Twist>("tud/cmd_PID_topic", 1000);
 }
 
 void Path_Planning::poserefCb(const geometry_msgs::Pose &pose_in) {
   current_pose_ref = pose_in;
-  ROS_INFO("Poseref msg has been received %f", current_pose_ref.position.x);
-  position_control();
+  ROS_DEBUG("Poseref msg has been received: %f", current_pose_ref.position.x);
+  // position_control();
 }
 
 void Path_Planning::odomCb(const nav_msgs::Odometry &odo) {
   odo_msg = odo;
-
-  // position_control();
+  ROS_DEBUG("Odo msg x_pos has been received: %f",
+            odo_msg.pose.pose.position.x);
+  position_control();
 }
 
 void Path_Planning::position_control(void) {
-  double distX, distY, distZ;
 
   // float yaw   = atan2(2.0 * (q.q3 * q.q0 + q.q1 * q.q2) , - 1.0 + 2.0 * (q.q0
   // * q.q0 + q.q1 * q.q1));
@@ -43,40 +43,61 @@ void Path_Planning::position_control(void) {
   distZ = sqrt(pow(current_pose_ref.position.z, 2) -
                pow(odo_msg.pose.pose.position.z, 2));
 
-  // if (distX > 0.1) {
-  //   pose_out.position.x = pose_ref.position.x - odo_msg.pose.pose.position.x;
-  // }
-  //
-  // if (distY > 0.1) {
-  //   pose_out.position.y = pose_ref.position.y - odo_msg.pose.pose.position.y;
-  // }
-  //
-  // if (distZ > 0.1) {
-  //   pose_out.position.z = pose_ref.position.z - odo_msg.pose.pose.position.z;
-  // }
+  tol = 0.3;
+
+  if (distX > tol) {
+    pose_out.position.x =
+        current_pose_ref.position.x - odo_msg.pose.pose.position.x;
+  } else {
+    pose_out.position.x = 0.0;
+    // ROS_DEBUG("Pos_X reached !");
+  }
+
+  if (distY > tol) {
+    pose_out.position.y =
+        current_pose_ref.position.y - odo_msg.pose.pose.position.y;
+  } else {
+    pose_out.position.y = 0.0;
+    // ROS_DEBUG("Pos_Y reached !");
+  }
+
+  if (distZ > tol) {
+    pose_out.position.z =
+        current_pose_ref.position.z - odo_msg.pose.pose.position.z;
+  } else {
+    pose_out.position.z = 0.0;
+  }
+
+  if (distX < tol || distY < tol) {
+    ROS_DEBUG("Position reached !");
+  }
 
   // pose_pub.publish(pose_out);
 
-  ROS_DEBUG_THROTTLE(1, "Odo x: %f", odo_msg.pose.pose.position.x);
-  ROS_DEBUG_THROTTLE(1, "Odo y: %f", odo_msg.pose.pose.position.y);
-  ROS_DEBUG_THROTTLE(1, "Odo z: %f", odo_msg.pose.pose.position.z);
+  // ROS_DEBUG_THROTTLE(1, "Odo x: %f", odo_msg.pose.pose.position.x);
+  // ROS_DEBUG_THROTTLE(1, "Odo y: %f", odo_msg.pose.pose.position.y);
+  // ROS_DEBUG_THROTTLE(1, "Odo z: %f", odo_msg.pose.pose.position.z);
 
-  ROS_DEBUG_THROTTLE(1, "Pose out x: %f", pose_out.position.x);
-  ROS_DEBUG_THROTTLE(1, "Pose out y: %f", pose_out.position.y);
-  ROS_DEBUG_THROTTLE(1, "Pose out z: %f", pose_out.position.z);
+  // ROS_DEBUG_THROTTLE(1, "Pose out x: %f", pose_out.position.x);
+  // ROS_DEBUG_THROTTLE(1, "Pose out y: %f", pose_out.position.y);
+  // ROS_DEBUG_THROTTLE(1, "Pose out z: %f", pose_out.position.z);
 
-  K = 1 / 10;
-  double xpos = current_pose_ref.position.x;
-  velIn.linear.x = K * xpos;
-  velIn.linear.y = K * (current_pose_ref.position.y);
-  velIn.linear.z = K * (current_pose_ref.position.z);
-  velIn.angular.x = 0.0;
-  velIn.angular.y = 0.0;
-  velIn.angular.z = 0.0;
+  K = 0.3;
+  // double xpos = current_pose_ref.position.x;
+  velInPID.linear.x = K * pose_out.position.x;
+  velInPID.linear.y = K * pose_out.position.y;
+  velInPID.linear.z = K * pose_out.position.z;
+  velInPID.angular.x = 0.0;
+  velInPID.angular.y = 0.0;
+  velInPID.angular.z = 0.0;
 
-  veltoPID_pub.publish(velIn);
-  ros::spinOnce();
-  ROS_INFO("Poseref msg has sent %f", velIn.linear.x);
+  veltoPID_pub.publish(velInPID);
+  // ros::spinOnce();
+  // ROS_DEBUG("Poseref msg has sent the following x_vel_ref: %f",
+  //           velInPID.linear.x);
+  // ROS_DEBUG("Poseref msg has sent the following y_vel_ref: %f",
+  //           velInPID.linear.y);
+  // ROS_DEBUG("Poseref msg has sent the following x_pos: %f", xpos);
 }
 
 // void Path_Planning::pose_to_velCb(const nav_msgs::Pose &pose_out){

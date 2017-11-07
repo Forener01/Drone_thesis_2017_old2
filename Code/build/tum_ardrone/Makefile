@@ -276,62 +276,6 @@ drone_stateestimation/fast:
 .PHONY : drone_stateestimation/fast
 
 # Convenience name for target.
-tum_ardrone/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 tum_ardrone/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-.PHONY : tum_ardrone/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_gencfg: tum_ardrone/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-.PHONY : dynamic_reconfigure_gencfg
-
-# fast build rule for target.
-dynamic_reconfigure_gencfg/fast:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f tum_ardrone/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make tum_ardrone/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
-.PHONY : dynamic_reconfigure_gencfg/fast
-
-# Convenience name for target.
-tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_cpp: tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-# Convenience name for target.
-tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_lisp: tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-# Convenience name for target.
-tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-.PHONY : tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_py: tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-.PHONY : dynamic_reconfigure_generate_messages_py
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_py/fast:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make tum_ardrone/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-# Convenience name for target.
 tum_ardrone/CMakeFiles/thirdparty.dir/rule:
 	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 tum_ardrone/CMakeFiles/thirdparty.dir/rule
 .PHONY : tum_ardrone/CMakeFiles/thirdparty.dir/rule
@@ -1288,10 +1232,6 @@ help:
 	@echo "... drone_autopilot"
 	@echo "... drone_gui"
 	@echo "... drone_stateestimation"
-	@echo "... dynamic_reconfigure_gencfg"
-	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... dynamic_reconfigure_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_py"
 	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... install/local"
