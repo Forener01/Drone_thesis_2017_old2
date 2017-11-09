@@ -20,13 +20,13 @@ TestController::TestController() {
     vel_pub = nh.advertise<geometry_msgs::Twist>("cmd_vel",
                                                  1); // without controller
     // vel_pub2 = nh.advertise<geometry_msgs::Twist>("cmd_PID_topic", 1000);
-    ROS_DEBUG("Vel_pub connected to topic cmd_vel");
+    ROS_INFO("Vel_pub connected to topic cmd_vel");
   }
 
-  else if (test_type == VEL_CONTROL || test_type == POSE_CONTROL) {
+  else {
     vel_pub = nh.advertise<geometry_msgs::Twist>("cmd_PID_topic",
                                                  1); // with TUD Controller
-    ROS_DEBUG("Vel_pub connected to topic cmd_PID");
+    ROS_INFO("Vel_pub connected to topic cmd_PID");
   }
 }
 
@@ -162,6 +162,13 @@ void TestController::test(double sleeptime, double speed, double hovertime) {
       hover();
       ros::Duration(hovertime).sleep();
     }
+
+    else if (path_type == STATIC) {
+      ROS_INFO_STREAM_ONCE(
+          "The drone starts hovering with velocity control !");
+      hover();
+      ros::Duration(sleeptime).sleep();
+    }
   }
 
   else if (test_type == POSE_CONTROL) {
@@ -212,7 +219,17 @@ void TestController::test(double sleeptime, double speed, double hovertime) {
       hover();
       ros::Duration(hovertime).sleep();
     }
-  }
+
+    else if (path_type == STATIC) {
+      ROS_INFO_STREAM_ONCE(
+          "The drone starts hovering with pose control !");
+      hover();
+      ros::Duration(sleeptime).sleep();
+    }
+ }
+
+
+
 }
 
 int main(int argc, char **argv) {
@@ -225,71 +242,27 @@ int main(int argc, char **argv) {
   double hovertime = THE_HOVERTIME; // unit of s
   double sleeptime = THE_SLEEPTIME; // unit of s
   double speed = THE_SPEED;     // unit of m/s
-  ROS_INFO("hovertime %f", hovertime);
-  ROS_INFO("sleeptime %f", hovertime);
-  ROS_INFO("speed %f", speed);
 
-  ros::Duration(8.0).sleep();
+  /*** INITIALIZATION ***/
+  ros::Duration(2.0).sleep();
   ROS_INFO_STREAM_ONCE("TUD_PID test!");
-  // ROS_INFO("The battery percentage is %f", mytest.battery);
   mytest.takeoff();
   ROS_INFO_STREAM_ONCE("The drone is taking off !");
   ros::Duration(3.0).sleep();
-
   ROS_INFO_STREAM_ONCE("The drone is in hover mode !");
   mytest.hover();
   ros::Duration(hovertime).sleep();
 
-  // Launching the test
-  // ROS_INFO_STREAM_ONCE(
-  //     "The drone starts the path-planning with pose control !");
-  // mytest.load_pose(10.0, 0.0, 0.0);
-  // ros::spinOnce();
-  // ros::Duration(20.0).sleep();
+  /*** LAUNCHING THE TEST ***/
   mytest.test(sleeptime, speed, hovertime);
-  // if (mytest.test_type == VEL_CONTROL) {
-  //   // Moving to the left #1
-  //   ROS_INFO_STREAM_ONCE(
-  //       "The drone starts the path-planning with velocity control !");
-  //   mytest.load_vel(0.0, speed, 0.0, 0.0);
-  //   ros::Duration(sleeptime).sleep();
-  //   ROS_INFO_STREAM_ONCE("Corner #1");
-  //   // Stabilizing #1
-  //   mytest.hover();
-  //   ros::Duration(sleeptime).sleep();
-  //
-  //   // Moving backward #2
-  //   mytest.load_vel(-speed, 0.0, 0.0, 0.0);
-  //   ros::Duration(sleeptime).sleep();
-  //   ROS_INFO_STREAM_ONCE("Corner #2");
-  //   // Stabilizing #2
-  //   mytest.hover();
-  //   ros::Duration(sleeptime).sleep();
-  //
-  //   // Moving to the right #3
-  //   mytest.load_vel(0.0, -speed, 0.0, 0.0);
-  //   ros::Duration(sleeptime).sleep();
-  //   ROS_INFO_STREAM_ONCE("Corner #3");
-  //   // Stabilizing #3
-  //   mytest.hover();
-  //   ros::Duration(sleeptime).sleep();
-  //
-  //   // Moving forward #4
-  //   mytest.load_vel(speed, 0.0, 0.0, 0.0);
-  //   ros::Duration(sleeptime).sleep();
-  //   ROS_INFO_STREAM_ONCE("Corner #4");
-  //   // Stabilizing #4
-  //   mytest.hover();
-  //   ros::Duration(sleeptime).sleep();
-  // }
-  // Final step
+
+  /*** FINISHING ***/
   ROS_INFO_STREAM_ONCE("The drone just finished !");
   mytest.hover();
   ros::Duration(3.0).sleep();
   mytest.land();
   ROS_INFO_STREAM_ONCE("The drone just landed !");
-
-  // ROS_INFO("The battery percentage is %f", mytest.battery);
+  ros::Duration(5.0).sleep();
 
   return 0;
 }

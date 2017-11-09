@@ -9,8 +9,8 @@
   <node name="controller_tud" pkg="ardrone_velocity" type="controller_tud" output="screen">
   </node>
 
-  <node name="path_planning" pkg="ardrone_velocity" type="path_planning" output="screen">
-  </node>
+  <!-- <node name="path_planning" pkg="ardrone_velocity" type="path_planning" output="screen">
+  </node> -->
 
   <node name="ardrone_driver" pkg="ardrone_autonomy" type="ardrone_driver" output="screen" clear_params="true" args="-ip $(arg ip)">
     <param name="outdoor" value="0" />

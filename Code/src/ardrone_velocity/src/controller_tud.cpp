@@ -25,6 +25,7 @@ Controller_TUD::Controller_TUD() {
   error_pub = nh.advertise<geometry_msgs::Twist>("tud/vel_error_topic", 100);
   percent_error_pub =
       nh.advertise<geometry_msgs::Twist>("tud/vel_percent_error_topic", 100);
+  odom_pub = nh.advertise<nav_msgs::Odometry>("tud/odom_data_topic", 100);
   /** Copied from ardrone_velocity package **/
 
   // Dynamic parameter reconfigure
@@ -46,6 +47,7 @@ void Controller_TUD::velinPIDCb(const geometry_msgs::Twist &cmd_vel_in) {
   // ROS_DEBUG_THROTTLE(0.25, "cmd PID x: %f m/s", m_current_command.linear.x);
   // ROS_DEBUG_THROTTLE(0.25, "cmd PID y: %f m/s", m_current_command.linear.y);
   // ROS_DEBUG_THROTTLE(0.25, "cmd PID z: %f m/s", m_current_command.linear.z);
+  ROS_DEBUG_THROTTLE(0.25, "Controller received input");
 }
 
 void Controller_TUD::odomCb(const nav_msgs::Odometry &odo_msg) {
@@ -56,7 +58,7 @@ void Controller_TUD::odomCb(const nav_msgs::Odometry &odo_msg) {
   // ROS_DEBUG_THROTTLE(0.5, "cmd PID x: %f m/s", m_current_command.linear.x);
   // ROS_DEBUG_THROTTLE(0.5, "cmd PID y: %f m/s", m_current_command.linear.y);
   // ROS_DEBUG_THROTTLE(0.5, "cmd PID z: %f m/s", m_current_command.linear.z);
-
+  odom_pub.publish(m_odo_msg);
   velocity_control();
 }
 
@@ -124,53 +126,57 @@ void Controller_TUD::velocity_control(void) {
   error_msg.linear.y = error_y;
   error_msg.linear.z = error_z;
 
-  if (m_current_command.linear.x == 0.0) {
-    if (error_x < 0.0) {
-      percent_error_msg.linear.x = -error_x / 0.6;
-    } else {
-      percent_error_msg.linear.x = error_x / 0.6;
-    }
+  percent_error_msg.linear.x = error_x / speed;
+  percent_error_msg.linear.y = error_y / speed;
+  percent_error_msg.linear.z = error_z / speed;
 
-  } else {
-    if ((error_x < 0.0 && m_current_command.linear.x > 0.0) ||
-        (error_x > 0.0 && m_current_command.linear.x < 0.0)) {
-      percent_error_msg.linear.x = -error_x / m_current_command.linear.x;
-    } else {
-      percent_error_msg.linear.x = error_x / m_current_command.linear.x;
-    }
-  }
-
-  if (m_current_command.linear.y == 0.0) {
-    if (error_y < 0.0) {
-      percent_error_msg.linear.y = -error_y / 0.6;
-    } else {
-      percent_error_msg.linear.y = error_y / 0.6;
-    }
-
-  } else {
-    if ((error_y < 0.0 && m_current_command.linear.y > 0.0) ||
-        (error_y > 0.0 && m_current_command.linear.y < 0.0)) {
-      percent_error_msg.linear.y = -error_y / m_current_command.linear.y;
-    } else {
-      percent_error_msg.linear.y = error_y / m_current_command.linear.y;
-    }
-  }
-
-  if (m_current_command.linear.z == 0.0) {
-    if (error_y < 0.0) {
-      percent_error_msg.linear.z = -error_z;
-    } else {
-      percent_error_msg.linear.z = error_z;
-    }
-
-  } else {
-    if ((error_y < 0.0 && m_current_command.linear.z > 0.0) ||
-        (error_y > 0.0 && m_current_command.linear.z < 0.0)) {
-      percent_error_msg.linear.z = -error_z;
-    } else {
-      percent_error_msg.linear.z = error_z;
-    }
-  }
+  // if (m_current_command.linear.x == 0.0) {
+  //   if (error_x < 0.0) {
+  //     percent_error_msg.linear.x = -error_x / 0.6;
+  //   } else {
+  //     percent_error_msg.linear.x = error_x / 0.6;
+  //   }
+  //
+  // } else {
+  //   if ((error_x < 0.0 && m_current_command.linear.x > 0.0) ||
+  //       (error_x > 0.0 && m_current_command.linear.x < 0.0)) {
+  //     percent_error_msg.linear.x = -error_x / m_current_command.linear.x;
+  //   } else {
+  //     percent_error_msg.linear.x = error_x / m_current_command.linear.x;
+  //   }
+  // }
+  //
+  // if (m_current_command.linear.y == 0.0) {
+  //   if (error_y < 0.0) {
+  //     percent_error_msg.linear.y = -error_y / 0.6;
+  //   } else {
+  //     percent_error_msg.linear.y = error_y / 0.6;
+  //   }
+  //
+  // } else {
+  //   if ((error_y < 0.0 && m_current_command.linear.y > 0.0) ||
+  //       (error_y > 0.0 && m_current_command.linear.y < 0.0)) {
+  //     percent_error_msg.linear.y = -error_y / m_current_command.linear.y;
+  //   } else {
+  //     percent_error_msg.linear.y = error_y / m_current_command.linear.y;
+  //   }
+  // }
+  //
+  // if (m_current_command.linear.z == 0.0) {
+  //   if (error_y < 0.0) {
+  //     percent_error_msg.linear.z = -error_z;
+  //   } else {
+  //     percent_error_msg.linear.z = error_z;
+  //   }
+  //
+  // } else {
+  //   if ((error_y < 0.0 && m_current_command.linear.z > 0.0) ||
+  //       (error_y > 0.0 && m_current_command.linear.z < 0.0)) {
+  //     percent_error_msg.linear.z = -error_z;
+  //   } else {
+  //     percent_error_msg.linear.z = error_z;
+  //   }
+  // }
 
   error_pub.publish(error_msg);
   percent_error_pub.publish(percent_error_msg);
@@ -230,22 +236,23 @@ void Controller_TUD::velocity_control(void) {
 
   // Debugging information
   double period = 0.25; // in unit of s
-  ROS_DEBUG_THROTTLE(period, "d_Time  : %f", dt.toSec());
-  ROS_DEBUG_THROTTLE(period, "VelRef_x: %f", m_current_command.linear.x);
-  ROS_DEBUG_THROTTLE(period, "VelRef_y: %f", m_current_command.linear.y);
-  // ROS_DEBUG("VelOdo : %f", m_odo_msg.twist.twist.linear.x);
-  ROS_DEBUG_THROTTLE(period, "Error_x : %f", error_x);
-  ROS_DEBUG_THROTTLE(period, "Error_y : %f", error_y);
-  ROS_DEBUG_THROTTLE(period, "cmd_vel_out_x : %f", cmd_vel_out.angular.x);
-  ROS_DEBUG_THROTTLE(period, "cmd_vel_out_y : %f", cmd_vel_out.angular.y);
-  // ROS_INFO("cmd_vel_out_z : %f", cmd_vel_out.angular.z);
-  // ROS_INFO("pterm | iterm | dterm   : %f | %f | %f", m_Kp_x*p_term_x,
-  // m_Kp_x*m_Ki_x*m_i_term_x, m_Kp_x*m_Kd_x*d_term_x);
-  ROS_DEBUG_THROTTLE(period,
-                     "------------------------------------------------------");
+  // ROS_DEBUG_THROTTLE(period, "d_Time  : %f", dt.toSec());
+  // ROS_DEBUG_THROTTLE(period, "VelRef_x: %f", m_current_command.linear.x);
+  // ROS_DEBUG_THROTTLE(period, "VelRef_y: %f", m_current_command.linear.y);
+  // // ROS_DEBUG("VelOdo : %f", m_odo_msg.twist.twist.linear.x);
+  // ROS_DEBUG_THROTTLE(period, "Error_x : %f", error_x);
+  // ROS_DEBUG_THROTTLE(period, "Error_y : %f", error_y);
+  // ROS_DEBUG_THROTTLE(period, "cmd_vel_out_x : %f", cmd_vel_out.angular.x);
+  // ROS_DEBUG_THROTTLE(period, "cmd_vel_out_y : %f", cmd_vel_out.angular.y);
+  // // ROS_INFO("cmd_vel_out_z : %f", cmd_vel_out.angular.z);
+  // // ROS_INFO("pterm | iterm | dterm   : %f | %f | %f", m_Kp_x*p_term_x,
+  // // m_Kp_x*m_Ki_x*m_i_term_x, m_Kp_x*m_Kd_x*d_term_x);
+  // ROS_DEBUG_THROTTLE(period,
+  //                    "------------------------------------------------------");
 
   // We publish the command
   veloutPID_pub.publish(cmd_vel_out);
+  ROS_DEBUG_THROTTLE(period, "Controller is publishing !");
 }
 
 void Controller_TUD::set_hover(void) {

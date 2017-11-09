@@ -20,11 +20,11 @@ OLD
   - https://en.wikipedia.org/wiki/PID_controller#Manual_tuning
 
 - Odometers wrappers
-  - www.ros.org/wiki/viso2_ros 
+  - www.ros.org/wiki/viso2_ros
   - www.ros.org/wiki/fovis_ros
 
 - GetMap service from nav_msgs
-- Noeud spécifique aux infos du drone 
+- Noeud spécifique aux infos du drone
 
 - TFE 2014: Filtre de Canny sur algo de Harris
 - https://answers.ros.org/question/272291/drone-feedback-object-detection-color-detection/
@@ -37,12 +37,18 @@ OLD
 
 - Envoyer mail à Tobias
 
-- Terminer comparaisons des 2 contrôleurs en vitesse 
-- Adapter pour contrôle en position 
+- Terminer comparaisons des 2 contrôleurs en vitesse
+- Adapter pour contrôle en position
 - Adapter pour contrôle en vitesse altitude
 
+- Immédiat
+  - structurer main controller
+  - signaux de démarrage et de fin
+  - contrôle position trapéz.
+  - faire mesures
+
 # Commentaires
-- TUM_ardrone font leur propre intégration visuelle sur base des raw images de 
+- TUM_ardrone font leur propre intégration visuelle sur base des raw images de
 la caméra frontale/ventrale. Ensuite, ils contrôlent ça, et le tout est lié à
 leur PTAM => trop compliqué de reprendre quoique ce soit.
 

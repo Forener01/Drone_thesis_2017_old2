@@ -43,6 +43,7 @@ private:
   ros::Publisher m_debug_pub;
   ros::Publisher error_pub;
   ros::Publisher percent_error_pub;
+  ros::Publisher odom_pub;
 
   // dynamic reconfigure server
   dynamic_reconfigure::Server<ardrone_velocity::dynamic_param_configConfig>
