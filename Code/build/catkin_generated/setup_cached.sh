@@ -7,4 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export PWD="/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build"
+export CMAKE_PREFIX_PATH="/home/aurian/Bureau/Drone_thesis_2017/Code/devel:$CMAKE_PREFIX_PATH"
+export PWD="/home/aurian/Bureau/Drone_thesis_2017/Code/build"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/aurian/Bureau/Drone_thesis_2017/Code/devel/share/common-lisp"
+export ROS_PACKAGE_PATH="/home/aurian/Bureau/Drone_thesis_2017/Code/src:$ROS_PACKAGE_PATH"

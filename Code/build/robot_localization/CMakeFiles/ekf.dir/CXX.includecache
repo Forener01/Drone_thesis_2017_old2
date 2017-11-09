@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/ekf.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/ekf.h
 robot_localization/filter_base.h
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/robot_localization/filter_base.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/robot_localization/filter_base.h
 fstream
 -
 vector
@@ -18,9 +18,9 @@ set
 queue
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/filter_base.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/filter_base.h
 robot_localization/filter_utilities.h
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/robot_localization/filter_utilities.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/robot_localization/filter_utilities.h
 Eigen/Dense
 -
 ros/time.h
@@ -42,9 +42,9 @@ limits
 string
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/filter_common.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/filter_common.h
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/filter_utilities.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/filter_utilities.h
 Eigen/Dense
 -
 iomanip
@@ -56,13 +56,13 @@ string
 vector
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/ekf.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/ekf.cpp
 robot_localization/ekf.h
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/robot_localization/ekf.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/robot_localization/ekf.h
 robot_localization/filter_common.h
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/robot_localization/filter_common.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/robot_localization/filter_common.h
 ros/ros.h
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/ros/ros.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/ros/ros.h
 XmlRpcException.h
 -
 unsupported/Eigen/MatrixFunctions
@@ -170,8 +170,6 @@ cstdarg
 ros/macros.h
 -
 map
--
-vector
 -
 log4cxx/level.h
 /opt/ros/indigo/include/ros/log4cxx/level.h

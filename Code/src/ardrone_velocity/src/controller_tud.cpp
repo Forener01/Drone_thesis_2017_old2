@@ -14,17 +14,17 @@ Controller_TUD::Controller_TUD() {
   ros::NodeHandle nh;
   ros::param::get("~test_type", test_type);
   // Subscribers
-  velinPID_sub = nh.subscribe("tud/cmd_PID_topic", 1000,
-                              &Controller_TUD::velinPIDCb, this);
+  velinPID_sub =
+      nh.subscribe("cmd_PID_topic", 100, &Controller_TUD::velinPIDCb, this);
 
-  odom_sub = nh.subscribe("ardrone/odometry", 1000, &Controller_TUD::odomCb,
+  odom_sub = nh.subscribe("ardrone/odometry", 100, &Controller_TUD::odomCb,
                           this, ros::TransportHints().tcpNoDelay());
 
   // Publishers
-  veloutPID_pub = nh.advertise<geometry_msgs::Twist>("cmd_vel", 1000);
-  error_pub = nh.advertise<geometry_msgs::Twist>("tud/vel_error_topic", 1000);
+  veloutPID_pub = nh.advertise<geometry_msgs::Twist>("cmd_vel", 100);
+  error_pub = nh.advertise<geometry_msgs::Twist>("tud/vel_error_topic", 100);
   percent_error_pub =
-      nh.advertise<geometry_msgs::Twist>("tud/vel_percent_error_topic", 1000);
+      nh.advertise<geometry_msgs::Twist>("tud/vel_percent_error_topic", 100);
   /** Copied from ardrone_velocity package **/
 
   // Dynamic parameter reconfigure
@@ -33,7 +33,7 @@ Controller_TUD::Controller_TUD() {
   f = boost::bind(&Controller_TUD::dynamic_reconfigureCb, this, _1, _2);
   m_server.setCallback(f);
 
-  m_debug_pub = nh.advertise<std_msgs::Float64>("/tud/debug", 1);
+  m_debug_pub = nh.advertise<std_msgs::Float64>("/ardrone_velocity/debug", 1);
   m_i_term_x = 0.0;
   m_i_term_y = 0.0;
 }
@@ -126,54 +126,54 @@ void Controller_TUD::velocity_control(void) {
 
   if (m_current_command.linear.x == 0.0) {
     if (error_x < 0.0) {
-      percent_err_msg.linear.x = -error_x / 0.6;
+      percent_error_msg.linear.x = -error_x / 0.6;
     } else {
-      percent_err_msg.linear.x = error_x / 0.6;
+      percent_error_msg.linear.x = error_x / 0.6;
     }
 
   } else {
     if ((error_x < 0.0 && m_current_command.linear.x > 0.0) ||
         (error_x > 0.0 && m_current_command.linear.x < 0.0)) {
-      percent_err_msg.linear.x = -error_x / m_current_command.linear.x;
+      percent_error_msg.linear.x = -error_x / m_current_command.linear.x;
     } else {
-      percent_err_msg.linear.x = error_x / m_current_command.linear.x;
+      percent_error_msg.linear.x = error_x / m_current_command.linear.x;
     }
   }
 
   if (m_current_command.linear.y == 0.0) {
     if (error_y < 0.0) {
-      percent_err_msg.linear.y = -error_y / 0.6;
+      percent_error_msg.linear.y = -error_y / 0.6;
     } else {
-      percent_err_msg.linear.y = error_y / 0.6;
+      percent_error_msg.linear.y = error_y / 0.6;
     }
 
   } else {
     if ((error_y < 0.0 && m_current_command.linear.y > 0.0) ||
         (error_y > 0.0 && m_current_command.linear.y < 0.0)) {
-      percent_err_msg.linear.y = -error_y / m_current_command.linear.y;
+      percent_error_msg.linear.y = -error_y / m_current_command.linear.y;
     } else {
-      percent_err_msg.linear.y = error_y / m_current_command.linear.y;
+      percent_error_msg.linear.y = error_y / m_current_command.linear.y;
     }
   }
 
   if (m_current_command.linear.z == 0.0) {
     if (error_y < 0.0) {
-      percent_err_msg.linear.z = -error_z;
+      percent_error_msg.linear.z = -error_z;
     } else {
-      percent_err_msg.linear.z = error_z;
+      percent_error_msg.linear.z = error_z;
     }
 
   } else {
     if ((error_y < 0.0 && m_current_command.linear.z > 0.0) ||
         (error_y > 0.0 && m_current_command.linear.z < 0.0)) {
-      percent_err_msg.linear.z = -error_z;
+      percent_error_msg.linear.z = -error_z;
     } else {
-      percent_err_msg.linear.z = error_z;
+      percent_error_msg.linear.z = error_z;
     }
   }
 
   error_pub.publish(error_msg);
-  percent_error_pub.publish(percent_err_msg);
+  percent_error_pub.publish(percent_error_msg);
 
   // The proportional term is directly the error
   p_term_x = error_x;

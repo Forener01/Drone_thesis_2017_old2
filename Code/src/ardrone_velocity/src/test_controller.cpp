@@ -10,7 +10,7 @@ TestController::TestController() {
   //     nh.subscribe("ardrone/navdata", 100, &TestController::batteryCb, this);
 
   // Publishers
-  poseref_pub = nh.advertise<geometry_msgs::Pose>("tud/pose_ref_topic", 1000);
+  poseref_pub = nh.advertise<geometry_msgs::Pose>("pose_ref_topic", 1);
 
   takeoff_pub = nh.advertise<std_msgs::Empty>("ardrone/takeoff", 1);
   land_pub = nh.advertise<std_msgs::Empty>("ardrone/land", 1);
@@ -18,14 +18,14 @@ TestController::TestController() {
 
   if (test_type == WITHOUT_CONTROL) {
     vel_pub = nh.advertise<geometry_msgs::Twist>("cmd_vel",
-                                                 1000); // without controller
+                                                 1); // without controller
     // vel_pub2 = nh.advertise<geometry_msgs::Twist>("cmd_PID_topic", 1000);
     ROS_DEBUG("Vel_pub connected to topic cmd_vel");
   }
 
   else if (test_type == VEL_CONTROL || test_type == POSE_CONTROL) {
-    vel_pub = nh.advertise<geometry_msgs::Twist>("tud/cmd_PID_topic",
-                                                 1000); // with TUD Controller
+    vel_pub = nh.advertise<geometry_msgs::Twist>("cmd_PID_topic",
+                                                 1); // with TUD Controller
     ROS_DEBUG("Vel_pub connected to topic cmd_PID");
   }
 }
@@ -121,8 +121,7 @@ void TestController::test(double sleeptime, double speed, double hovertime) {
 
   else if (test_type == VEL_CONTROL) {
     if (path_type == STRAIGHTLINE) {
-      ROS_INFO_STREAM_ONCE("The drone starts the path-planning with velocity "
-                           "control following a straight line!");
+      ROS_INFO_STREAM_ONCE("The drone starts the path-planning with velocity control following a straight line!");
       load_vel(speed, 0.0, 0.0, 0.0);
       ros::Duration(sleeptime).sleep();
       ROS_INFO_STREAM_ONCE("End of the line");
@@ -223,11 +222,14 @@ int main(int argc, char **argv) {
 
   ros::Rate loop_rate(50);
 
-  double hovertime = 2.5; // unit of s
-  double sleeptime = 5.5; // unit of s
-  double speed = 0.2;     // unit of m/s
+  double hovertime = THE_HOVERTIME; // unit of s
+  double sleeptime = THE_SLEEPTIME; // unit of s
+  double speed = THE_SPEED;     // unit of m/s
+  ROS_INFO("hovertime %f", hovertime);
+  ROS_INFO("sleeptime %f", hovertime);
+  ROS_INFO("speed %f", speed);
 
-  ros::Duration(7.0).sleep();
+  ros::Duration(8.0).sleep();
   ROS_INFO_STREAM_ONCE("TUD_PID test!");
   // ROS_INFO("The battery percentage is %f", mytest.battery);
   mytest.takeoff();

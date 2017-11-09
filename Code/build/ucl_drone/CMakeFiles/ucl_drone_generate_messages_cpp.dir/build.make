@@ -35,114 +35,114 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src
+CMAKE_SOURCE_DIR = /home/aurian/Bureau/Drone_thesis_2017/Code/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build
+CMAKE_BINARY_DIR = /home/aurian/Bureau/Drone_thesis_2017/Code/build
 
 # Utility rule file for ucl_drone_generate_messages_cpp.
 
 # Include the progress variables for this target.
 include ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp.dir/progress.make
 
-ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h
-ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
-ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h
-ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/StrategyMsg.h
-ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/cellUpdate.h
-ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/PoseRef.h
-ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRole.h
-ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
-ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h
+ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/PoseRef.h
+ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
+ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h
+ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/StrategyMsg.h
+ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h
+ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
+ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/cellUpdate.h
+ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h
+ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRole.h
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from ucl_drone/DroneRoles.msg"
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg -Iucl_drone:/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
-
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from ucl_drone/Pose3D.msg"
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg -Iucl_drone:/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
-
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h: /opt/ros/indigo/share/sensor_msgs/cmake/../msg/Image.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h: /opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_3)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from ucl_drone/ProcessedImageMsg.msg"
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg -Iucl_drone:/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
-
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/StrategyMsg.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/StrategyMsg.h: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/StrategyMsg.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/StrategyMsg.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from ucl_drone/StrategyMsg.msg"
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg -Iucl_drone:/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
-
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/cellUpdate.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/cellUpdate.h: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/cellUpdate.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/cellUpdate.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_5)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from ucl_drone/cellUpdate.msg"
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg -Iucl_drone:/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
-
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/PoseRef.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/PoseRef.h: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/PoseRef.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/PoseRef.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_6)
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/PoseRef.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/PoseRef.h: /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/PoseRef.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/PoseRef.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/aurian/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from ucl_drone/PoseRef.msg"
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg -Iucl_drone:/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg -Iucl_drone:/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRole.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRole.h: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRole.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_7)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from ucl_drone/DroneRole.msg"
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg -Iucl_drone:/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h: /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/aurian/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from ucl_drone/Pose3D.msg"
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg -Iucl_drone:/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h: /opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_8)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from ucl_drone/KeyPoint.msg"
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg -Iucl_drone:/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
-
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h: /opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h: /opt/ros/indigo/share/ardrone_autonomy/cmake/../msg/Navdata.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_9)
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h: /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h: /opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h: /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h: /opt/ros/indigo/share/ardrone_autonomy/cmake/../msg/Navdata.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/aurian/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from ucl_drone/TargetDetected.msg"
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg -Iucl_drone:/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg -Iucl_drone:/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
+
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/StrategyMsg.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/StrategyMsg.h: /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/StrategyMsg.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/StrategyMsg.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/aurian/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from ucl_drone/StrategyMsg.msg"
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg -Iucl_drone:/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
+
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h: /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h: /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/aurian/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from ucl_drone/DroneRoles.msg"
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg -Iucl_drone:/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
+
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h: /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h: /opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/aurian/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from ucl_drone/KeyPoint.msg"
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg -Iucl_drone:/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
+
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/cellUpdate.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/cellUpdate.h: /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/cellUpdate.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/cellUpdate.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/aurian/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from ucl_drone/cellUpdate.msg"
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg -Iucl_drone:/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
+
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h: /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h: /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h: /opt/ros/indigo/share/sensor_msgs/cmake/../msg/Image.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h: /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h: /opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h: /opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/aurian/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_8)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from ucl_drone/ProcessedImageMsg.msg"
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg -Iucl_drone:/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
+
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRole.h: /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRole.h: /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRole.h: /opt/ros/indigo/share/gencpp/cmake/../msg.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/aurian/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from ucl_drone/DroneRole.msg"
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build/ucl_drone && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/indigo/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg -Iucl_drone:/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg -Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg -Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg -p ucl_drone -o /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone -e /opt/ros/indigo/share/gencpp/cmake/..
 
 ucl_drone_generate_messages_cpp: ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp
-ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h
-ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
-ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h
-ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/StrategyMsg.h
-ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/cellUpdate.h
-ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/PoseRef.h
-ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRole.h
-ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
-ucl_drone_generate_messages_cpp: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h
+ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/PoseRef.h
+ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
+ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h
+ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/StrategyMsg.h
+ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h
+ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
+ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/cellUpdate.h
+ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h
+ucl_drone_generate_messages_cpp: /home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRole.h
 ucl_drone_generate_messages_cpp: ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp.dir/build.make
 .PHONY : ucl_drone_generate_messages_cpp
 
@@ -151,10 +151,10 @@ ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp.dir/build: ucl_drone_genera
 .PHONY : ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp.dir/build
 
 ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp.dir/clean:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ucl_drone && $(CMAKE_COMMAND) -P CMakeFiles/ucl_drone_generate_messages_cpp.dir/cmake_clean.cmake
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build/ucl_drone && $(CMAKE_COMMAND) -P CMakeFiles/ucl_drone_generate_messages_cpp.dir/cmake_clean.cmake
 .PHONY : ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp.dir/clean
 
 ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp.dir/depend:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ucl_drone /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aurian/Bureau/Drone_thesis_2017/Code/src /home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone /home/aurian/Bureau/Drone_thesis_2017/Code/build /home/aurian/Bureau/Drone_thesis_2017/Code/build/ucl_drone /home/aurian/Bureau/Drone_thesis_2017/Code/build/ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : ucl_drone/CMakeFiles/ucl_drone_generate_messages_cpp.dir/depend
 

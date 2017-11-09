@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/filter_common.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/filter_common.h
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/filter_utilities.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/filter_utilities.h
 Eigen/Dense
 -
 iomanip
@@ -20,11 +20,11 @@ string
 vector
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/filter_utilities.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/filter_utilities.cpp
 robot_localization/filter_utilities.h
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/robot_localization/filter_utilities.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/robot_localization/filter_utilities.h
 robot_localization/filter_common.h
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/robot_localization/filter_common.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/robot_localization/filter_common.h
 string
 -
 vector

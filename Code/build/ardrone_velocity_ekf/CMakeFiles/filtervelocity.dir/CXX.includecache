@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/filtervelocity.hpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/filtervelocity.hpp
 vector
 -
 cstdint
@@ -14,11 +14,11 @@ cstdint
 eigen3/Eigen/Dense
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/filtervelocity.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/filtervelocity.cpp
 ardrone_velocity_ekf/filtervelocity.hpp
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/ardrone_velocity_ekf/filtervelocity.hpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/ardrone_velocity_ekf/filtervelocity.hpp
 math.h
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/math.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/math.h
 eigen3/Eigen/Dense
 -
 cstdint

@@ -47,7 +47,7 @@ private:
   // dynamic reconfigure server
   dynamic_reconfigure::Server<ardrone_velocity::dynamic_param_configConfig>
       m_server;
-  geometry_msgs::Twist m_current_command, error_msg, percent_err_msg;
+  geometry_msgs::Twist m_current_command, error_msg, percent_error_msg;
   nav_msgs::Odometry m_odo_msg;
   ros::Time t;
   ros::Time old_t;
@@ -62,6 +62,7 @@ private:
   // PID Coefficients
   double m_Kp_xy, m_Ki_xy, m_Kd_xy;
   int test_type;
+  double speed = THE_SPEED;
 };
 
 #endif // CONTROLLER_TUD_HPP

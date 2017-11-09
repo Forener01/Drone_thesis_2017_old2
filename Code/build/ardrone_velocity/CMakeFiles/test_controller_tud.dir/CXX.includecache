@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/include/ardrone_velocity/path_planning.hpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/include/ardrone_velocity/path_planning.hpp
 geometry_msgs/Pose.h
 -
 geometry_msgs/Twist.h
@@ -20,7 +20,7 @@ ros/ros.h
 stdio.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/include/ardrone_velocity/test_controller.hpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/include/ardrone_velocity/test_controller.hpp
 ardrone_autonomy/Navdata.h
 -
 ardrone_velocity/path_planning.hpp
@@ -42,7 +42,7 @@ stdlib.h
 string.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/src/test_controller.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/src/test_controller.cpp
 ardrone_velocity/test_controller.hpp
 -
 
@@ -296,8 +296,6 @@ cstdarg
 ros/macros.h
 -
 map
--
-vector
 -
 log4cxx/level.h
 /opt/ros/indigo/include/ros/log4cxx/level.h

@@ -12,14 +12,19 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Legend for test types
+// Test types
 #define WITHOUT_CONTROL 0
 #define VEL_CONTROL 1
 #define POSE_CONTROL 2
 
-// Legend for path types
+// Path types
 #define STRAIGHTLINE 0
 #define SQUARE 1
+
+// Timing parameters for the tests
+#define THE_SPEED 0.2
+#define THE_SLEEPTIME 10.0
+#define THE_HOVERTIME 2.0
 
 class TestController {
 public:
