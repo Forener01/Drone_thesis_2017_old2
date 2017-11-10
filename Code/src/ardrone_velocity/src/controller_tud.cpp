@@ -13,6 +13,8 @@ Date: september 2017
 Controller_TUD::Controller_TUD() {
   ros::NodeHandle nh;
   ros::param::get("~test_type", test_type);
+  ros::param::get("~the_speed", speed);
+
   // Subscribers
   velinPID_sub =
       nh.subscribe("cmd_PID_topic", 100, &Controller_TUD::velinPIDCb, this);
@@ -23,8 +25,8 @@ Controller_TUD::Controller_TUD() {
   // Publishers
   veloutPID_pub = nh.advertise<geometry_msgs::Twist>("cmd_vel", 100);
   error_pub = nh.advertise<geometry_msgs::Twist>("tud/vel_error_topic", 100);
-  percent_error_pub =
-      nh.advertise<geometry_msgs::Twist>("tud/vel_percent_error_topic", 100);
+  // percent_error_pub =
+  //     nh.advertise<geometry_msgs::Twist>("tud/vel_percent_error_topic", 100);
   odom_pub = nh.advertise<nav_msgs::Odometry>("tud/odom_data_topic", 100);
   /** Copied from ardrone_velocity package **/
 
@@ -126,9 +128,9 @@ void Controller_TUD::velocity_control(void) {
   error_msg.linear.y = error_y;
   error_msg.linear.z = error_z;
 
-  percent_error_msg.linear.x = error_x / speed;
-  percent_error_msg.linear.y = error_y / speed;
-  percent_error_msg.linear.z = error_z / speed;
+  // percent_error_msg.linear.x = error_x / speed;
+  // percent_error_msg.linear.y = error_y / speed;
+  // percent_error_msg.linear.z = error_z / speed;
 
   // if (m_current_command.linear.x == 0.0) {
   //   if (error_x < 0.0) {
@@ -179,7 +181,7 @@ void Controller_TUD::velocity_control(void) {
   // }
 
   error_pub.publish(error_msg);
-  percent_error_pub.publish(percent_error_msg);
+  // percent_error_pub.publish(percent_error_msg);
 
   // The proportional term is directly the error
   p_term_x = error_x;

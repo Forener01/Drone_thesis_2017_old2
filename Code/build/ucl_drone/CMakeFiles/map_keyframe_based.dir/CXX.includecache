@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
 string
 -
 vector
@@ -24,7 +24,7 @@ ros/message_operations.h
 geometry_msgs/Point.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
 string
 -
 vector
@@ -42,7 +42,7 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h
 string
 -
 vector
@@ -66,7 +66,7 @@ sensor_msgs/Image.h
 geometry_msgs/Point.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h
 string
 -
 vector
@@ -92,13 +92,13 @@ geometry_msgs/Point.h
 geometry_msgs/Point.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/PointXYZRGBSIFT.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/PointXYZRGBSIFT.h
 ucl_drone/ucl_drone.h
 -
 pcl/point_types.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/map/frame.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/map/frame.h
 ucl_drone/ucl_drone.h
 -
 opencv2/calib3d/calib3d.hpp
@@ -134,7 +134,7 @@ ucl_drone/Pose3D.h
 ucl_drone/ProcessedImageMsg.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/map/keyframe.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/map/keyframe.h
 ucl_drone/ucl_drone.h
 -
 opencv2/calib3d/calib3d.hpp
@@ -160,7 +160,7 @@ ucl_drone/PointXYZRGBSIFT.h
 ucl_drone/Pose3D.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/map/map_keyframe_based.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/map/map_keyframe_based.h
 ucl_drone/profiling.h
 -
 ucl_drone/ucl_drone.h
@@ -222,7 +222,7 @@ ucl_drone/map/frame.h
 ucl_drone/map/keyframe.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/map/projection_2D.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/map/projection_2D.h
 ucl_drone/ucl_drone.h
 -
 ros/package.h
@@ -274,7 +274,7 @@ ucl_drone/opencv_utils.h
 ucl_drone/read_from_launch.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/opencv_utils.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/opencv_utils.h
 ros/ros.h
 -
 opencv2/core/core.hpp
@@ -286,41 +286,41 @@ opencv2/nonfree/features2d.hpp
 ucl_drone/PointXYZRGBSIFT.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/profiling.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/profiling.h
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/read_from_launch.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/read_from_launch.h
 ucl_drone/ucl_drone.h
 -
 opencv2/core/core.hpp
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/ucl_drone.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/ucl_drone.h
 ros/package.h
 -
 ros/ros.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/map/frame.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/map/frame.cpp
 ucl_drone/map/map_keyframe_based.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/map/keyframe.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/map/keyframe.cpp
 ucl_drone/map/map_keyframe_based.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/map/map_keyframe_based.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/map/map_keyframe_based.cpp
 ucl_drone/map/map_keyframe_based.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/map/projection_2D.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/map/projection_2D.cpp
 ucl_drone/map/projection_2D.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/opencv_utils.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/opencv_utils.cpp
 ucl_drone/opencv_utils.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/read_from_launch.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/read_from_launch.cpp
 ucl_drone/read_from_launch.h
 -
 
@@ -756,8 +756,6 @@ cstdarg
 ros/macros.h
 -
 map
--
-vector
 -
 log4cxx/level.h
 /opt/ros/indigo/include/ros/log4cxx/level.h

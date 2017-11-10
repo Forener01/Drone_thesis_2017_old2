@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRole.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRole.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h
 string
 -
 vector
@@ -40,7 +40,7 @@ ros/message_operations.h
 ucl_drone/DroneRole.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
 string
 -
 vector
@@ -58,7 +58,7 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/StrategyMsg.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/StrategyMsg.h
 string
 -
 vector
@@ -76,7 +76,7 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h
 string
 -
 vector
@@ -102,9 +102,9 @@ geometry_msgs/Point.h
 geometry_msgs/Point.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/profiling.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/profiling.h
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/strategy.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/strategy.h
 ros/ros.h
 -
 signal.h
@@ -120,9 +120,9 @@ ucl_drone/StrategyMsg.h
 ucl_drone/TargetDetected.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/strategy/strategy.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/strategy/strategy.cpp
 ucl_drone/strategy.h
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/strategy/ucl_drone/strategy.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/strategy/ucl_drone/strategy.h
 
 /opt/ros/indigo/include/XmlRpcDecl.h
 ros/macros.h
@@ -244,8 +244,6 @@ cstdarg
 ros/macros.h
 -
 map
--
-vector
 -
 log4cxx/level.h
 /opt/ros/indigo/include/ros/log4cxx/level.h

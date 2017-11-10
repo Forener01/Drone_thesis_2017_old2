@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = ""
-services_str = "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv;/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv"
+services_str = "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv;/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv"
 pkg_name = "robot_localization"
 dependencies_str = "geographic_msgs;geometry_msgs;std_msgs"
 langs = "gencpp;genlisp;genpy"

@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/path_planning.dir/src/path_planning.cpp.o"
-  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity/path_planning.pdb"
-  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity/path_planning"
+  "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity/path_planning.pdb"
+  "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity/path_planning"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -42,9 +42,9 @@ OLD
 - Adapter pour contrôle en vitesse altitude
 
 - Immédiat
-  - signaux de démarrage et de fin
+  - faire mesures vitesse
   - contrôle position trapéz.
-  - faire mesures
+  - faire mesures position
 
 # Commentaires
 - TUM_ardrone font leur propre intégration visuelle sur base des raw images de

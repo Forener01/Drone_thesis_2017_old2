@@ -10,6 +10,6 @@
 export CPATH="/opt/ros/indigo/include"
 export LD_LIBRARY_PATH="/opt/ros/indigo/lib"
 export PKG_CONFIG_PATH="/opt/ros/indigo/lib/pkgconfig"
-export PWD="/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build"
+export PWD="/home/aurian/Bureau/Drone_thesis_2017/Code/build"
 export PYTHONPATH="/opt/ros/indigo/lib/python2.7/dist-packages"
-export ROS_PACKAGE_PATH="/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src:/opt/ros/indigo/share:/opt/ros/indigo/stacks"
+export ROS_PACKAGE_PATH="/home/aurian/Bureau/Drone_thesis_2017/Code/src:/opt/ros/indigo/share:/opt/ros/indigo/stacks"

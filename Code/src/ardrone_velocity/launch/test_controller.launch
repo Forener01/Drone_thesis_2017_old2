@@ -11,7 +11,10 @@
 
   <node name="test_controller_tud" pkg="ardrone_velocity" type="test_controller_tud" output="screen">
     <param name="test_type" value="1" /> <!-- 0 without control, 1 vel control, 2 pose control -->
-    <param name="path_type" value="2" /> <!-- 0 for straightline, 1 for a square, 2 for static -->
+    <param name="path_type" value="0" /> <!-- 0 for straightline, 1 for a square, 2 for static -->
+    <param name="the_speed" value="0.6" /> <!-- setting the speed (m/s) -->
+    <param name="the_sleeptime" value="5.0" /> <!-- setting the sleeptime (s) -->
+    <param name="the_hovertime" value="2.0" /> <!-- setting the hovertime -->
   </node>
   <!-- <node name="path_planning" pkg="ardrone_velocity" type="path_planning" output="screen">
   </node> -->

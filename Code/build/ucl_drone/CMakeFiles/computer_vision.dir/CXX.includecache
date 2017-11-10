@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
 string
 -
 vector
@@ -24,7 +24,7 @@ ros/message_operations.h
 geometry_msgs/Point.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
 string
 -
 vector
@@ -42,7 +42,7 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h
 string
 -
 vector
@@ -66,7 +66,7 @@ sensor_msgs/Image.h
 geometry_msgs/Point.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/TargetDetected.h
 string
 -
 vector
@@ -92,13 +92,13 @@ geometry_msgs/Point.h
 geometry_msgs/Point.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/PointXYZRGBSIFT.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/PointXYZRGBSIFT.h
 ucl_drone/ucl_drone.h
 -
 pcl/point_types.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/computer_vision/computer_vision.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/computer_vision/computer_vision.h
 ucl_drone/profiling.h
 -
 boost/shared_ptr.hpp
@@ -158,19 +158,19 @@ ucl_drone/computer_vision/processed_image.h
 ucl_drone/computer_vision/image_processor.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/computer_vision/image_processor.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/computer_vision/image_processor.h
 ucl_drone/computer_vision/computer_vision.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/computer_vision/processed_image.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/computer_vision/processed_image.h
 ucl_drone/computer_vision/computer_vision.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/computer_vision/target.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/computer_vision/target.h
 ucl_drone/computer_vision/computer_vision.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/map/projection_2D.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/map/projection_2D.h
 ucl_drone/ucl_drone.h
 -
 ros/package.h
@@ -222,7 +222,7 @@ ucl_drone/opencv_utils.h
 ucl_drone/read_from_launch.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/opencv_utils.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/opencv_utils.h
 ros/ros.h
 -
 opencv2/core/core.hpp
@@ -234,43 +234,43 @@ opencv2/nonfree/features2d.hpp
 ucl_drone/PointXYZRGBSIFT.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/profiling.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/profiling.h
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/read_from_launch.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/read_from_launch.h
 ucl_drone/ucl_drone.h
 -
 opencv2/core/core.hpp
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/ucl_drone.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/ucl_drone.h
 ros/package.h
 -
 ros/ros.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/computer_vision/computer_vision.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/computer_vision/computer_vision.cpp
 ucl_drone/computer_vision/computer_vision.h
 -
 ucl_drone/read_from_launch.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/computer_vision/processed_image.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/computer_vision/processed_image.cpp
 ucl_drone/computer_vision/computer_vision.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/computer_vision/target.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/computer_vision/target.cpp
 ucl_drone/computer_vision/computer_vision.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/map/projection_2D.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/map/projection_2D.cpp
 ucl_drone/map/projection_2D.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/opencv_utils.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/opencv_utils.cpp
 ucl_drone/opencv_utils.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/read_from_launch.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/read_from_launch.cpp
 ucl_drone/read_from_launch.h
 -
 
@@ -836,8 +836,6 @@ cstdarg
 ros/macros.h
 -
 map
--
-vector
 -
 log4cxx/level.h
 /opt/ros/indigo/include/ros/log4cxx/level.h
@@ -4236,18 +4234,6 @@ opencv2/imgproc/types_c.h
 opencv2/core/core_c.h
 /usr/local/include/opencv2/imgproc/opencv2/core/core_c.h
 
-/usr/local/include/opencv2/ml/ml.hpp
-opencv2/core/core.hpp
-/usr/local/include/opencv2/ml/opencv2/core/core.hpp
-limits.h
--
-map
--
-string
--
-iostream
--
-
 /usr/local/include/opencv2/nonfree/features2d.hpp
 opencv2/features2d/features2d.hpp
 /usr/local/include/opencv2/nonfree/opencv2/features2d/features2d.hpp
@@ -4273,28 +4259,6 @@ map
 -
 deque
 -
-
-/usr/local/include/opencv2/ocl/matrix_operations.hpp
-opencv2/ocl/ocl.hpp
-/usr/local/include/opencv2/ocl/opencv2/ocl/ocl.hpp
-
-/usr/local/include/opencv2/ocl/ocl.hpp
-memory
--
-vector
--
-opencv2/core/core.hpp
-/usr/local/include/opencv2/ocl/opencv2/core/core.hpp
-opencv2/imgproc/imgproc.hpp
-/usr/local/include/opencv2/ocl/opencv2/imgproc/imgproc.hpp
-opencv2/objdetect/objdetect.hpp
-/usr/local/include/opencv2/ocl/opencv2/objdetect/objdetect.hpp
-opencv2/features2d/features2d.hpp
-/usr/local/include/opencv2/ocl/opencv2/features2d/features2d.hpp
-opencv2/ml/ml.hpp
-/usr/local/include/opencv2/ocl/opencv2/ml/ml.hpp
-opencv2/ocl/matrix_operations.hpp
-/usr/local/include/opencv2/ocl/opencv2/ocl/matrix_operations.hpp
 
 /usr/local/include/opencv2/opencv_modules.hpp
 

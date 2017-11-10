@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
 string
 -
 vector
@@ -24,7 +24,7 @@ ros/message_operations.h
 geometry_msgs/Point.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
 string
 -
 vector
@@ -42,7 +42,7 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/ProcessedImageMsg.h
 string
 -
 vector
@@ -66,9 +66,9 @@ sensor_msgs/Image.h
 geometry_msgs/Point.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/profiling.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/profiling.h
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/vision_gui/vision_gui.h
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/vision_gui/vision_gui.h
 ros/package.h
 -
 ros/ros.h
@@ -96,7 +96,7 @@ opencv2/nonfree/features2d.hpp
 opencv2/nonfree/nonfree.hpp
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/vision_gui/vision_gui.cpp
+/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/vision_gui/vision_gui.cpp
 ucl_drone/vision_gui/vision_gui.h
 -
 
@@ -292,8 +292,6 @@ cstdarg
 ros/macros.h
 -
 map
--
-vector
 -
 log4cxx/level.h
 /opt/ros/indigo/include/ros/log4cxx/level.h

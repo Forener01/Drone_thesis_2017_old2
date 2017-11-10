@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src
+CMAKE_SOURCE_DIR = /home/aurian/Bureau/Drone_thesis_2017/Code/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build
+CMAKE_BINARY_DIR = /home/aurian/Bureau/Drone_thesis_2017/Code/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -120,14 +120,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/thesis_aurian/CMakeFiles/progress.marks
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles 0
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/aurian/Bureau/Drone_thesis_2017/Code/build/CMakeFiles /home/aurian/Bureau/Drone_thesis_2017/Code/build/thesis_aurian/CMakeFiles/progress.marks
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aurian/Bureau/Drone_thesis_2017/Code/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/clean
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/clean
 .PHONY : clean
 
 # The main clean target
@@ -136,22 +136,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/preinstall
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/preinstall
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 thesis_aurian/CMakeFiles/controller_2016.dir/rule:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/CMakeFiles/controller_2016.dir/rule
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/CMakeFiles/controller_2016.dir/rule
 .PHONY : thesis_aurian/CMakeFiles/controller_2016.dir/rule
 
 # Convenience name for target.
@@ -160,12 +160,12 @@ controller_2016: thesis_aurian/CMakeFiles/controller_2016.dir/rule
 
 # fast build rule for target.
 controller_2016/fast:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/controller_2016.dir/build.make thesis_aurian/CMakeFiles/controller_2016.dir/build
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/controller_2016.dir/build.make thesis_aurian/CMakeFiles/controller_2016.dir/build
 .PHONY : controller_2016/fast
 
 # Convenience name for target.
 thesis_aurian/CMakeFiles/square_vel.dir/rule:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/CMakeFiles/square_vel.dir/rule
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/CMakeFiles/square_vel.dir/rule
 .PHONY : thesis_aurian/CMakeFiles/square_vel.dir/rule
 
 # Convenience name for target.
@@ -174,12 +174,12 @@ square_vel: thesis_aurian/CMakeFiles/square_vel.dir/rule
 
 # fast build rule for target.
 square_vel/fast:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/square_vel.dir/build.make thesis_aurian/CMakeFiles/square_vel.dir/build
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/square_vel.dir/build.make thesis_aurian/CMakeFiles/square_vel.dir/build
 .PHONY : square_vel/fast
 
 # Convenience name for target.
 thesis_aurian/CMakeFiles/test_controller.dir/rule:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/CMakeFiles/test_controller.dir/rule
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/CMakeFiles/test_controller.dir/rule
 .PHONY : thesis_aurian/CMakeFiles/test_controller.dir/rule
 
 # Convenience name for target.
@@ -188,12 +188,12 @@ test_controller: thesis_aurian/CMakeFiles/test_controller.dir/rule
 
 # fast build rule for target.
 test_controller/fast:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/test_controller.dir/build.make thesis_aurian/CMakeFiles/test_controller.dir/build
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/test_controller.dir/build.make thesis_aurian/CMakeFiles/test_controller.dir/build
 .PHONY : test_controller/fast
 
 # Convenience name for target.
 thesis_aurian/CMakeFiles/thesis_aurian_gencfg.dir/rule:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/CMakeFiles/thesis_aurian_gencfg.dir/rule
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/CMakeFiles/thesis_aurian_gencfg.dir/rule
 .PHONY : thesis_aurian/CMakeFiles/thesis_aurian_gencfg.dir/rule
 
 # Convenience name for target.
@@ -202,7 +202,7 @@ thesis_aurian_gencfg: thesis_aurian/CMakeFiles/thesis_aurian_gencfg.dir/rule
 
 # fast build rule for target.
 thesis_aurian_gencfg/fast:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/thesis_aurian_gencfg.dir/build.make thesis_aurian/CMakeFiles/thesis_aurian_gencfg.dir/build
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/thesis_aurian_gencfg.dir/build.make thesis_aurian/CMakeFiles/thesis_aurian_gencfg.dir/build
 .PHONY : thesis_aurian_gencfg/fast
 
 src/controller/controller_2016.o: src/controller/controller_2016.cpp.o
@@ -210,7 +210,7 @@ src/controller/controller_2016.o: src/controller/controller_2016.cpp.o
 
 # target to build an object file
 src/controller/controller_2016.cpp.o:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/controller_2016.dir/build.make thesis_aurian/CMakeFiles/controller_2016.dir/src/controller/controller_2016.cpp.o
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/controller_2016.dir/build.make thesis_aurian/CMakeFiles/controller_2016.dir/src/controller/controller_2016.cpp.o
 .PHONY : src/controller/controller_2016.cpp.o
 
 src/controller/controller_2016.i: src/controller/controller_2016.cpp.i
@@ -218,7 +218,7 @@ src/controller/controller_2016.i: src/controller/controller_2016.cpp.i
 
 # target to preprocess a source file
 src/controller/controller_2016.cpp.i:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/controller_2016.dir/build.make thesis_aurian/CMakeFiles/controller_2016.dir/src/controller/controller_2016.cpp.i
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/controller_2016.dir/build.make thesis_aurian/CMakeFiles/controller_2016.dir/src/controller/controller_2016.cpp.i
 .PHONY : src/controller/controller_2016.cpp.i
 
 src/controller/controller_2016.s: src/controller/controller_2016.cpp.s
@@ -226,7 +226,7 @@ src/controller/controller_2016.s: src/controller/controller_2016.cpp.s
 
 # target to generate assembly for a file
 src/controller/controller_2016.cpp.s:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/controller_2016.dir/build.make thesis_aurian/CMakeFiles/controller_2016.dir/src/controller/controller_2016.cpp.s
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/controller_2016.dir/build.make thesis_aurian/CMakeFiles/controller_2016.dir/src/controller/controller_2016.cpp.s
 .PHONY : src/controller/controller_2016.cpp.s
 
 src/controller/square_vel.o: src/controller/square_vel.cpp.o
@@ -234,7 +234,7 @@ src/controller/square_vel.o: src/controller/square_vel.cpp.o
 
 # target to build an object file
 src/controller/square_vel.cpp.o:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/square_vel.dir/build.make thesis_aurian/CMakeFiles/square_vel.dir/src/controller/square_vel.cpp.o
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/square_vel.dir/build.make thesis_aurian/CMakeFiles/square_vel.dir/src/controller/square_vel.cpp.o
 .PHONY : src/controller/square_vel.cpp.o
 
 src/controller/square_vel.i: src/controller/square_vel.cpp.i
@@ -242,7 +242,7 @@ src/controller/square_vel.i: src/controller/square_vel.cpp.i
 
 # target to preprocess a source file
 src/controller/square_vel.cpp.i:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/square_vel.dir/build.make thesis_aurian/CMakeFiles/square_vel.dir/src/controller/square_vel.cpp.i
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/square_vel.dir/build.make thesis_aurian/CMakeFiles/square_vel.dir/src/controller/square_vel.cpp.i
 .PHONY : src/controller/square_vel.cpp.i
 
 src/controller/square_vel.s: src/controller/square_vel.cpp.s
@@ -250,7 +250,7 @@ src/controller/square_vel.s: src/controller/square_vel.cpp.s
 
 # target to generate assembly for a file
 src/controller/square_vel.cpp.s:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/square_vel.dir/build.make thesis_aurian/CMakeFiles/square_vel.dir/src/controller/square_vel.cpp.s
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/square_vel.dir/build.make thesis_aurian/CMakeFiles/square_vel.dir/src/controller/square_vel.cpp.s
 .PHONY : src/controller/square_vel.cpp.s
 
 src/controller/test_controller.o: src/controller/test_controller.cpp.o
@@ -258,7 +258,7 @@ src/controller/test_controller.o: src/controller/test_controller.cpp.o
 
 # target to build an object file
 src/controller/test_controller.cpp.o:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/test_controller.dir/build.make thesis_aurian/CMakeFiles/test_controller.dir/src/controller/test_controller.cpp.o
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/test_controller.dir/build.make thesis_aurian/CMakeFiles/test_controller.dir/src/controller/test_controller.cpp.o
 .PHONY : src/controller/test_controller.cpp.o
 
 src/controller/test_controller.i: src/controller/test_controller.cpp.i
@@ -266,7 +266,7 @@ src/controller/test_controller.i: src/controller/test_controller.cpp.i
 
 # target to preprocess a source file
 src/controller/test_controller.cpp.i:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/test_controller.dir/build.make thesis_aurian/CMakeFiles/test_controller.dir/src/controller/test_controller.cpp.i
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/test_controller.dir/build.make thesis_aurian/CMakeFiles/test_controller.dir/src/controller/test_controller.cpp.i
 .PHONY : src/controller/test_controller.cpp.i
 
 src/controller/test_controller.s: src/controller/test_controller.cpp.s
@@ -274,7 +274,7 @@ src/controller/test_controller.s: src/controller/test_controller.cpp.s
 
 # target to generate assembly for a file
 src/controller/test_controller.cpp.s:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/test_controller.dir/build.make thesis_aurian/CMakeFiles/test_controller.dir/src/controller/test_controller.cpp.s
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/test_controller.dir/build.make thesis_aurian/CMakeFiles/test_controller.dir/src/controller/test_controller.cpp.s
 .PHONY : src/controller/test_controller.cpp.s
 
 # Help Target
@@ -314,6 +314,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/aurian/Bureau/Drone_thesis_2017/Code/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
