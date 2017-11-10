@@ -30,14 +30,6 @@ TestController::TestController() {
   }
 }
 
-// void TestController::batteryCb(const ardrone_autonomy::Navdata &mynavdata) {
-//   battery = mynavdata.batteryPercent;
-// }
-
-// void TestController::print_battery(void) {
-//   ROS_INFO("The battery percentage is %f", battery);
-// }
-
 void TestController::land(void) { land_pub.publish(std_msgs::Empty()); }
 
 void TestController::takeoff(void) { takeoff_pub.publish(std_msgs::Empty()); }
@@ -121,7 +113,8 @@ void TestController::test(double sleeptime, double speed, double hovertime) {
 
   else if (test_type == VEL_CONTROL) {
     if (path_type == STRAIGHTLINE) {
-      ROS_INFO_STREAM_ONCE("The drone starts the path-planning with velocity control following a straight line!");
+      ROS_INFO_STREAM_ONCE("The drone starts the path-planning with velocity "
+                           "control following a straight line!");
       load_vel(speed, 0.0, 0.0, 0.0);
       ros::Duration(sleeptime).sleep();
       ROS_INFO_STREAM_ONCE("End of the line");
@@ -164,8 +157,7 @@ void TestController::test(double sleeptime, double speed, double hovertime) {
     }
 
     else if (path_type == STATIC) {
-      ROS_INFO_STREAM_ONCE(
-          "The drone starts hovering with velocity control !");
+      ROS_INFO_STREAM_ONCE("The drone starts hovering with velocity control !");
       hover();
       ros::Duration(sleeptime).sleep();
     }
@@ -221,15 +213,37 @@ void TestController::test(double sleeptime, double speed, double hovertime) {
     }
 
     else if (path_type == STATIC) {
-      ROS_INFO_STREAM_ONCE(
-          "The drone starts hovering with pose control !");
+      ROS_INFO_STREAM_ONCE("The drone starts hovering with pose control !");
       hover();
       ros::Duration(sleeptime).sleep();
     }
- }
+  }
+}
 
+// This function makes the drone taking off and stabilizing during 2 sec.
+void TestController::init(void) {
+  ros::Duration(2.0).sleep();
+  ROS_INFO_STREAM_ONCE("TUD_PID test!");
 
+  takeoff();
+  ROS_INFO_STREAM_ONCE("The drone is taking off !");
+  ros::Duration(3.0).sleep();
 
+  ROS_INFO_STREAM_ONCE("The drone is in hover mode !");
+  hover();
+  ros::Duration(2.0).sleep();
+}
+
+// This function stabilizes the drone at the end of the test and do the drone
+// landing.
+void TestController::finish(void) {
+  ROS_INFO_STREAM_ONCE("The drone just finished !");
+  hover();
+  ros::Duration(2.0).sleep();
+
+  land();
+  ROS_INFO_STREAM_ONCE("The drone just landed !");
+  ros::Duration(5.0).sleep();
 }
 
 int main(int argc, char **argv) {
@@ -241,28 +255,16 @@ int main(int argc, char **argv) {
 
   double hovertime = THE_HOVERTIME; // unit of s
   double sleeptime = THE_SLEEPTIME; // unit of s
-  double speed = THE_SPEED;     // unit of m/s
+  double speed = THE_SPEED;         // unit of m/s
 
   /*** INITIALIZATION ***/
-  ros::Duration(2.0).sleep();
-  ROS_INFO_STREAM_ONCE("TUD_PID test!");
-  mytest.takeoff();
-  ROS_INFO_STREAM_ONCE("The drone is taking off !");
-  ros::Duration(3.0).sleep();
-  ROS_INFO_STREAM_ONCE("The drone is in hover mode !");
-  mytest.hover();
-  ros::Duration(hovertime).sleep();
+  mytest.init();
 
   /*** LAUNCHING THE TEST ***/
   mytest.test(sleeptime, speed, hovertime);
 
   /*** FINISHING ***/
-  ROS_INFO_STREAM_ONCE("The drone just finished !");
-  mytest.hover();
-  ros::Duration(3.0).sleep();
-  mytest.land();
-  ROS_INFO_STREAM_ONCE("The drone just landed !");
-  ros::Duration(5.0).sleep();
+  mytest.finish();
 
   return 0;
 }

@@ -42,7 +42,6 @@ OLD
 - Adapter pour contrôle en vitesse altitude
 
 - Immédiat
-  - structurer main controller
   - signaux de démarrage et de fin
   - contrôle position trapéz.
   - faire mesures

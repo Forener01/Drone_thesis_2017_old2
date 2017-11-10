@@ -7,7 +7,9 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/aurian/Bureau/Drone_thesis_2017/Code/devel:$CMAKE_PREFIX_PATH"
-export PWD="/home/aurian/Bureau/Drone_thesis_2017/Code/build"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/aurian/Bureau/Drone_thesis_2017/Code/devel/share/common-lisp"
-export ROS_PACKAGE_PATH="/home/aurian/Bureau/Drone_thesis_2017/Code/src:$ROS_PACKAGE_PATH"
+export CPATH="/opt/ros/indigo/include"
+export LD_LIBRARY_PATH="/opt/ros/indigo/lib"
+export PKG_CONFIG_PATH="/opt/ros/indigo/lib/pkgconfig"
+export PWD="/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build"
+export PYTHONPATH="/opt/ros/indigo/lib/python2.7/dist-packages"
+export ROS_PACKAGE_PATH="/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src:/opt/ros/indigo/share:/opt/ros/indigo/stacks"

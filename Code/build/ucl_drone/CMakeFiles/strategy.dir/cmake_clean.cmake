@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/strategy.dir/src/strategy/strategy.cpp.o"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/strategy.pdb"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/strategy"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/strategy.pdb"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/strategy"
 )
 
 # Per-language clean rules from dependency scanning.

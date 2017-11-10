@@ -55,3 +55,8 @@
 - Recherche détection contour et filtre couleur
 - Recherche "edge detector computer vision" sur scopus: 200 premiers résultats traités (65 docs retenus).
 - Checker tum_autonomy
+- Préparation réunion
+
+**S8 06/11**
+- Campagne de mesures des 3 contrôleurs 
+- Elaboration de la boucle en position 

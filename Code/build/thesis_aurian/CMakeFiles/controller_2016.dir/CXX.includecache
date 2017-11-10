@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/thesis_aurian/include/thesis_aurian/controller_2016.hpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/thesis_aurian/include/thesis_aurian/controller_2016.hpp
 geometry_msgs/Pose.h
 -
 nav_msgs/Odometry.h
@@ -20,7 +20,7 @@ std_msgs/Empty.h
 std_msgs/Float64.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/thesis_aurian/src/controller/controller_2016.cpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/thesis_aurian/src/controller/controller_2016.cpp
 thesis_aurian/controller_2016.hpp
 -
 
@@ -256,6 +256,8 @@ cstdarg
 ros/macros.h
 -
 map
+-
+vector
 -
 log4cxx/level.h
 /opt/ros/indigo/include/ros/log4cxx/level.h

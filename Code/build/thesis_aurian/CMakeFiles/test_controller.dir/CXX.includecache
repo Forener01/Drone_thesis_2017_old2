@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/thesis_aurian/src/controller/test_controller.cpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/thesis_aurian/src/controller/test_controller.cpp
 geometry_msgs/Pose.h
 -
 geometry_msgs/Twist.h
@@ -190,6 +190,8 @@ cstdarg
 ros/macros.h
 -
 map
+-
+vector
 -
 log4cxx/level.h
 /opt/ros/indigo/include/ros/log4cxx/level.h

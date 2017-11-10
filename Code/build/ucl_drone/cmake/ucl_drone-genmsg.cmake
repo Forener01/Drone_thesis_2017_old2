@@ -2,7 +2,7 @@
 
 message(STATUS "ucl_drone: 9 messages, 0 services")
 
-set(MSG_I_FLAGS "-Iucl_drone:/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg;-Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg;-Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg;-Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg")
+set(MSG_I_FLAGS "-Iucl_drone:/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg;-Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/indigo/share/geometry_msgs/cmake/../msg;-Isensor_msgs:/opt/ros/indigo/share/sensor_msgs/cmake/../msg;-Iardrone_autonomy:/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -15,49 +15,49 @@ add_custom_target(ucl_drone_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg" NAME_WE)
 add_custom_target(_ucl_drone_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg" "std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg" "std_msgs/Header"
 )
 
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg" NAME_WE)
 add_custom_target(_ucl_drone_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg" "std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg" "std_msgs/Header"
 )
 
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg" NAME_WE)
 add_custom_target(_ucl_drone_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg" "geometry_msgs/Point:ucl_drone/Pose3D:std_msgs/Header:ardrone_autonomy/Navdata"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg" "std_msgs/Header:sensor_msgs/Image:ucl_drone/Pose3D:geometry_msgs/Point:ucl_drone/KeyPoint"
 )
 
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg" NAME_WE)
 add_custom_target(_ucl_drone_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg" "std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg" "std_msgs/Header"
 )
 
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg" NAME_WE)
 add_custom_target(_ucl_drone_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg" "ucl_drone/DroneRole"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg" "std_msgs/Header"
 )
 
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg" NAME_WE)
 add_custom_target(_ucl_drone_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg" "geometry_msgs/Point"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg" "ucl_drone/DroneRole"
 )
 
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg" NAME_WE)
 add_custom_target(_ucl_drone_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg" "std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg" ""
 )
 
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg" NAME_WE)
 add_custom_target(_ucl_drone_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg" "ucl_drone/Pose3D:sensor_msgs/Image:ucl_drone/KeyPoint:geometry_msgs/Point:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg" "geometry_msgs/Point"
 )
 
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg" NAME_WE)
 add_custom_target(_ucl_drone_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "ucl_drone" "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg" "geometry_msgs/Point:ardrone_autonomy/Navdata:std_msgs/Header:ucl_drone/Pose3D"
 )
 
 #
@@ -67,57 +67,57 @@ add_custom_target(_ucl_drone_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg"
+  "${MSG_I_FLAGS}"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/ucl_drone
+)
+_generate_msg_cpp(ucl_drone
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/ucl_drone
 )
 _generate_msg_cpp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/indigo/share/sensor_msgs/cmake/../msg/Image.msg;/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/ucl_drone
+)
+_generate_msg_cpp(ucl_drone
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/ucl_drone
 )
 _generate_msg_cpp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg/Navdata.msg"
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/ucl_drone
-)
-_generate_msg_cpp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/ucl_drone
 )
 _generate_msg_cpp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg"
   "${MSG_I_FLAGS}"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg"
+  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/ucl_drone
 )
 _generate_msg_cpp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/ucl_drone
+)
+_generate_msg_cpp(ucl_drone
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/ucl_drone
 )
 _generate_msg_cpp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/ucl_drone
-)
-_generate_msg_cpp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg"
-  "${MSG_I_FLAGS}"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg;/opt/ros/indigo/share/sensor_msgs/cmake/../msg/Image.msg;/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/ucl_drone
-)
-_generate_msg_cpp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg"
-  "${MSG_I_FLAGS}"
-  ""
+  "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg/Navdata.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/ucl_drone
 )
 
@@ -135,23 +135,23 @@ add_custom_target(ucl_drone_generate_messages_cpp
 add_dependencies(ucl_drone_generate_messages ucl_drone_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_cpp _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_cpp _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_cpp _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_cpp _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_cpp _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_cpp _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_cpp _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_cpp _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_cpp _ucl_drone_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -164,57 +164,57 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS ucl_drone_generate_messages_cpp)
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg"
+  "${MSG_I_FLAGS}"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/ucl_drone
+)
+_generate_msg_lisp(ucl_drone
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/ucl_drone
 )
 _generate_msg_lisp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/indigo/share/sensor_msgs/cmake/../msg/Image.msg;/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/ucl_drone
+)
+_generate_msg_lisp(ucl_drone
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/ucl_drone
 )
 _generate_msg_lisp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg/Navdata.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/ucl_drone
-)
-_generate_msg_lisp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/ucl_drone
 )
 _generate_msg_lisp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg"
   "${MSG_I_FLAGS}"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg"
+  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/ucl_drone
 )
 _generate_msg_lisp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/ucl_drone
+)
+_generate_msg_lisp(ucl_drone
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/ucl_drone
 )
 _generate_msg_lisp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/ucl_drone
-)
-_generate_msg_lisp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg"
-  "${MSG_I_FLAGS}"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg;/opt/ros/indigo/share/sensor_msgs/cmake/../msg/Image.msg;/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/ucl_drone
-)
-_generate_msg_lisp(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg"
-  "${MSG_I_FLAGS}"
-  ""
+  "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg/Navdata.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/ucl_drone
 )
 
@@ -232,23 +232,23 @@ add_custom_target(ucl_drone_generate_messages_lisp
 add_dependencies(ucl_drone_generate_messages ucl_drone_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_lisp _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_lisp _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_lisp _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_lisp _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_lisp _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_lisp _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_lisp _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_lisp _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_lisp _ucl_drone_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -261,57 +261,57 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS ucl_drone_generate_messages_lisp)
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg"
+  "${MSG_I_FLAGS}"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ucl_drone
+)
+_generate_msg_py(ucl_drone
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ucl_drone
 )
 _generate_msg_py(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/indigo/share/sensor_msgs/cmake/../msg/Image.msg;/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ucl_drone
+)
+_generate_msg_py(ucl_drone
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ucl_drone
 )
 _generate_msg_py(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg/Navdata.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ucl_drone
-)
-_generate_msg_py(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ucl_drone
 )
 _generate_msg_py(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg"
   "${MSG_I_FLAGS}"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg"
+  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ucl_drone
 )
 _generate_msg_py(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ucl_drone
+)
+_generate_msg_py(ucl_drone
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ucl_drone
 )
 _generate_msg_py(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ucl_drone
-)
-_generate_msg_py(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg"
-  "${MSG_I_FLAGS}"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg;/opt/ros/indigo/share/sensor_msgs/cmake/../msg/Image.msg;/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ucl_drone
-)
-_generate_msg_py(ucl_drone
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg"
-  "${MSG_I_FLAGS}"
-  ""
+  "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/indigo/share/ardrone_autonomy/cmake/../msg/Navdata.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ucl_drone
 )
 
@@ -329,23 +329,23 @@ add_custom_target(ucl_drone_generate_messages_py
 add_dependencies(ucl_drone_generate_messages ucl_drone_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/PoseRef.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_py _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/Pose3D.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_py _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_py _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/StrategyMsg.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_py _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_py _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRoles.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_py _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/cellUpdate.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_py _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/ProcessedImageMsg.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/KeyPoint.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_py _ucl_drone_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/DroneRole.msg" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/msg/TargetDetected.msg" NAME_WE)
 add_dependencies(ucl_drone_generate_messages_py _ucl_drone_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -364,10 +364,18 @@ if(gencpp_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/uc
     DESTINATION ${gencpp_INSTALL_DIR}
   )
 endif()
-add_dependencies(ucl_drone_generate_messages_cpp std_msgs_generate_messages_cpp)
-add_dependencies(ucl_drone_generate_messages_cpp geometry_msgs_generate_messages_cpp)
-add_dependencies(ucl_drone_generate_messages_cpp sensor_msgs_generate_messages_cpp)
-add_dependencies(ucl_drone_generate_messages_cpp ardrone_autonomy_generate_messages_cpp)
+if(TARGET std_msgs_generate_messages_cpp)
+  add_dependencies(ucl_drone_generate_messages_cpp std_msgs_generate_messages_cpp)
+endif()
+if(TARGET geometry_msgs_generate_messages_cpp)
+  add_dependencies(ucl_drone_generate_messages_cpp geometry_msgs_generate_messages_cpp)
+endif()
+if(TARGET sensor_msgs_generate_messages_cpp)
+  add_dependencies(ucl_drone_generate_messages_cpp sensor_msgs_generate_messages_cpp)
+endif()
+if(TARGET ardrone_autonomy_generate_messages_cpp)
+  add_dependencies(ucl_drone_generate_messages_cpp ardrone_autonomy_generate_messages_cpp)
+endif()
 
 if(genlisp_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/ucl_drone)
   # install generated code
@@ -376,10 +384,18 @@ if(genlisp_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/
     DESTINATION ${genlisp_INSTALL_DIR}
   )
 endif()
-add_dependencies(ucl_drone_generate_messages_lisp std_msgs_generate_messages_lisp)
-add_dependencies(ucl_drone_generate_messages_lisp geometry_msgs_generate_messages_lisp)
-add_dependencies(ucl_drone_generate_messages_lisp sensor_msgs_generate_messages_lisp)
-add_dependencies(ucl_drone_generate_messages_lisp ardrone_autonomy_generate_messages_lisp)
+if(TARGET std_msgs_generate_messages_lisp)
+  add_dependencies(ucl_drone_generate_messages_lisp std_msgs_generate_messages_lisp)
+endif()
+if(TARGET geometry_msgs_generate_messages_lisp)
+  add_dependencies(ucl_drone_generate_messages_lisp geometry_msgs_generate_messages_lisp)
+endif()
+if(TARGET sensor_msgs_generate_messages_lisp)
+  add_dependencies(ucl_drone_generate_messages_lisp sensor_msgs_generate_messages_lisp)
+endif()
+if(TARGET ardrone_autonomy_generate_messages_lisp)
+  add_dependencies(ucl_drone_generate_messages_lisp ardrone_autonomy_generate_messages_lisp)
+endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ucl_drone)
   install(CODE "execute_process(COMMAND \"/usr/bin/python\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ucl_drone\")")
@@ -389,7 +405,15 @@ if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/ucl_
     DESTINATION ${genpy_INSTALL_DIR}
   )
 endif()
-add_dependencies(ucl_drone_generate_messages_py std_msgs_generate_messages_py)
-add_dependencies(ucl_drone_generate_messages_py geometry_msgs_generate_messages_py)
-add_dependencies(ucl_drone_generate_messages_py sensor_msgs_generate_messages_py)
-add_dependencies(ucl_drone_generate_messages_py ardrone_autonomy_generate_messages_py)
+if(TARGET std_msgs_generate_messages_py)
+  add_dependencies(ucl_drone_generate_messages_py std_msgs_generate_messages_py)
+endif()
+if(TARGET geometry_msgs_generate_messages_py)
+  add_dependencies(ucl_drone_generate_messages_py geometry_msgs_generate_messages_py)
+endif()
+if(TARGET sensor_msgs_generate_messages_py)
+  add_dependencies(ucl_drone_generate_messages_py sensor_msgs_generate_messages_py)
+endif()
+if(TARGET ardrone_autonomy_generate_messages_py)
+  add_dependencies(ucl_drone_generate_messages_py ardrone_autonomy_generate_messages_py)
+endif()

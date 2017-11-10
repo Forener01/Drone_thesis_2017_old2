@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/test_controller_tud.dir/src/test_controller.cpp.o"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity/test_controller_tud.pdb"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity/test_controller_tud"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity/test_controller_tud.pdb"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity/test_controller_tud"
 )
 
 # Per-language clean rules from dependency scanning.

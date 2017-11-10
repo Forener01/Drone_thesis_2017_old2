@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/pose_estimation.dir/src/pose_estimation/pose_estimation.cpp.o"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/pose_estimation.pdb"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/pose_estimation"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/pose_estimation.pdb"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/pose_estimation"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -67,14 +67,14 @@ set(robot_localization_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(robot_localization_SOURCE_PREFIX /home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization)
-  set(robot_localization_DEVEL_PREFIX /home/aurian/Bureau/Drone_thesis_2017/Code/devel)
+  set(robot_localization_SOURCE_PREFIX /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization)
+  set(robot_localization_DEVEL_PREFIX /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel)
   set(robot_localization_INSTALL_PREFIX "")
   set(robot_localization_PREFIX ${robot_localization_DEVEL_PREFIX})
 else()
   set(robot_localization_SOURCE_PREFIX "")
   set(robot_localization_DEVEL_PREFIX "")
-  set(robot_localization_INSTALL_PREFIX /home/aurian/Bureau/Drone_thesis_2017/Code/install)
+  set(robot_localization_INSTALL_PREFIX /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/install)
   set(robot_localization_PREFIX ${robot_localization_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(robot_localization_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include;/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/include " STREQUAL " ")
+if(NOT "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include;/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/include " STREQUAL " ")
   set(robot_localization_INCLUDE_DIRS "")
-  set(_include_dirs "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include;/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/include")
+  set(_include_dirs "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include;/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/include")
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})
@@ -103,7 +103,7 @@ if(NOT "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include;/home/aurian/Bu
         message(FATAL_ERROR "Project 'robot_localization' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  Ask the maintainer 'Tom Moore <ayrton04@gmail.com>' to fix it.")
       endif()
     else()
-      message(FATAL_ERROR "Project 'robot_localization' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/${idir}'.  Ask the maintainer 'Tom Moore <ayrton04@gmail.com>' to fix it.")
+      message(FATAL_ERROR "Project 'robot_localization' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/${idir}'.  Ask the maintainer 'Tom Moore <ayrton04@gmail.com>' to fix it.")
     endif()
     _list_append_unique(robot_localization_INCLUDE_DIRS ${include})
   endforeach()
@@ -122,7 +122,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/aurian/Bureau/Drone_thesis_2017/Code/devel/lib;/opt/ros/indigo/lib)
+    foreach(path /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib;/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib;/opt/ros/indigo/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

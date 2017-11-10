@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
 string
 -
 vector
@@ -24,7 +24,7 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/pose_estimation.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/pose_estimation.h
 ucl_drone/ucl_drone.h
 -
 ucl_drone/profiling.h
@@ -54,17 +54,17 @@ std_srvs/Empty.h
 ucl_drone/Pose3D.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/profiling.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/profiling.h
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/ucl_drone.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/ucl_drone.h
 ros/package.h
 -
 ros/ros.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/pose_estimation/pose_estimation.cpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/pose_estimation/pose_estimation.cpp
 ucl_drone/pose_estimation.h
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/pose_estimation/ucl_drone/pose_estimation.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/pose_estimation/ucl_drone/pose_estimation.h
 math.h
 -
 
@@ -504,6 +504,8 @@ cstdarg
 ros/macros.h
 -
 map
+-
+vector
 -
 log4cxx/level.h
 /opt/ros/indigo/include/ros/log4cxx/level.h

@@ -37,19 +37,17 @@ public:
   ros::Publisher reset_pub;
   ros::Publisher poseref_pub;
 
-  // ros::Subscriber battery_sub;
-
   void land(void);
   void takeoff(void);
   void hover(void);
   void load_vel(double linX, double linY, double linZ, double angZ);
   void load_pose(double Xpos, double Ypos, double Zpos);
   void test(double sleeptime, double speed, double hovertime);
-  void batteryCb(const ardrone_autonomy::Navdata &mynavdata);
-  // void print_battery(void);
+  void finish(void);
+  void init(void);
+
 private:
   int test_type, path_type;
   geometry_msgs::Pose targetpose;
-  // double battery;
 };
 #endif // TEST_CONTROLLER_HPP

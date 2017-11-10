@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/robot_localization/SetDatum.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/robot_localization/SetDatum.h
 ros/service_traits.h
 -
 robot_localization/SetDatumRequest.h
@@ -14,7 +14,7 @@ robot_localization/SetDatumRequest.h
 robot_localization/SetDatumResponse.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/robot_localization/SetDatumRequest.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/robot_localization/SetDatumRequest.h
 string
 -
 vector
@@ -32,7 +32,7 @@ ros/message_operations.h
 geographic_msgs/GeoPose.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/robot_localization/SetDatumResponse.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/robot_localization/SetDatumResponse.h
 string
 -
 vector
@@ -48,7 +48,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/navsat_transform.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/navsat_transform.h
 robot_localization/SetDatum.h
 -
 ros/ros.h
@@ -72,9 +72,9 @@ Eigen/Dense
 string
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/navsat_transform_node.cpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/navsat_transform_node.cpp
 robot_localization/navsat_transform.h
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/robot_localization/navsat_transform.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/robot_localization/navsat_transform.h
 ros/ros.h
 -
 
@@ -416,6 +416,8 @@ cstdarg
 ros/macros.h
 -
 map
+-
+vector
 -
 log4cxx/level.h
 /opt/ros/indigo/include/ros/log4cxx/level.h
