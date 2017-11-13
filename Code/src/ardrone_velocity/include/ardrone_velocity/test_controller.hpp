@@ -37,13 +37,13 @@ public:
   void hover(void);
   void load_vel(double linX, double linY, double linZ, double angZ);
   void load_pose(double Xpos, double Ypos, double Zpos);
-  void test(double speed, double sleeptime, double hovertime);
+  void test();
   void finish(void);
   void init(void);
 
 private:
   int test_type, path_type;
   geometry_msgs::Pose targetpose;
-  // double speed, hovertime, sleeptime;
+  double speed, hovertime, sleeptime;
 };
 #endif // TEST_CONTROLLER_HPP

@@ -10,3 +10,6 @@
 9. DOWNLOAD:
  - 1st time => git clone https://github.com/Forener01/Drone_thesis_2017
  - git pull origin master
+
+# How to get an old commit
+https://github.com/{username}/{projectname}/archive/{sha}.zip

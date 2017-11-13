@@ -18,8 +18,8 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/include"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/include"
   "/opt/ros/indigo/include"
   "/usr/include/eigen3"
   )

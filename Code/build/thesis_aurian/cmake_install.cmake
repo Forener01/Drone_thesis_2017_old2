@@ -1,8 +1,8 @@
-# Install script for directory: /home/aurian/Bureau/Drone_thesis_2017/Code/src/thesis_aurian
+# Install script for directory: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/thesis_aurian
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/home/aurian/Bureau/Drone_thesis_2017/Code/install")
+  SET(CMAKE_INSTALL_PREFIX "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/install")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,33 +33,33 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/thesis_aurian" TYPE FILE FILES "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/thesis_aurian/dynamic_param_configConfig.h")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/thesis_aurian" TYPE FILE FILES "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/thesis_aurian/dynamic_param_configConfig.h")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/thesis_aurian" TYPE FILE FILES "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/lib/python2.7/dist-packages/thesis_aurian/__init__.py")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/thesis_aurian" TYPE FILE FILES "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/python2.7/dist-packages/thesis_aurian/__init__.py")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  execute_process(COMMAND "/usr/bin/python" -m compileall "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/lib/python2.7/dist-packages/thesis_aurian/cfg")
+  execute_process(COMMAND "/usr/bin/python" -m compileall "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/python2.7/dist-packages/thesis_aurian/cfg")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/thesis_aurian" TYPE DIRECTORY FILES "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/lib/python2.7/dist-packages/thesis_aurian/cfg")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/thesis_aurian" TYPE DIRECTORY FILES "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/python2.7/dist-packages/thesis_aurian/cfg")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/aurian/Bureau/Drone_thesis_2017/Code/build/thesis_aurian/catkin_generated/installspace/thesis_aurian.pc")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/thesis_aurian/catkin_generated/installspace/thesis_aurian.pc")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thesis_aurian/cmake" TYPE FILE FILES
-    "/home/aurian/Bureau/Drone_thesis_2017/Code/build/thesis_aurian/catkin_generated/installspace/thesis_aurianConfig.cmake"
-    "/home/aurian/Bureau/Drone_thesis_2017/Code/build/thesis_aurian/catkin_generated/installspace/thesis_aurianConfig-version.cmake"
+    "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/thesis_aurian/catkin_generated/installspace/thesis_aurianConfig.cmake"
+    "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/thesis_aurian/catkin_generated/installspace/thesis_aurianConfig-version.cmake"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thesis_aurian" TYPE FILE FILES "/home/aurian/Bureau/Drone_thesis_2017/Code/src/thesis_aurian/package.xml")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/thesis_aurian" TYPE FILE FILES "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/thesis_aurian/package.xml")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

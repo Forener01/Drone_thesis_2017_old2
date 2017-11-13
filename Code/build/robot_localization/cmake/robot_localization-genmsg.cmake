@@ -15,14 +15,14 @@ add_custom_target(robot_localization_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv" NAME_WE)
 add_custom_target(_robot_localization_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "robot_localization" "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv" "geographic_msgs/GeoPose:geometry_msgs/Quaternion:geographic_msgs/GeoPoint"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "robot_localization" "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv" "geometry_msgs/Point:geometry_msgs/PoseWithCovariance:geometry_msgs/PoseWithCovarianceStamped:std_msgs/Header:geometry_msgs/Quaternion:geometry_msgs/Pose"
 )
 
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv" NAME_WE)
 add_custom_target(_robot_localization_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "robot_localization" "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv" "geometry_msgs/Point:geometry_msgs/PoseWithCovariance:geometry_msgs/PoseWithCovarianceStamped:std_msgs/Header:geometry_msgs/Quaternion:geometry_msgs/Pose"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "robot_localization" "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv" "geographic_msgs/GeoPose:geometry_msgs/Quaternion:geographic_msgs/GeoPoint"
 )
 
 #
@@ -34,15 +34,15 @@ add_custom_target(_robot_localization_generate_messages_check_deps_${_filename}
 
 ### Generating Services
 _generate_srv_cpp(robot_localization
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/geographic_msgs/cmake/../msg/GeoPose.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/indigo/share/geographic_msgs/cmake/../msg/GeoPoint.msg"
+  "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/robot_localization
 )
 _generate_srv_cpp(robot_localization
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Pose.msg"
+  "/opt/ros/indigo/share/geographic_msgs/cmake/../msg/GeoPose.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/indigo/share/geographic_msgs/cmake/../msg/GeoPoint.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/robot_localization
 )
 
@@ -58,9 +58,9 @@ add_custom_target(robot_localization_generate_messages_cpp
 add_dependencies(robot_localization_generate_messages robot_localization_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv" NAME_WE)
 add_dependencies(robot_localization_generate_messages_cpp _robot_localization_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv" NAME_WE)
 add_dependencies(robot_localization_generate_messages_cpp _robot_localization_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -75,15 +75,15 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS robot_localization_generate_message
 
 ### Generating Services
 _generate_srv_lisp(robot_localization
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/geographic_msgs/cmake/../msg/GeoPose.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/indigo/share/geographic_msgs/cmake/../msg/GeoPoint.msg"
+  "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/robot_localization
 )
 _generate_srv_lisp(robot_localization
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Pose.msg"
+  "/opt/ros/indigo/share/geographic_msgs/cmake/../msg/GeoPose.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/indigo/share/geographic_msgs/cmake/../msg/GeoPoint.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/robot_localization
 )
 
@@ -99,9 +99,9 @@ add_custom_target(robot_localization_generate_messages_lisp
 add_dependencies(robot_localization_generate_messages robot_localization_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv" NAME_WE)
 add_dependencies(robot_localization_generate_messages_lisp _robot_localization_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv" NAME_WE)
 add_dependencies(robot_localization_generate_messages_lisp _robot_localization_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -116,15 +116,15 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS robot_localization_generate_message
 
 ### Generating Services
 _generate_srv_py(robot_localization
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/geographic_msgs/cmake/../msg/GeoPose.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/indigo/share/geographic_msgs/cmake/../msg/GeoPoint.msg"
+  "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Pose.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/robot_localization
 )
 _generate_srv_py(robot_localization
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/PoseWithCovariance.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/PoseWithCovarianceStamped.msg;/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Pose.msg"
+  "/opt/ros/indigo/share/geographic_msgs/cmake/../msg/GeoPose.msg;/opt/ros/indigo/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/indigo/share/geographic_msgs/cmake/../msg/GeoPoint.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/robot_localization
 )
 
@@ -140,9 +140,9 @@ add_custom_target(robot_localization_generate_messages_py
 add_dependencies(robot_localization_generate_messages robot_localization_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv" NAME_WE)
 add_dependencies(robot_localization_generate_messages_py _robot_localization_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetPose.srv" NAME_WE)
+get_filename_component(_filename "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/srv/SetDatum.srv" NAME_WE)
 add_dependencies(robot_localization_generate_messages_py _robot_localization_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -161,9 +161,15 @@ if(gencpp_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/ro
     DESTINATION ${gencpp_INSTALL_DIR}
   )
 endif()
-add_dependencies(robot_localization_generate_messages_cpp geographic_msgs_generate_messages_cpp)
-add_dependencies(robot_localization_generate_messages_cpp geometry_msgs_generate_messages_cpp)
-add_dependencies(robot_localization_generate_messages_cpp std_msgs_generate_messages_cpp)
+if(TARGET geographic_msgs_generate_messages_cpp)
+  add_dependencies(robot_localization_generate_messages_cpp geographic_msgs_generate_messages_cpp)
+endif()
+if(TARGET geometry_msgs_generate_messages_cpp)
+  add_dependencies(robot_localization_generate_messages_cpp geometry_msgs_generate_messages_cpp)
+endif()
+if(TARGET std_msgs_generate_messages_cpp)
+  add_dependencies(robot_localization_generate_messages_cpp std_msgs_generate_messages_cpp)
+endif()
 
 if(genlisp_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/robot_localization)
   # install generated code
@@ -172,9 +178,15 @@ if(genlisp_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/
     DESTINATION ${genlisp_INSTALL_DIR}
   )
 endif()
-add_dependencies(robot_localization_generate_messages_lisp geographic_msgs_generate_messages_lisp)
-add_dependencies(robot_localization_generate_messages_lisp geometry_msgs_generate_messages_lisp)
-add_dependencies(robot_localization_generate_messages_lisp std_msgs_generate_messages_lisp)
+if(TARGET geographic_msgs_generate_messages_lisp)
+  add_dependencies(robot_localization_generate_messages_lisp geographic_msgs_generate_messages_lisp)
+endif()
+if(TARGET geometry_msgs_generate_messages_lisp)
+  add_dependencies(robot_localization_generate_messages_lisp geometry_msgs_generate_messages_lisp)
+endif()
+if(TARGET std_msgs_generate_messages_lisp)
+  add_dependencies(robot_localization_generate_messages_lisp std_msgs_generate_messages_lisp)
+endif()
 
 if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/robot_localization)
   install(CODE "execute_process(COMMAND \"/usr/bin/python\" -m compileall \"${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/robot_localization\")")
@@ -184,6 +196,12 @@ if(genpy_INSTALL_DIR AND EXISTS ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/robo
     DESTINATION ${genpy_INSTALL_DIR}
   )
 endif()
-add_dependencies(robot_localization_generate_messages_py geographic_msgs_generate_messages_py)
-add_dependencies(robot_localization_generate_messages_py geometry_msgs_generate_messages_py)
-add_dependencies(robot_localization_generate_messages_py std_msgs_generate_messages_py)
+if(TARGET geographic_msgs_generate_messages_py)
+  add_dependencies(robot_localization_generate_messages_py geographic_msgs_generate_messages_py)
+endif()
+if(TARGET geometry_msgs_generate_messages_py)
+  add_dependencies(robot_localization_generate_messages_py geometry_msgs_generate_messages_py)
+endif()
+if(TARGET std_msgs_generate_messages_py)
+  add_dependencies(robot_localization_generate_messages_py std_msgs_generate_messages_py)
+endif()

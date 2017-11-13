@@ -5,8 +5,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o"
   "CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o"
   "CMakeFiles/map_keyframe_based.dir/src/read_from_launch.cpp.o"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/map_keyframe_based.pdb"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/map_keyframe_based"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/map_keyframe_based.pdb"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/map_keyframe_based"
 )
 
 # Per-language clean rules from dependency scanning.

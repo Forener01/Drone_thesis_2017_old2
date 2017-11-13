@@ -51,6 +51,15 @@ OLD
 la caméra frontale/ventrale. Ensuite, ils contrôlent ça, et le tout est lié à
 leur PTAM => trop compliqué de reprendre quoique ce soit.
 
+- Adapter prend du temps: il faut créer une architecture de communication ros 
+et intégrer les noeuds appropriés aux bons endroits.
+
+- Quelques jours de perdu pendant campagne de mesures: controleur de vitesse 
+fonctionnait avec le marquage de base du DroneLab, mais pas à la DroneZone à
+cause du revêtement trop uniforme de celle-ci. Ordre de débug: erreurs de code,
+batteries défectueuses, pc portable trop peu puissant, et enfin, revêtement
+inadéquat.
+
 # Structure Rapport TFE
 - Abstract: 1p
 - Introduction: 5p

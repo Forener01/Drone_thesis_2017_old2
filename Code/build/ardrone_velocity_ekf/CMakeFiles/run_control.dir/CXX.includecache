@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ardrone_velocity_ekf/dynamic_param_configConfig.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ardrone_velocity_ekf/dynamic_param_configConfig.h
 dynamic_reconfigure/config_tools.h
 -
 limits
@@ -24,7 +24,7 @@ dynamic_reconfigure/config_init_mutex.h
 boost/any.hpp
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/filtervelocity.hpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/filtervelocity.hpp
 vector
 -
 cstdint
@@ -32,21 +32,21 @@ cstdint
 eigen3/Eigen/Dense
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/pid_control.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/pid_control.h
 ardrone_velocity_ekf/filtervelocity.hpp
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/ardrone_velocity_ekf/filtervelocity.hpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/ardrone_velocity_ekf/filtervelocity.hpp
 geometry_msgs/Twist.h
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/geometry_msgs/Twist.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/geometry_msgs/Twist.h
 nav_msgs/Odometry.h
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/nav_msgs/Odometry.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/nav_msgs/Odometry.h
 ros/ros.h
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/ros/ros.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/ros/ros.h
 std_msgs/Bool.h
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/std_msgs/Bool.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/std_msgs/Bool.h
 std_msgs/Float64.h
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/std_msgs/Float64.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/std_msgs/Float64.h
 std_msgs/String.h
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/std_msgs/String.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/std_msgs/String.h
 ardrone_autonomy/Navdata.h
 -
 ardrone_velocity_ekf/dynamic_param_configConfig.h
@@ -64,17 +64,17 @@ tf/transform_broadcaster.h
 tf/transform_listener.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/run_control.cpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/run_control.cpp
 ardrone_velocity_ekf/pid_control.h
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/ardrone_velocity_ekf/pid_control.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/ardrone_velocity_ekf/pid_control.h
 geometry_msgs/Twist.h
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/geometry_msgs/Twist.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/geometry_msgs/Twist.h
 sensor_msgs/Joy.h
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/sensor_msgs/Joy.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/sensor_msgs/Joy.h
 std_msgs/Empty.h
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/std_msgs/Empty.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/std_msgs/Empty.h
 std_msgs/Float32.h
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/std_msgs/Float32.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/std_msgs/Float32.h
 ros/ros.h
 -
 sstream
@@ -754,6 +754,8 @@ cstdarg
 ros/macros.h
 -
 map
+-
+vector
 -
 log4cxx/level.h
 /opt/ros/indigo/include/ros/log4cxx/level.h

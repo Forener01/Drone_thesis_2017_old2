@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
 string
 -
 vector
@@ -24,7 +24,7 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/PoseRef.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/PoseRef.h
 string
 -
 vector
@@ -42,7 +42,7 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/controller.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/controller.h
 ros/ros.h
 -
 signal.h
@@ -62,17 +62,17 @@ ucl_drone/PoseRef.h
 std_srvs/Empty.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/profiling.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/profiling.h
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/ucl_drone.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/ucl_drone.h
 ros/package.h
 -
 ros/ros.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/controller/controller.cpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/controller/controller.cpp
 ucl_drone/controller.h
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/controller/ucl_drone/controller.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/controller/ucl_drone/controller.h
 
 /opt/ros/indigo/include/XmlRpcDecl.h
 ros/macros.h
@@ -196,6 +196,8 @@ cstdarg
 ros/macros.h
 -
 map
+-
+vector
 -
 log4cxx/level.h
 /opt/ros/indigo/include/ros/log4cxx/level.h

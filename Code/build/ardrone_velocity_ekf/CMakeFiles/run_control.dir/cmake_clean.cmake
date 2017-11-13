@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/run_control.dir/src/run_control.cpp.o"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity_ekf/run_control.pdb"
-  "/home/aurian/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity_ekf/run_control"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity_ekf/run_control.pdb"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity_ekf/run_control"
 )
 
 # Per-language clean rules from dependency scanning.

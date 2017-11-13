@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ardrone_velocity/dynamic_param_configConfig.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ardrone_velocity/dynamic_param_configConfig.h
 dynamic_reconfigure/config_tools.h
 -
 limits
@@ -24,7 +24,7 @@ dynamic_reconfigure/config_init_mutex.h
 boost/any.hpp
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/include/ardrone_velocity/controller_tud.hpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/include/ardrone_velocity/controller_tud.hpp
 ardrone_velocity/dynamic_param_configConfig.h
 -
 ardrone_velocity/filtervelocity.hpp
@@ -44,11 +44,11 @@ std_msgs/Empty.h
 std_msgs/Float64.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/include/ardrone_velocity/filtervelocity.hpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/include/ardrone_velocity/filtervelocity.hpp
 vector
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/include/ardrone_velocity/path_planning.hpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/include/ardrone_velocity/path_planning.hpp
 geometry_msgs/Pose.h
 -
 geometry_msgs/Twist.h
@@ -62,7 +62,7 @@ ros/ros.h
 stdio.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/include/ardrone_velocity/test_controller.hpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/include/ardrone_velocity/test_controller.hpp
 ardrone_autonomy/Navdata.h
 -
 ardrone_velocity/path_planning.hpp
@@ -84,7 +84,7 @@ stdlib.h
 string.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/src/controller_tud.cpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/src/controller_tud.cpp
 ardrone_velocity/controller_tud.hpp
 -
 random
@@ -576,6 +576,8 @@ cstdarg
 ros/macros.h
 -
 map
+-
+vector
 -
 log4cxx/level.h
 /opt/ros/indigo/include/ros/log4cxx/level.h

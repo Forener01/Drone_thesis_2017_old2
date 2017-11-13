@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRole.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRole.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h
 string
 -
 vector
@@ -40,7 +40,7 @@ ros/message_operations.h
 ucl_drone/DroneRole.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
 string
 -
 vector
@@ -58,7 +58,7 @@ ros/message_operations.h
 std_msgs/Header.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/drone_role.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/drone_role.h
 stdarg.h
 -
 ros/package.h
@@ -74,7 +74,7 @@ ucl_drone/Pose3D.h
 ucl_drone/ucl_drone.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/multi_strategy.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/multi_strategy.h
 ros/package.h
 -
 ros/ros.h
@@ -92,19 +92,19 @@ ucl_drone/drone_role.h
 ucl_drone/ucl_drone.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/profiling.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/profiling.h
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/ucl_drone.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/ucl_drone.h
 ros/package.h
 -
 ros/ros.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/multi_strategy/drone_role.cpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/multi_strategy/drone_role.cpp
 ucl_drone/drone_role.h
 -
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/multi_strategy/multi_strategy.cpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/src/multi_strategy/multi_strategy.cpp
 ucl_drone/multi_strategy.h
 -
 
@@ -194,6 +194,8 @@ cstdarg
 ros/macros.h
 -
 map
+-
+vector
 -
 log4cxx/level.h
 /opt/ros/indigo/include/ros/log4cxx/level.h

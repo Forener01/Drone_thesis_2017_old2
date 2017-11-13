@@ -55,10 +55,10 @@ namespace ardrone_velocity
     class ParamDescription : public AbstractParamDescription
     {
     public:
-      ParamDescription(std::string name, std::string type, uint32_t level, 
-          std::string description, std::string edit_method, T dynamic_param_configConfig::* f) :
-        AbstractParamDescription(name, type, level, description, edit_method),
-        field(f)
+      ParamDescription(std::string a_name, std::string a_type, uint32_t a_level, 
+          std::string a_description, std::string a_edit_method, T dynamic_param_configConfig::* a_f) :
+        AbstractParamDescription(a_name, a_type, a_level, a_description, a_edit_method),
+        field(a_f)
       {}
 
       T (dynamic_param_configConfig::* field);
@@ -141,7 +141,7 @@ namespace ardrone_velocity
     class GroupDescription : public AbstractGroupDescription
     {
     public:
-      GroupDescription(std::string name, std::string type, int parent, int id, bool s, T PT::* f) : AbstractGroupDescription(name, type, parent, id, s), field(f)
+      GroupDescription(std::string a_name, std::string a_type, int a_parent, int a_id, bool a_s, T PT::* a_f) : AbstractGroupDescription(a_name, a_type, a_parent, a_id, a_s), field(a_f)
       {
       }
 
@@ -244,11 +244,11 @@ double Kd_xy;
 
 
 
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       double Kp_xy;
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       double Ki_xy;
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       double Kd_xy;
 //#line 218 "/opt/ros/indigo/share/dynamic_reconfigure/cmake/../templates/ConfigType.h.template"
 
@@ -375,6 +375,9 @@ double Kd_xy;
   template <> // Max and min are ignored for strings.
   inline void dynamic_param_configConfig::ParamDescription<std::string>::clamp(dynamic_param_configConfig &config, const dynamic_param_configConfig &max, const dynamic_param_configConfig &min) const
   {
+    (void) config;
+    (void) min;
+    (void) max;
     return;
   }
 
@@ -385,41 +388,41 @@ double Kd_xy;
     dynamic_param_configConfigStatics()
     {
 dynamic_param_configConfig::GroupDescription<dynamic_param_configConfig::DEFAULT, dynamic_param_configConfig> Default("Default", "", 0, 0, true, &dynamic_param_configConfig::groups);
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __min__.Kp_xy = 0.0;
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __max__.Kp_xy = 2.0;
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __default__.Kp_xy = 0.5;
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.abstract_parameters.push_back(dynamic_param_configConfig::AbstractParamDescriptionConstPtr(new dynamic_param_configConfig::ParamDescription<double>("Kp_xy", "double", 0, "Proportional Coefficient in X direction", "", &dynamic_param_configConfig::Kp_xy)));
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __param_descriptions__.push_back(dynamic_param_configConfig::AbstractParamDescriptionConstPtr(new dynamic_param_configConfig::ParamDescription<double>("Kp_xy", "double", 0, "Proportional Coefficient in X direction", "", &dynamic_param_configConfig::Kp_xy)));
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __min__.Ki_xy = 0.0;
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __max__.Ki_xy = 0.5;
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __default__.Ki_xy = 0.01;
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.abstract_parameters.push_back(dynamic_param_configConfig::AbstractParamDescriptionConstPtr(new dynamic_param_configConfig::ParamDescription<double>("Ki_xy", "double", 0, "Integral Coefficient in X direction", "", &dynamic_param_configConfig::Ki_xy)));
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __param_descriptions__.push_back(dynamic_param_configConfig::AbstractParamDescriptionConstPtr(new dynamic_param_configConfig::ParamDescription<double>("Ki_xy", "double", 0, "Integral Coefficient in X direction", "", &dynamic_param_configConfig::Ki_xy)));
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __min__.Kd_xy = 0.0;
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __max__.Kd_xy = 0.05;
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __default__.Kd_xy = 0.006;
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.abstract_parameters.push_back(dynamic_param_configConfig::AbstractParamDescriptionConstPtr(new dynamic_param_configConfig::ParamDescription<double>("Kd_xy", "double", 0, "Derivative Coefficient in X direction", "", &dynamic_param_configConfig::Kd_xy)));
-//#line 280 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 293 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __param_descriptions__.push_back(dynamic_param_configConfig::AbstractParamDescriptionConstPtr(new dynamic_param_configConfig::ParamDescription<double>("Kd_xy", "double", 0, "Derivative Coefficient in X direction", "", &dynamic_param_configConfig::Kd_xy)));
-//#line 235 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 246 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       Default.convertParams();
-//#line 235 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
+//#line 246 "/opt/ros/indigo/lib/python2.7/dist-packages/dynamic_reconfigure/parameter_generator_catkin.py"
       __group_descriptions__.push_back(dynamic_param_configConfig::AbstractGroupDescriptionConstPtr(new dynamic_param_configConfig::GroupDescription<dynamic_param_configConfig::DEFAULT, dynamic_param_configConfig>(Default)));
-//#line 353 "/opt/ros/indigo/share/dynamic_reconfigure/cmake/../templates/ConfigType.h.template"
+//#line 356 "/opt/ros/indigo/share/dynamic_reconfigure/cmake/../templates/ConfigType.h.template"
 
       for (std::vector<dynamic_param_configConfig::AbstractGroupDescriptionConstPtr>::const_iterator i = __group_descriptions__.begin(); i != __group_descriptions__.end(); ++i)
       {

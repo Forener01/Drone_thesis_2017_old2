@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/PingThread.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/include/robot_localization/PingThread.h
 
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/ping_node.cpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/ping_node.cpp
 robot_localization/PingThread.h
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/robot_localization/PingThread.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/robot_localization/PingThread.h
 ros/ros.h
 -
 std_msgs/Duration.h
@@ -18,7 +18,7 @@ std_msgs/Duration.h
 string
 -
 std_msgs/String.h
-/home/aurian/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/std_msgs/String.h
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/robot_localization/src/std_msgs/String.h
 sstream
 -
 
@@ -108,6 +108,8 @@ cstdarg
 ros/macros.h
 -
 map
+-
+vector
 -
 log4cxx/level.h
 /opt/ros/indigo/include/ros/log4cxx/level.h
