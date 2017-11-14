@@ -13,7 +13,7 @@ Date: september 2017
 Controller_TUD::Controller_TUD() {
   ros::NodeHandle nh;
   ros::param::get("~test_type", test_type);
-  ros::param::get("~the_speed", speed);
+  // ros::param::get("~the_speed", speed);
 
   // Subscribers
   velinPID_sub =
@@ -25,9 +25,8 @@ Controller_TUD::Controller_TUD() {
   // Publishers
   veloutPID_pub = nh.advertise<geometry_msgs::Twist>("cmd_vel", 100);
   error_pub = nh.advertise<geometry_msgs::Twist>("tud/vel_error_topic", 100);
-  // percent_error_pub =
-  //     nh.advertise<geometry_msgs::Twist>("tud/vel_percent_error_topic", 100);
-  odom_pub = nh.advertise<nav_msgs::Odometry>("tud/odom_data_topic", 100);
+  percent_error_pub =
+      nh.advertise<geometry_msgs::Twist>("tud/vel_percent_error_topic", 100);
   /** Copied from ardrone_velocity package **/
 
   // Dynamic parameter reconfigure
@@ -60,7 +59,7 @@ void Controller_TUD::odomCb(const nav_msgs::Odometry &odo_msg) {
   // ROS_DEBUG_THROTTLE(0.5, "cmd PID x: %f m/s", m_current_command.linear.x);
   // ROS_DEBUG_THROTTLE(0.5, "cmd PID y: %f m/s", m_current_command.linear.y);
   // ROS_DEBUG_THROTTLE(0.5, "cmd PID z: %f m/s", m_current_command.linear.z);
-  odom_pub.publish(m_odo_msg);
+
   velocity_control();
 }
 
@@ -83,6 +82,8 @@ void Controller_TUD::velocity_control(void) {
   double error_y;
   double error_z;
 
+  double speed;
+
   geometry_msgs::Twist cmd_vel_out;
 
   // We limit the maximum reference speed of the quadcopter
@@ -99,15 +100,15 @@ void Controller_TUD::velocity_control(void) {
   cmd_vel_out = m_current_command;
 
   // In case that we receive a special command to hover
-  if (cmd_vel_out.angular.x == 0 && cmd_vel_out.angular.y == 0 &&
-      cmd_vel_out.angular.z == 0 && cmd_vel_out.linear.x == 0 &&
-      cmd_vel_out.linear.y == 0 && cmd_vel_out.linear.z == 0) {
-    set_hover();
-    // reset iterm
-    m_i_term_x = 0.0;
-    m_i_term_y = 0.0;
-    return;
-  }
+  // if (cmd_vel_out.angular.x == 0 && cmd_vel_out.angular.y == 0 &&
+  //     cmd_vel_out.angular.z == 0 && cmd_vel_out.linear.x == 0 &&
+  //     cmd_vel_out.linear.y == 0 && cmd_vel_out.linear.z == 0) {
+  //   set_hover();
+  //   // reset iterm
+  //   m_i_term_x = 0.0;
+  //   m_i_term_y = 0.0;
+  //   return;
+  // }
 
   // otherwise we dont want to hover.
   cmd_vel_out.angular.x = 1;
@@ -116,6 +117,14 @@ void Controller_TUD::velocity_control(void) {
   // Control starts here
   //! TODO: Separate filter for input of the derivative term.
   //! TODO: Consider measurement and controled variables delays.
+
+  if (m_current_command.linear.x != 0.0) {
+    speed = m_current_command.linear.x;
+  } else if (m_current_command.linear.y != 0.0) {
+    speed = m_current_command.linear.y;
+  } else {
+    speed = 0.0;
+  }
 
   // We calculate the velocity error
   error_x = m_current_command.linear.x - m_odo_msg.twist.twist.linear.x;
@@ -128,9 +137,9 @@ void Controller_TUD::velocity_control(void) {
   error_msg.linear.y = error_y;
   error_msg.linear.z = error_z;
 
-  // percent_error_msg.linear.x = error_x / speed;
-  // percent_error_msg.linear.y = error_y / speed;
-  // percent_error_msg.linear.z = error_z / speed;
+  percent_error_msg.linear.x = error_x / speed;
+  percent_error_msg.linear.y = error_y / speed;
+  percent_error_msg.linear.z = error_z / speed;
 
   // if (m_current_command.linear.x == 0.0) {
   //   if (error_x < 0.0) {
@@ -181,7 +190,7 @@ void Controller_TUD::velocity_control(void) {
   // }
 
   error_pub.publish(error_msg);
-  // percent_error_pub.publish(percent_error_msg);
+  percent_error_pub.publish(percent_error_msg);
 
   // The proportional term is directly the error
   p_term_x = error_x;

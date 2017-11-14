@@ -21,17 +21,23 @@
 #define STRAIGHTLINE 0
 #define SQUARE 1
 #define STATIC 2
+#define LEFTLINE 3
 
 class TestController {
 public:
   TestController();
   ros::NodeHandle nh;
+
+  ros::Subscriber raw_odom_sub;
   ros::Publisher vel_pub;
   ros::Publisher takeoff_pub;
   ros::Publisher land_pub;
   ros::Publisher reset_pub;
   ros::Publisher poseref_pub;
+  ros::Publisher raw_error_pub;
+  ros::Publisher raw_percent_error_pub;
 
+  void raw_odomCb(const nav_msgs::Odometry &odo_msg);
   void land(void);
   void takeoff(void);
   void hover(void);
@@ -44,6 +50,7 @@ public:
 private:
   int test_type, path_type;
   geometry_msgs::Pose targetpose;
-  double speed, hovertime, sleeptime;
+  nav_msgs::Odometry m_raw_odo_msg, m_raw_error_msg, m_raw_percent_error_msg;
+  double speed, hovertime, sleeptime, error_x, error_y, error_z;
 };
 #endif // TEST_CONTROLLER_HPP

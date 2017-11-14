@@ -63,7 +63,7 @@ private:
   // PID Coefficients
   double m_Kp_xy, m_Ki_xy, m_Kd_xy;
   int test_type;
-  double speed;
+  // double speed;
 };
 
 #endif // CONTROLLER_TUD_HPP
