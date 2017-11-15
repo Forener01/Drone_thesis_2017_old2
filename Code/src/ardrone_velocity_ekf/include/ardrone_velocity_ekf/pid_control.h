@@ -45,7 +45,7 @@ private:
   ros::Publisher cmd_pub;
   ros::Publisher error_pub, percent_error_pub;
 
-  geometry_msgs::Twist command, error_msg, percent_err_msg;
+  geometry_msgs::Twist command, error_msg, percent_error_msg;
   nav_msgs::Odometry odo;
 
   ros::Time curTime;

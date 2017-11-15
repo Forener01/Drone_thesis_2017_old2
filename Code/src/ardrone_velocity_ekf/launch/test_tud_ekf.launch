@@ -20,7 +20,10 @@
 
   <node name="test_controller_tud_ekf" pkg="ardrone_velocity_ekf" type="test_controller_tud_ekf" output="screen">
     <param name="test_type" value="1" /> <!-- 0 without control, 1 vel control, 2 pose control -->
-    <param name="path_type" value="0" /> <!-- 0 for straightline, 1 for a square -->
+    <param name="path_type" value="0" /> <!-- 0 for straightline, 1 for a square, 2 for static, 3 for left line -->
+    <param name="the_speed" value="0.2" /> <!-- setting the speed (m/s) -->
+    <param name="the_sleeptime" value="30.0" /> <!-- setting the sleeptime (s) -->
+    <param name="the_hovertime" value="2.0" /> <!-- setting the hovertime -->
   </node>
 
     <!-- <node pkg="ardrone_velocity" type="pid_control" name="ardrone_velocity_pid" clear_params="true">

@@ -12,38 +12,41 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Legend for test types
+// Test types
 #define WITHOUT_CONTROL 0
 #define VEL_CONTROL 1
 #define POSE_CONTROL 2
 
-// Legend for path types
+// Path types
 #define STRAIGHTLINE 0
 #define SQUARE 1
+#define STATIC 2
+#define LEFTLINE 3
 
 class TestController {
 public:
   TestController();
   ros::NodeHandle nh;
+
   ros::Publisher vel_pub;
   ros::Publisher takeoff_pub;
   ros::Publisher land_pub;
   ros::Publisher reset_pub;
   ros::Publisher poseref_pub;
 
-  // ros::Subscriber battery_sub;
-
   void land(void);
   void takeoff(void);
   void hover(void);
   void load_vel(double linX, double linY, double linZ, double angZ);
-  void load_pose(double X, double Y, double Z);
-  void test(double sleeptime, double speed, double hovertime);
-  void batteryCb(const ardrone_autonomy::Navdata &mynavdata);
-  // void print_battery(void);
+  void load_pose(double Xpos, double Ypos, double Zpos);
+  void test();
+  void finish(void);
+  void init(void);
+
 private:
-  int test_type;
-  int path_type;
-  // double battery;
+  int test_type, path_type;
+  geometry_msgs::Pose targetpose;
+
+  double speed, hovertime, sleeptime;
 };
 #endif // TEST_CONTROLLER_HPP

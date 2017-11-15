@@ -248,6 +248,20 @@ path_planning/fast:
 .PHONY : path_planning/fast
 
 # Convenience name for target.
+ardrone_velocity/CMakeFiles/raw_odom.dir/rule:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_velocity/CMakeFiles/raw_odom.dir/rule
+.PHONY : ardrone_velocity/CMakeFiles/raw_odom.dir/rule
+
+# Convenience name for target.
+raw_odom: ardrone_velocity/CMakeFiles/raw_odom.dir/rule
+.PHONY : raw_odom
+
+# fast build rule for target.
+raw_odom/fast:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f ardrone_velocity/CMakeFiles/raw_odom.dir/build.make ardrone_velocity/CMakeFiles/raw_odom.dir/build
+.PHONY : raw_odom/fast
+
+# Convenience name for target.
 ardrone_velocity/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
 	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_velocity/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
 .PHONY : ardrone_velocity/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
@@ -375,6 +389,30 @@ src/path_planning.cpp.s:
 	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f ardrone_velocity/CMakeFiles/path_planning.dir/build.make ardrone_velocity/CMakeFiles/path_planning.dir/src/path_planning.cpp.s
 .PHONY : src/path_planning.cpp.s
 
+src/raw_odom.o: src/raw_odom.cpp.o
+.PHONY : src/raw_odom.o
+
+# target to build an object file
+src/raw_odom.cpp.o:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f ardrone_velocity/CMakeFiles/raw_odom.dir/build.make ardrone_velocity/CMakeFiles/raw_odom.dir/src/raw_odom.cpp.o
+.PHONY : src/raw_odom.cpp.o
+
+src/raw_odom.i: src/raw_odom.cpp.i
+.PHONY : src/raw_odom.i
+
+# target to preprocess a source file
+src/raw_odom.cpp.i:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f ardrone_velocity/CMakeFiles/raw_odom.dir/build.make ardrone_velocity/CMakeFiles/raw_odom.dir/src/raw_odom.cpp.i
+.PHONY : src/raw_odom.cpp.i
+
+src/raw_odom.s: src/raw_odom.cpp.s
+.PHONY : src/raw_odom.s
+
+# target to generate assembly for a file
+src/raw_odom.cpp.s:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f ardrone_velocity/CMakeFiles/raw_odom.dir/build.make ardrone_velocity/CMakeFiles/raw_odom.dir/src/raw_odom.cpp.s
+.PHONY : src/raw_odom.cpp.s
+
 src/test_controller.o: src/test_controller.cpp.o
 .PHONY : src/test_controller.o
 
@@ -417,6 +455,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... path_planning"
+	@echo "... raw_odom"
 	@echo "... rebuild_cache"
 	@echo "... std_srvs_generate_messages_cpp"
 	@echo "... std_srvs_generate_messages_lisp"
@@ -432,6 +471,9 @@ help:
 	@echo "... src/path_planning.o"
 	@echo "... src/path_planning.i"
 	@echo "... src/path_planning.s"
+	@echo "... src/raw_odom.o"
+	@echo "... src/raw_odom.i"
+	@echo "... src/raw_odom.s"
 	@echo "... src/test_controller.o"
 	@echo "... src/test_controller.i"
 	@echo "... src/test_controller.s"

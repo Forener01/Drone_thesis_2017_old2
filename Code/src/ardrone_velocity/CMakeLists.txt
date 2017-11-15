@@ -138,6 +138,7 @@ set(PIDCONTROL_HEADER_FILES
 add_executable(controller_tud ${PIDCONTROL_SOURCE_FILES} ${PIDCONTROL_HEADER_FILES})
 add_executable(test_controller_tud src/test_controller.cpp)
 add_executable(path_planning src/path_planning.cpp)
+add_executable(raw_odom src/raw_odom.cpp)
 #add_executable(mainQt src/mainQt.cpp)
 
 ## Add cmake target dependencies of the executable/library
@@ -153,6 +154,7 @@ add_dependencies(controller_tud ${PROJECT_NAME}_gencfg)
 target_link_libraries(controller_tud ${catkin_LIBRARIES})
 target_link_libraries(test_controller_tud ${catkin_LIBRARIES})
 target_link_libraries(path_planning ${catkin_LIBRARIES})
+target_link_libraries(raw_odom ${catkin_LIBRARIES})
 
 
 #target_link_libraries(mainQt ${catkin_LIBRARIES} ${QT_LIBRARIES})

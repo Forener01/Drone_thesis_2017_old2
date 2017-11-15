@@ -74,6 +74,7 @@
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ardrone_velocity_ekf/CMakeFiles/pid_control_ekf.dir
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/robot_localization/CMakeFiles/ping_node.dir
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ucl_drone/CMakeFiles/pose_estimation.dir
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ardrone_velocity/CMakeFiles/raw_odom.dir
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/robot_localization/CMakeFiles/robot_localization_gencpp.dir
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/robot_localization/CMakeFiles/robot_localization_generate_messages.dir
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/robot_localization/CMakeFiles/robot_localization_generate_messages_cpp.dir

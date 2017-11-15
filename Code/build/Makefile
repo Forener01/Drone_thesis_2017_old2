@@ -865,6 +865,19 @@ path_planning/fast:
 .PHONY : path_planning/fast
 
 #=============================================================================
+# Target rules for targets named raw_odom
+
+# Build rule for target.
+raw_odom: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 raw_odom
+.PHONY : raw_odom
+
+# fast build rule for target.
+raw_odom/fast:
+	$(MAKE) -f ardrone_velocity/CMakeFiles/raw_odom.dir/build.make ardrone_velocity/CMakeFiles/raw_odom.dir/build
+.PHONY : raw_odom/fast
+
+#=============================================================================
 # Target rules for targets named std_srvs_generate_messages_cpp
 
 # Build rule for target.
@@ -1933,6 +1946,7 @@ help:
 	@echo "... ardrone_velocity_gencfg"
 	@echo "... controller_tud"
 	@echo "... path_planning"
+	@echo "... raw_odom"
 	@echo "... std_srvs_generate_messages_cpp"
 	@echo "... std_srvs_generate_messages_lisp"
 	@echo "... std_srvs_generate_messages_py"

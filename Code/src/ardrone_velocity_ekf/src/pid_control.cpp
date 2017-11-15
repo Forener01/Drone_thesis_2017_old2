@@ -163,40 +163,43 @@ void PID_Control::pid_control() {
   error_msg.linear.x = error_xy(0);
   error_msg.linear.y = error_xy(1);
 
-  if (command.linear.x == 0.0) {
-    if (error_xy(0) < 0.0) {
-      percent_err_msg.linear.x = -error_xy(0) / 0.6;
-    } else {
-      percent_err_msg.linear.x = error_xy(0) / 0.6;
-    }
+  percent_error_msg.linear.x = error_xy(0) / command.linear.x;
+  percent_error_msg.linear.y = error_xy(1) / command.linear.y;
 
-  } else {
-    if ((error_xy(0) < 0.0 && command.linear.x > 0.0) ||
-        (error_xy(0) > 0.0 && command.linear.x < 0.0)) {
-      percent_err_msg.linear.x = -error_xy(0) / command.linear.x;
-    } else {
-      percent_err_msg.linear.x = error_xy(0) / command.linear.x;
-    }
-  }
-
-  if (command.linear.y == 0.0) {
-    if (error_xy(1) < 0.0) {
-      percent_err_msg.linear.y = -error_xy(1) / 0.6;
-    } else {
-      percent_err_msg.linear.y = error_xy(1) / 0.6;
-    }
-
-  } else {
-    if ((error_xy(1) < 0.0 && command.linear.y > 0.0) ||
-        (error_xy(1) > 0.0 && command.linear.y < 0.0)) {
-      percent_err_msg.linear.y = -error_xy(1) / command.linear.y;
-    } else {
-      percent_err_msg.linear.y = error_xy(1) / command.linear.y;
-    }
-  }
+  // if (command.linear.x == 0.0) {
+  //   if (error_xy(0) < 0.0) {
+  //     percent_err_msg.linear.x = -error_xy(0) / 0.6;
+  //   } else {
+  //     percent_err_msg.linear.x = error_xy(0) / 0.6;
+  //   }
+  //
+  // } else {
+  //   if ((error_xy(0) < 0.0 && command.linear.x > 0.0) ||
+  //       (error_xy(0) > 0.0 && command.linear.x < 0.0)) {
+  //     percent_err_msg.linear.x = -error_xy(0) / command.linear.x;
+  //   } else {
+  //     percent_err_msg.linear.x = error_xy(0) / command.linear.x;
+  //   }
+  // }
+  //
+  // if (command.linear.y == 0.0) {
+  //   if (error_xy(1) < 0.0) {
+  //     percent_err_msg.linear.y = -error_xy(1) / 0.6;
+  //   } else {
+  //     percent_err_msg.linear.y = error_xy(1) / 0.6;
+  //   }
+  //
+  // } else {
+  //   if ((error_xy(1) < 0.0 && command.linear.y > 0.0) ||
+  //       (error_xy(1) > 0.0 && command.linear.y < 0.0)) {
+  //     percent_err_msg.linear.y = -error_xy(1) / command.linear.y;
+  //   } else {
+  //     percent_err_msg.linear.y = error_xy(1) / command.linear.y;
+  //   }
+  // }
 
   error_pub.publish(error_msg);
-  percent_error_pub.publish(percent_err_msg);
+  percent_error_pub.publish(percent_error_msg);
 
   // beta is for set point weighting to reduce overshoot
   Control(0, 0) = beta * command.linear.x - vel_xy(0); // P-Term x-direction
@@ -310,13 +313,13 @@ void PID_Control::pid_control() {
     yaw_error = 0;
 
   // Set controller to zero around hover state, when 0 velocity required.
-  if (command.linear.x == 0 && command.linear.y == 0 &&
-      command.angular.z == 0) {
-    set_hover();
-    i_term(0) = 0;
-    i_term(1) = 0;
-    return;
-  }
+  // if (command.linear.x == 0 && command.linear.y == 0 &&
+  //     command.angular.z == 0) {
+  //   set_hover();
+  //   i_term(0) = 0;
+  //   i_term(1) = 0;
+  //   return;
+  // }
 
   // If delay is to high then go to hover.
   if (navPing.toSec() >= 0.200) {

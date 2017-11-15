@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- This is a sample launch file, please change it based on your needs -->
+<launch>
+  <!-- IPv4 address of your drone -->
+  <arg name="ip" default="192.168.1.1"/>
+  <!-- Ultrasound frequency (7 or 8). -->
+  <arg name="freq" default="8"/>
+
+  <node name="test_controller_tud_ekf" pkg="ardrone_velocity_ekf" type="test_controller_tud_ekf" output="screen">
+    <param name="test_type" value="1" /> <!-- 0 without control, 1 vel control, 2 pose control -->
+    <param name="path_type" value="2" /> <!-- 0 for straightline, 1 for a square, 2 for static, 3 for left line -->
+    <param name="the_speed" value="0.2" /> <!-- setting the speed (m/s) -->
+    <param name="the_sleeptime" value="60.0" /> <!-- setting the sleeptime (s) -->
+    <param name="the_hovertime" value="2.0" /> <!-- setting the hovertime -->
+  </node>
+
+</launch>
