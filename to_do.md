@@ -41,8 +41,14 @@ OLD
 - Adapter pour contrôle en position
 - Adapter pour contrôle en vitesse altitude
 
+- Tester d'autres espaces de couleur: RGB, LAB, HSV
+
 - Immédiat
-  - faire mesures vitesse
+  - extraire image raw avec ardrone 
+  - plotter campagne de mesure 1
+  - choisir contrôleur
+  - mesurer et paramétrer le profil trapéz.
+  - faire mesures vitesse trapéz.
   - contrôle position trapéz.
   - faire mesures position
 
