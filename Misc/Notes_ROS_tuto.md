@@ -275,3 +275,13 @@ Record and replay messages/topics.
 - Visualizing data with "rviz"
 - Managing coordinate frames with "tf"
 - High-fidelity robot simulator Gazebo
+
+# C pointer
+valeur d'un pointeur contient l'adresse d'une autre variable.
+var = valeur de var
+&var = adresse de var
+
+créer variable de type pointeur: int *ptr 
+*** initialisation d'un pointeur: int *ptr = NULL
+*** obtenir valeur d'un pointeur: value = *ptr
+*** obtenir l'adresse de la valeur: address = ptr

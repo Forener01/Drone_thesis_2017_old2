@@ -45,6 +45,9 @@ OLD
 
 - Immédiat
   - Computer vision
+    - TO ADD: 
+$ ROS_NAMESPACE=my_camera rosrun image_proc image_proc
+$ rosrun image_view image_view image:=my_camera/image_rect_color
     - extraire image raw avec ardrone
     - programmer filtre couleur
     - programmer détection contour
@@ -55,6 +58,27 @@ OLD
     - faire mesures vitesse trapéz.
     - contrôle position trapéz.
     - faire mesures position
+
+-----------
+start 13h45
+pause 15 min
+stop 19h45 
+
+# Planning 
+4/12: transfert image + calibration   !!! OK !!! 
+5/12: filtre rouge
+6/12: algo Sobel
+7/12: matching 
+8/12: matching
+9/12: fusion
+10/12: fusion 
+
+# Update meet 21/11
+- change name for "no control" wave (controller)
+- préciser que les courbes sont moyennées, et ajouter la variance des 5 essais.
+- rajouter min/max de chaque type de contrôleur sur le même graphe (jouer avec couleur de la courbe)
+- faire recherches pour expliquer la fréquence des 200 Hz
+- lookup table pour matching step
 
 # Commentaires
 - TUM_ardrone font leur propre intégration visuelle sur base des raw images de
@@ -69,6 +93,10 @@ fonctionnait avec le marquage de base du DroneLab, mais pas à la DroneZone à
 cause du revêtement trop uniforme de celle-ci. Ordre de débug: erreurs de code,
 batteries défectueuses, pc portable trop peu puissant, et enfin, revêtement
 inadéquat.
+
+- Camera calibration: http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration
+- cv_bridge: permet de switcher entre ROS et OpenCV images
+- image_proc: permet d'appliquer le fichier de calibration aux raw images.
 
 # Structure Rapport TFE
 - Abstract: 1p

@@ -207,6 +207,7 @@ computer_vision_EXTERNAL_OBJECTS =
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/computer_vision: ucl_drone/CMakeFiles/computer_vision.dir/src/read_from_launch.cpp.o
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/computer_vision: ucl_drone/CMakeFiles/computer_vision.dir/build.make
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/computer_vision: /opt/ros/indigo/lib/libcamera_info_manager.so
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/computer_vision: /opt/ros/indigo/lib/libcamera_calibration_parsers.so
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/computer_vision: /opt/ros/indigo/lib/libcv_bridge.so
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/computer_vision: /usr/lib/x86_64-linux-gnu/libopencv_videostab.so.2.4.8
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/computer_vision: /usr/lib/x86_64-linux-gnu/libopencv_video.so.2.4.8

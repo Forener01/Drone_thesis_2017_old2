@@ -65,6 +65,11 @@
 - Campagne de mesures des 3 contrôleurs
 
 **S10 20/11**
-- Plot graphiques campagne controller 1
 - Simu Matlab CV
 
+**S11 27/11**
+- Plot graphiques campagne controller 1
+
+**S12 4/12**
+- Transfert des raw images de la caméra frontale
+- Calibration des raw images

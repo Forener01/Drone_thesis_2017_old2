@@ -82,6 +82,7 @@ vision_gui_EXTERNAL_OBJECTS =
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/vision_gui: ucl_drone/CMakeFiles/vision_gui.dir/src/vision_gui/vision_gui.cpp.o
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/vision_gui: ucl_drone/CMakeFiles/vision_gui.dir/build.make
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/vision_gui: /opt/ros/indigo/lib/libcamera_info_manager.so
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/vision_gui: /opt/ros/indigo/lib/libcamera_calibration_parsers.so
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/vision_gui: /opt/ros/indigo/lib/libcv_bridge.so
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/vision_gui: /usr/lib/x86_64-linux-gnu/libopencv_videostab.so.2.4.8
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/vision_gui: /usr/lib/x86_64-linux-gnu/libopencv_video.so.2.4.8

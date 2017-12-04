@@ -82,6 +82,7 @@ pose_estimation_EXTERNAL_OBJECTS =
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/pose_estimation: ucl_drone/CMakeFiles/pose_estimation.dir/src/pose_estimation/pose_estimation.cpp.o
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/pose_estimation: ucl_drone/CMakeFiles/pose_estimation.dir/build.make
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/pose_estimation: /opt/ros/indigo/lib/libcamera_info_manager.so
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/pose_estimation: /opt/ros/indigo/lib/libcamera_calibration_parsers.so
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/pose_estimation: /opt/ros/indigo/lib/libcv_bridge.so
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/pose_estimation: /usr/lib/x86_64-linux-gnu/libopencv_videostab.so.2.4.8
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/pose_estimation: /usr/lib/x86_64-linux-gnu/libopencv_video.so.2.4.8

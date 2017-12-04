@@ -23,11 +23,9 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include"
-  "/usr/local/include/opencv"
-  "/usr/local/include"
+  "/usr/include/opencv"
   "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include"
   "/opt/ros/indigo/include"
-  "/usr/include/opencv"
   "/usr/include/eigen3"
   "/usr/include/pcl-1.7"
   "/usr/include/ni"

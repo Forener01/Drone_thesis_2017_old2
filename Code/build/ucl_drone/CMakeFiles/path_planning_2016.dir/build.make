@@ -82,6 +82,7 @@ path_planning_2016_EXTERNAL_OBJECTS =
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/path_planning_2016: ucl_drone/CMakeFiles/path_planning_2016.dir/src/path_planning/path_planning.cpp.o
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/path_planning_2016: ucl_drone/CMakeFiles/path_planning_2016.dir/build.make
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/path_planning_2016: /opt/ros/indigo/lib/libcamera_info_manager.so
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/path_planning_2016: /opt/ros/indigo/lib/libcamera_calibration_parsers.so
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/path_planning_2016: /opt/ros/indigo/lib/libcv_bridge.so
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/path_planning_2016: /usr/lib/x86_64-linux-gnu/libopencv_videostab.so.2.4.8
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ucl_drone/path_planning_2016: /usr/lib/x86_64-linux-gnu/libopencv_video.so.2.4.8

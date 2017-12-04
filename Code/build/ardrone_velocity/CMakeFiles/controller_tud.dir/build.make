@@ -121,6 +121,7 @@ controller_tud_EXTERNAL_OBJECTS =
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity/controller_tud: /opt/ros/indigo/lib/libmessage_filters.so
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity/controller_tud: /opt/ros/indigo/lib/libtf2.so
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity/controller_tud: /opt/ros/indigo/lib/libcamera_info_manager.so
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity/controller_tud: /opt/ros/indigo/lib/libcamera_calibration_parsers.so
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity/controller_tud: /opt/ros/indigo/lib/libdynamic_reconfigure_config_init_mutex.so
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity/controller_tud: /opt/ros/indigo/lib/libroscpp.so
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/ardrone_velocity/controller_tud: /usr/lib/x86_64-linux-gnu/libboost_signals.so

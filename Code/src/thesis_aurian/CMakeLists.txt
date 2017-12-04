@@ -161,6 +161,7 @@ add_executable(square_vel src/controller/square_vel.cpp)
 # add_executable(controller_tud src/controller/controller_tud.cpp)
 add_executable(test_controller src/controller/test_controller.cpp)
 add_executable(controller_2016 src/controller/controller_2016.cpp)
+add_executable(image_flow src/computer_vision/image_flow.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -184,6 +185,7 @@ target_link_libraries(square_vel ${catkin_LIBRARIES})
 # target_link_libraries(controller_tud ${catkin_LIBRARIES})
 target_link_libraries(test_controller ${catkin_LIBRARIES})
 target_link_libraries(controller_2016 ${catkin_LIBRARIES})
+target_link_libraries(image_flow ${catkin_LIBRARIES})
 
 #############
 ## Install ##

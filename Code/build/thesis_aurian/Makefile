@@ -164,6 +164,20 @@ controller_2016/fast:
 .PHONY : controller_2016/fast
 
 # Convenience name for target.
+thesis_aurian/CMakeFiles/image_flow.dir/rule:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/CMakeFiles/image_flow.dir/rule
+.PHONY : thesis_aurian/CMakeFiles/image_flow.dir/rule
+
+# Convenience name for target.
+image_flow: thesis_aurian/CMakeFiles/image_flow.dir/rule
+.PHONY : image_flow
+
+# fast build rule for target.
+image_flow/fast:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/image_flow.dir/build.make thesis_aurian/CMakeFiles/image_flow.dir/build
+.PHONY : image_flow/fast
+
+# Convenience name for target.
 thesis_aurian/CMakeFiles/square_vel.dir/rule:
 	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/CMakeFiles/square_vel.dir/rule
 .PHONY : thesis_aurian/CMakeFiles/square_vel.dir/rule
@@ -204,6 +218,30 @@ thesis_aurian_gencfg: thesis_aurian/CMakeFiles/thesis_aurian_gencfg.dir/rule
 thesis_aurian_gencfg/fast:
 	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/thesis_aurian_gencfg.dir/build.make thesis_aurian/CMakeFiles/thesis_aurian_gencfg.dir/build
 .PHONY : thesis_aurian_gencfg/fast
+
+src/computer_vision/image_flow.o: src/computer_vision/image_flow.cpp.o
+.PHONY : src/computer_vision/image_flow.o
+
+# target to build an object file
+src/computer_vision/image_flow.cpp.o:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/image_flow.dir/build.make thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o
+.PHONY : src/computer_vision/image_flow.cpp.o
+
+src/computer_vision/image_flow.i: src/computer_vision/image_flow.cpp.i
+.PHONY : src/computer_vision/image_flow.i
+
+# target to preprocess a source file
+src/computer_vision/image_flow.cpp.i:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/image_flow.dir/build.make thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.i
+.PHONY : src/computer_vision/image_flow.cpp.i
+
+src/computer_vision/image_flow.s: src/computer_vision/image_flow.cpp.s
+.PHONY : src/computer_vision/image_flow.s
+
+# target to generate assembly for a file
+src/computer_vision/image_flow.cpp.s:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/image_flow.dir/build.make thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.s
+.PHONY : src/computer_vision/image_flow.cpp.s
 
 src/controller/controller_2016.o: src/controller/controller_2016.cpp.o
 .PHONY : src/controller/controller_2016.o
@@ -285,6 +323,7 @@ help:
 	@echo "... depend"
 	@echo "... controller_2016"
 	@echo "... edit_cache"
+	@echo "... image_flow"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... install/strip"
@@ -294,6 +333,9 @@ help:
 	@echo "... test"
 	@echo "... test_controller"
 	@echo "... thesis_aurian_gencfg"
+	@echo "... src/computer_vision/image_flow.o"
+	@echo "... src/computer_vision/image_flow.i"
+	@echo "... src/computer_vision/image_flow.s"
 	@echo "... src/controller/controller_2016.o"
 	@echo "... src/controller/controller_2016.i"
 	@echo "... src/controller/controller_2016.s"
