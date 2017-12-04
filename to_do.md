@@ -44,13 +44,17 @@ OLD
 - Tester d'autres espaces de couleur: RGB, LAB, HSV
 
 - Immédiat
-  - extraire image raw avec ardrone 
-  - plotter campagne de mesure 1
-  - choisir contrôleur
-  - mesurer et paramétrer le profil trapéz.
-  - faire mesures vitesse trapéz.
-  - contrôle position trapéz.
-  - faire mesures position
+  - Computer vision
+    - extraire image raw avec ardrone
+    - programmer filtre couleur
+    - programmer détection contour
+    - programmer object matching
+
+  - Controller
+    - mesurer et paramétrer le profil trapéz.
+    - faire mesures vitesse trapéz.
+    - contrôle position trapéz.
+    - faire mesures position
 
 # Commentaires
 - TUM_ardrone font leur propre intégration visuelle sur base des raw images de
