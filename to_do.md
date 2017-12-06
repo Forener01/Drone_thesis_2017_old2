@@ -37,9 +37,9 @@ OLD
 
 - Envoyer mail à Tobias
 
-- Terminer comparaisons des 2 contrôleurs en vitesse
 - Adapter pour contrôle en position
 - Adapter pour contrôle en vitesse altitude
+- Adapter pour contrôle en vitesse rotation (yaw)
 
 - Tester d'autres espaces de couleur: RGB, LAB, HSV
 
@@ -54,15 +54,18 @@ $ rosrun image_view image_view image:=my_camera/image_rect_color
     - programmer object matching
 
   - Controller
+    - hardcode position avec FSM
     - mesurer et paramétrer le profil trapéz.
     - faire mesures vitesse trapéz.
     - contrôle position trapéz.
     - faire mesures position
 
 -----------
-start 13h45
+start 9h55
+stop 13h55
+start 16h30
 pause 15 min
-stop 19h45 
+
 
 # Planning 
 4/12: transfert image + calibration   !!! OK !!! 
@@ -97,6 +100,14 @@ inadéquat.
 - Camera calibration: http://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration
 - cv_bridge: permet de switcher entre ROS et OpenCV images
 - image_proc: permet d'appliquer le fichier de calibration aux raw images.
+- transform data: use tf package
+- color conversion: https://docs.opencv.org/master/de/d25/imgproc_color_conversions.html
+- sobel conversion:
+https://docs.opencv.org/master/d4/d86/group__imgproc__filter.html#gacea54f142e81b6758cb6f375ce782c8d
+- matching: surf descriptor ?
+
+- défaillance du décollage après trop de temps d'utilisation continue (3h+) ? 
+Confimé !!
 
 # Structure Rapport TFE
 - Abstract: 1p
@@ -106,7 +117,7 @@ inadéquat.
 - Control: 5p
 - Results: 10p
 - Améliorations locales: 5p
-- Améliorations générales: 10p
+- Améliorations générales: 10p (changer hardware, rajouter sonar, contrôle yaw)
 - Conclusion: 5p
 --> Sum = 76p
 

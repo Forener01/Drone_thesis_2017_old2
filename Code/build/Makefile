@@ -501,6 +501,19 @@ pid_control_ekf/fast:
 .PHONY : pid_control_ekf/fast
 
 #=============================================================================
+# Target rules for targets named pose_controller
+
+# Build rule for target.
+pose_controller: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pose_controller
+.PHONY : pose_controller
+
+# fast build rule for target.
+pose_controller/fast:
+	$(MAKE) -f ardrone_velocity_ekf/CMakeFiles/pose_controller.dir/build.make ardrone_velocity_ekf/CMakeFiles/pose_controller.dir/build
+.PHONY : pose_controller/fast
+
+#=============================================================================
 # Target rules for targets named roscpp_generate_messages_cpp
 
 # Build rule for target.
@@ -1931,6 +1944,7 @@ help:
 	@echo "... nav_msgs_generate_messages_lisp"
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... pid_control_ekf"
+	@echo "... pose_controller"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_py"

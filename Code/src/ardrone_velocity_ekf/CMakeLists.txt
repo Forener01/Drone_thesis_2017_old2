@@ -58,6 +58,7 @@ add_executable(run_control src/run_control.cpp)
 add_executable(run_transform src/run_transform.cpp)
 # ADDED
 add_executable(test_controller_tud_ekf src/test_controller.cpp)
+add_executable(pose_controller src/pose_controller.cpp)
 
 add_dependencies(run_control ${PROJECT_NAME}_gencfg)
 add_dependencies(pid_control_ekf ${PROJECT_NAME}_gencfg)
@@ -73,4 +74,4 @@ target_link_libraries(pid_control_ekf filtervelocity ${catkin_LIBRARIES} ${EIGEN
 target_link_libraries(coordinate_transform filtervelocity ${catkin_LIBRARIES} ${EIGEN3_LIBRARIES})
 target_link_libraries(run_transform  coordinate_transform  ${catkin_LIBRARIES} ${EIGEN3_LIBRARIES})
 target_link_libraries(test_controller_tud_ekf ${catkin_LIBRARIES})
-
+target_link_libraries(pose_controller ${catkin_LIBRARIES})

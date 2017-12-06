@@ -1,0 +1,8 @@
+<launch>
+
+<group ns="ucl_drone/ardrone/front">
+  <node name="image_proc" pkg="image_proc" type="image_proc" output="screen" >
+  </node> 
+</group>
+
+</launch>

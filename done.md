@@ -71,5 +71,7 @@
 - Plot graphiques campagne controller 1
 
 **S12 4/12**
+- Vidéo passage porte: validation 
+- Fin code contrôle en position (sans trapéz.)
 - Transfert des raw images de la caméra frontale
 - Calibration des raw images

@@ -430,6 +430,20 @@ pid_control_ekf/fast:
 .PHONY : pid_control_ekf/fast
 
 # Convenience name for target.
+ardrone_velocity_ekf/CMakeFiles/pose_controller.dir/rule:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_velocity_ekf/CMakeFiles/pose_controller.dir/rule
+.PHONY : ardrone_velocity_ekf/CMakeFiles/pose_controller.dir/rule
+
+# Convenience name for target.
+pose_controller: ardrone_velocity_ekf/CMakeFiles/pose_controller.dir/rule
+.PHONY : pose_controller
+
+# fast build rule for target.
+pose_controller/fast:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f ardrone_velocity_ekf/CMakeFiles/pose_controller.dir/build.make ardrone_velocity_ekf/CMakeFiles/pose_controller.dir/build
+.PHONY : pose_controller/fast
+
+# Convenience name for target.
 ardrone_velocity_ekf/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
 	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 ardrone_velocity_ekf/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 .PHONY : ardrone_velocity_ekf/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
@@ -795,6 +809,30 @@ src/pid_control.cpp.s:
 	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f ardrone_velocity_ekf/CMakeFiles/pid_control_ekf.dir/build.make ardrone_velocity_ekf/CMakeFiles/pid_control_ekf.dir/src/pid_control.cpp.s
 .PHONY : src/pid_control.cpp.s
 
+src/pose_controller.o: src/pose_controller.cpp.o
+.PHONY : src/pose_controller.o
+
+# target to build an object file
+src/pose_controller.cpp.o:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f ardrone_velocity_ekf/CMakeFiles/pose_controller.dir/build.make ardrone_velocity_ekf/CMakeFiles/pose_controller.dir/src/pose_controller.cpp.o
+.PHONY : src/pose_controller.cpp.o
+
+src/pose_controller.i: src/pose_controller.cpp.i
+.PHONY : src/pose_controller.i
+
+# target to preprocess a source file
+src/pose_controller.cpp.i:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f ardrone_velocity_ekf/CMakeFiles/pose_controller.dir/build.make ardrone_velocity_ekf/CMakeFiles/pose_controller.dir/src/pose_controller.cpp.i
+.PHONY : src/pose_controller.cpp.i
+
+src/pose_controller.s: src/pose_controller.cpp.s
+.PHONY : src/pose_controller.s
+
+# target to generate assembly for a file
+src/pose_controller.cpp.s:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f ardrone_velocity_ekf/CMakeFiles/pose_controller.dir/build.make ardrone_velocity_ekf/CMakeFiles/pose_controller.dir/src/pose_controller.cpp.s
+.PHONY : src/pose_controller.cpp.s
+
 src/run_control.o: src/run_control.cpp.o
 .PHONY : src/run_control.o
 
@@ -898,6 +936,7 @@ help:
 	@echo "... nav_msgs_generate_messages_lisp"
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... pid_control_ekf"
+	@echo "... pose_controller"
 	@echo "... rebuild_cache"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_lisp"
@@ -930,6 +969,9 @@ help:
 	@echo "... src/pid_control.o"
 	@echo "... src/pid_control.i"
 	@echo "... src/pid_control.s"
+	@echo "... src/pose_controller.o"
+	@echo "... src/pose_controller.i"
+	@echo "... src/pose_controller.s"
 	@echo "... src/run_control.o"
 	@echo "... src/run_control.i"
 	@echo "... src/run_control.s"

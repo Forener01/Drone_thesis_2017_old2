@@ -44,10 +44,8 @@ stdlib.h
 string.h
 -
 
-/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/test_controller.cpp
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/src/pose_controller.cpp
 ardrone_velocity_ekf/pose_controller.hpp
--
-ardrone_velocity_ekf/test_controller.hpp
 -
 
 /opt/ros/indigo/include/XmlRpcDecl.h

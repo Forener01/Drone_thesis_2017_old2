@@ -343,6 +343,7 @@ SET(CMAKE_DEPEND_INFO_FILES
   "ardrone_velocity_ekf/CMakeFiles/nav_msgs_generate_messages_lisp.dir/DependInfo.cmake"
   "ardrone_velocity_ekf/CMakeFiles/nav_msgs_generate_messages_py.dir/DependInfo.cmake"
   "ardrone_velocity_ekf/CMakeFiles/pid_control_ekf.dir/DependInfo.cmake"
+  "ardrone_velocity_ekf/CMakeFiles/pose_controller.dir/DependInfo.cmake"
   "ardrone_velocity_ekf/CMakeFiles/roscpp_generate_messages_cpp.dir/DependInfo.cmake"
   "ardrone_velocity_ekf/CMakeFiles/roscpp_generate_messages_lisp.dir/DependInfo.cmake"
   "ardrone_velocity_ekf/CMakeFiles/roscpp_generate_messages_py.dir/DependInfo.cmake"

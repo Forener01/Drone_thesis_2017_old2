@@ -1,0 +1,31 @@
+  // if (command.linear.x == 0.0) {
+  //   if (error_xy(0) < 0.0) {
+  //     percent_err_msg.linear.x = -error_xy(0) / 0.6;
+  //   } else {
+  //     percent_err_msg.linear.x = error_xy(0) / 0.6;
+  //   }
+  //
+  // } else {
+  //   if ((error_xy(0) < 0.0 && command.linear.x > 0.0) ||
+  //       (error_xy(0) > 0.0 && command.linear.x < 0.0)) {
+  //     percent_err_msg.linear.x = -error_xy(0) / command.linear.x;
+  //   } else {
+  //     percent_err_msg.linear.x = error_xy(0) / command.linear.x;
+  //   }
+  // }
+  //
+  // if (command.linear.y == 0.0) {
+  //   if (error_xy(1) < 0.0) {
+  //     percent_err_msg.linear.y = -error_xy(1) / 0.6;
+  //   } else {
+  //     percent_err_msg.linear.y = error_xy(1) / 0.6;
+  //   }
+  //
+  // } else {
+  //   if ((error_xy(1) < 0.0 && command.linear.y > 0.0) ||
+  //       (error_xy(1) > 0.0 && command.linear.y < 0.0)) {
+  //     percent_err_msg.linear.y = -error_xy(1) / command.linear.y;
+  //   } else {
+  //     percent_err_msg.linear.y = error_xy(1) / command.linear.y;
+  //   }
+  // }

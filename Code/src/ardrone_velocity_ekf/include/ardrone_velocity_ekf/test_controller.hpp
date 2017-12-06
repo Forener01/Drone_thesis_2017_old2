@@ -2,7 +2,7 @@
 #define TEST_CONTROLLER_HPP
 
 #include <ardrone_autonomy/Navdata.h>
-#include <ardrone_velocity_ekf/path_planning.hpp>
+#include <ardrone_velocity_ekf/pose_controller.hpp>
 #include <geometry_msgs/Twist.h>
 #include <ros/ros.h>
 #include <sstream>
@@ -22,6 +22,7 @@
 #define SQUARE 1
 #define STATIC 2
 #define LEFTLINE 3
+#define ROOM_EXIT 4
 
 class TestController {
 public:
@@ -43,8 +44,10 @@ public:
   void finish(void);
   void init(void);
 
+  int test_type;
+
 private:
-  int test_type, path_type;
+  int path_type;
   geometry_msgs::Pose targetpose;
 
   double speed, hovertime, sleeptime;

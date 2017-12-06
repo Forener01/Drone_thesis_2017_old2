@@ -166,38 +166,6 @@ void PID_Control::pid_control() {
   percent_error_msg.linear.x = error_xy(0) / command.linear.x;
   percent_error_msg.linear.y = error_xy(1) / command.linear.y;
 
-  // if (command.linear.x == 0.0) {
-  //   if (error_xy(0) < 0.0) {
-  //     percent_err_msg.linear.x = -error_xy(0) / 0.6;
-  //   } else {
-  //     percent_err_msg.linear.x = error_xy(0) / 0.6;
-  //   }
-  //
-  // } else {
-  //   if ((error_xy(0) < 0.0 && command.linear.x > 0.0) ||
-  //       (error_xy(0) > 0.0 && command.linear.x < 0.0)) {
-  //     percent_err_msg.linear.x = -error_xy(0) / command.linear.x;
-  //   } else {
-  //     percent_err_msg.linear.x = error_xy(0) / command.linear.x;
-  //   }
-  // }
-  //
-  // if (command.linear.y == 0.0) {
-  //   if (error_xy(1) < 0.0) {
-  //     percent_err_msg.linear.y = -error_xy(1) / 0.6;
-  //   } else {
-  //     percent_err_msg.linear.y = error_xy(1) / 0.6;
-  //   }
-  //
-  // } else {
-  //   if ((error_xy(1) < 0.0 && command.linear.y > 0.0) ||
-  //       (error_xy(1) > 0.0 && command.linear.y < 0.0)) {
-  //     percent_err_msg.linear.y = -error_xy(1) / command.linear.y;
-  //   } else {
-  //     percent_err_msg.linear.y = error_xy(1) / command.linear.y;
-  //   }
-  // }
-
   error_pub.publish(error_msg);
   percent_error_pub.publish(percent_error_msg);
 
@@ -313,13 +281,13 @@ void PID_Control::pid_control() {
     yaw_error = 0;
 
   // Set controller to zero around hover state, when 0 velocity required.
-  // if (command.linear.x == 0 && command.linear.y == 0 &&
-  //     command.angular.z == 0) {
-  //   set_hover();
-  //   i_term(0) = 0;
-  //   i_term(1) = 0;
-  //   return;
-  // }
+  if (command.linear.x == 0 && command.linear.y == 0 &&
+      command.angular.z == 0) {
+    set_hover();
+    i_term(0) = 0;
+    i_term(1) = 0;
+    return;
+  }
 
   // If delay is to high then go to hover.
   if (navPing.toSec() >= 0.200) {
@@ -337,6 +305,7 @@ void PID_Control::pid_control() {
   control_output_pid.linear.y = Control(0, 1) * gain_xy(0) +
                                 Control(1, 1) * gain_xy(1) +
                                 Control(2, 1) * gain_xy(2);
+  // control_output_pid.angular.z = yaw_error;
 
   // Based on u(k)
   control_output_pid.linear.x = std::min(
@@ -374,15 +343,15 @@ void PID_Control::pid_control() {
 }
 
 void PID_Control::set_hover(void) {
-  //    ROS_INFO("HOVER");
+  ROS_INFO_THROTTLE(1, "HOVER");
 
   geometry_msgs::Twist control_output;
-  control_output.linear.x = 0;
-  control_output.linear.y = 0;
-  control_output.linear.z = 0;
-  control_output.angular.x = 0;
-  control_output.angular.y = 0;
-  control_output.angular.z = 0;
+  control_output.linear.x = 0.0;
+  control_output.linear.y = 0.0;
+  control_output.linear.z = 0.0;
+  control_output.angular.x = 0.0;
+  control_output.angular.y = 0.0;
+  control_output.angular.z = 0.0;
 
   cmd_pub.publish(control_output);
 }

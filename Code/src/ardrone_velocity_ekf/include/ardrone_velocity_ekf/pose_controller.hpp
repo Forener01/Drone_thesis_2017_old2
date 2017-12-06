@@ -1,5 +1,5 @@
-#ifndef PATH_PLANNING_HPP
-#define PATH_PLANNING_HPP
+#ifndef POSE_CONTROL_HPP
+#define POSE_CONTROL_HPP
 
 #include <geometry_msgs/Pose.h>
 #include <geometry_msgs/Twist.h>
@@ -8,11 +8,15 @@
 #include <ros/ros.h>
 #include <stdio.h>
 
-class Path_Planning {
+#include <ardrone_velocity_ekf/test_controller.hpp>
+
+class Pose_Control {
 public:
-  Path_Planning();
+  Pose_Control();
 
   ros::NodeHandle nh;
+  ros::Subscriber odom_sub, poseref_sub;
+  ros::Publisher veltoPID_pub;
 
   void poserefCb(const geometry_msgs::Pose &pose_in);
   void odomCb(const nav_msgs::Odometry &odo);
@@ -21,14 +25,11 @@ public:
   int test_type;
 
 private:
-  ros::Subscriber odom_sub, poseref_sub, poseout_sub;
-  ros::Publisher poseref_pub, veltoPID_pub;
-
   geometry_msgs::Twist velInPID;
   geometry_msgs::Pose current_pose_ref, pose_out;
   nav_msgs::Odometry odo_msg;
-  double K, tol;
-  double distX, distY, distZ;
+  double K, tol, tolz;
+  double distX, distY, distZ, error_dist;
 };
 
-#endif // PATH_PLANNING_HPP
+#endif // POSE_CONTROL_HPP

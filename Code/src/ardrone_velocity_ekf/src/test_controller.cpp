@@ -1,3 +1,4 @@
+#include <ardrone_velocity_ekf/pose_controller.hpp>
 #include <ardrone_velocity_ekf/test_controller.hpp>
 
 TestController::TestController() {
@@ -10,11 +11,12 @@ TestController::TestController() {
   ros::param::get("~the_sleeptime", sleeptime);
 
   // Publishers
-  poseref_pub = nh.advertise<geometry_msgs::Pose>("pose_ref_topic", 1);
-
   takeoff_pub = nh.advertise<std_msgs::Empty>("ardrone/takeoff", 1);
   land_pub = nh.advertise<std_msgs::Empty>("ardrone/land", 1);
   reset_pub = nh.advertise<std_msgs::Empty>("ardrone/reset", 1);
+
+  poseref_pub = nh.advertise<geometry_msgs::Pose>("cmd_pose_ref", 1);
+  ROS_INFO("testcontroller node publishing to cmd_pose_ref topic !");
 
   if (test_type == WITHOUT_CONTROL) {
     vel_pub = nh.advertise<geometry_msgs::Twist>("cmd_vel",
@@ -25,9 +27,18 @@ TestController::TestController() {
 
   else {
     vel_pub = nh.advertise<geometry_msgs::Twist>("cmd_vel_ref",
-                                                 1); // with TUD Controller
-    ROS_INFO("Vel_pub connected to topic cmd_vel_ref");
+                                                 1); // with EKF Controller
+    ROS_INFO("testcontroller node publishing to cmd_vel_ref topic !");
   }
+
+  // else if (test_type == POSE_CONTROL) {
+  //   poseref_pub = nh.advertise<geometry_msgs::Pose>("cmd_pose_ref", 1);
+  //   ROS_INFO("testcontroller node publishing to cmd_pose_ref topic !");
+  // }
+  //
+  // else {
+  //   ROS_WARN("No test_type given !");
+  // }
 }
 
 void TestController::land(void) { land_pub.publish(std_msgs::Empty()); }
@@ -197,14 +208,68 @@ void TestController::test() {
       hover();
       ros::Duration(sleeptime).sleep();
     }
+
+    else if (path_type == ROOM_EXIT) {
+      ROS_INFO_STREAM_ONCE("The drone scans the room and exits.");
+      //   // Corner #1
+      //   load_vel(speed, 0.0, 0.0, 0.0);
+      //   ros::Duration(8.0).sleep();
+      //   ROS_INFO_STREAM_ONCE("Corner #1");
+      //   // Stabilizing #1
+      //   hover();
+      //   ros::Duration(hovertime).sleep();
+
+      //   // Corner #2
+      //   load_vel(0.0, 0.25, 0.0, 0.0);
+      //   ros::Duration(18.0).sleep();
+
+      //   load_vel(0.0, 0.15, 0.0, 0.0);
+      //   ros::Duration(7.5).sleep();
+      //   ROS_INFO_STREAM_ONCE("Corner #2");
+      //   // Stabilizing #2
+      //   hover();
+      //   ros::Duration(0.05).sleep();
+
+      //   // Rotate 90° leftward
+      //   load_vel(0.0, 0.0, 0.0, 0.325);
+      //   ros::Duration(2.75).sleep();
+      //   ROS_INFO_STREAM_ONCE("Rotation done !");
+      //   hover();
+      //   ros::Duration(0.5).sleep();
+
+      // Corner #3
+      //   load_vel(0.2, 0.0, 0.0, 0.0);
+      //   ros::Duration(7.5).sleep();
+      ROS_INFO_STREAM_ONCE("Going through the door");
+      //   load_vel(0.15, 0.0, 0.0, 0.0);
+      //   ros::Duration(3.0).sleep();
+      //
+      //   load_vel(0.25, 0.0, 0.0, 0.0);
+      //   ros::Duration(3.0).sleep();
+      /* distance = 4.72 m, porte à 2.25m
+        0->
+      */
+      // One shot
+      load_vel(0.7, 0.0, 0.0, 0.0);
+      ros::Duration(6.74).sleep();
+
+      // Trapezoïdal
+      //   load_vel(0.2, 0.0, 0.0, 0.0);
+      //   ros::Duration(5.54).sleep();
+      //   load_vel(0.45, 0.0, 0.0, 0.0);
+      //   ros::Duration(5.54).sleep();
+      //
+      //   load_vel(0.7, 0.0, 0.0, 0.0);
+      //   ros::Duration(3.75).sleep();
+    }
   }
 
   else if (test_type == POSE_CONTROL) {
 
     if (path_type == STRAIGHTLINE) {
       // Going straightforward during 3 meters
-      ROS_INFO_STREAM_ONCE(
-          "The drone starts the path-planning with pose control !");
+      ROS_INFO_STREAM_ONCE("The drone starts the path-planning with pose "
+                           "control following a strainght line trajectory !");
       load_pose(3.0, 0.0, 0.0);
       ros::Duration(35.0).sleep();
       ROS_INFO_STREAM_ONCE("Corner #1");
@@ -215,16 +280,20 @@ void TestController::test() {
 
     else if (path_type == SQUARE) {
       // Going to Corner #1
-      ROS_INFO_STREAM_ONCE(
-          "The drone starts the path-planning with pose control !");
-      load_pose(0.0, 1.2, 0.0);
+      double corner_pos = 0.75;
+
+      ROS_INFO_STREAM_ONCE("The drone starts the path-planning with pose "
+                           "control following a square trajectory !");
+
+      load_pose(0.0, corner_pos, 0.0);
       ros::Duration(sleeptime).sleep();
       ROS_INFO_STREAM_ONCE("Corner #1");
       // Stabilizing #1
       hover();
       ros::Duration(hovertime).sleep();
+
       // Going to Corner #2
-      load_pose(-1.2, 1.2, 0.0);
+      load_pose(-corner_pos, corner_pos, 0.0);
       ros::Duration(sleeptime).sleep();
       ROS_INFO_STREAM_ONCE("Corner #2");
       // Stabilizing #2
@@ -232,7 +301,7 @@ void TestController::test() {
       ros::Duration(hovertime).sleep();
 
       // Going to Corner #3
-      load_pose(-1.2, 0.0, 0.0);
+      load_pose(-corner_pos, 0.0, 0.0);
       ros::Duration(sleeptime).sleep();
       ROS_INFO_STREAM_ONCE("Corner #3");
       // Stabilizing #3
@@ -253,6 +322,40 @@ void TestController::test() {
       hover();
       ros::Duration(sleeptime).sleep();
     }
+
+    else if (path_type == ROOM_EXIT) {
+      ROS_INFO_STREAM_ONCE("The drone scans the room and exits.");
+      // Corner #1
+      load_pose(2.0, 0.0, 0.0);
+      ros::Duration(sleeptime).sleep();
+      ROS_INFO_STREAM_ONCE("Corner #1");
+      // Stabilizing #1
+      hover();
+      ros::Duration(hovertime).sleep();
+
+      // Corner #2
+      load_pose(2.0, 1.2, 0.0);
+      ros::Duration(sleeptime).sleep();
+      ROS_INFO_STREAM_ONCE("Corner #2");
+      // Stabilizing #2
+      hover();
+      ros::Duration(hovertime).sleep();
+
+      // Rotate 90° leftward
+      load_vel(0.0, 0.0, 0.0, 0.325);
+      ros::Duration(2.75).sleep();
+      ROS_INFO_STREAM_ONCE("Rotation done !");
+      hover();
+      ros::Duration(0.5).sleep();
+
+      // Corner #3
+      load_pose(-1.0, 1.2, 0.0);
+      ros::Duration(sleeptime).sleep();
+      ROS_INFO_STREAM_ONCE("Corner #3");
+      // Stabilizing #3
+      hover();
+      ros::Duration(hovertime).sleep();
+    }
   }
 }
 
@@ -264,18 +367,19 @@ void TestController::init(void) {
 
   ROS_INFO_STREAM_ONCE("The drone is in hover mode !");
   hover();
-  ros::Duration(2.5).sleep();
+  ros::Duration(3.0).sleep();
 }
 
-// This function stabilizes the drone at the end of the test and do the drone
+// This function stabilizes the drone at the end of the test and do the
+// drone
 // landing.
 void TestController::finish(void) {
   ROS_INFO_STREAM_ONCE("The drone just finished !");
   hover();
-  ros::Duration(3.0).sleep();
+  ros::Duration(2.0).sleep();
   land();
   ROS_INFO_STREAM_ONCE("The drone just landed !");
-  ros::Duration(4.0).sleep();
+  ros::Duration(3.0).sleep();
 }
 
 int main(int argc, char **argv) {
@@ -285,8 +389,8 @@ int main(int argc, char **argv) {
 
   ros::Rate loop_rate(50);
 
-  /*** Waiting time to record .bag file on rqt ***/
-  ros::Duration(20.0).sleep();
+  /*** Waiting time to connect to ARDrone camera ***/
+  ros::Duration(7.0).sleep();
   ROS_INFO_STREAM_ONCE("TUD_EKF test!");
 
   /*** INITIALIZATION ***/
