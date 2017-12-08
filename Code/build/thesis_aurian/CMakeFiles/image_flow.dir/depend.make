@@ -76,4 +76,5 @@ thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /o
 thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/sensor_msgs/RegionOfInterest.h
 thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/sensor_msgs/image_encodings.h
 thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/std_msgs/Header.h
+thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /usr/include/opencv/cv.h
 

@@ -45,12 +45,6 @@ OLD
 
 - Immédiat
   - Computer vision
-    - TO ADD: 
-$ ROS_NAMESPACE=my_camera rosrun image_proc image_proc
-$ rosrun image_view image_view image:=my_camera/image_rect_color
-    - extraire image raw avec ardrone
-    - programmer filtre couleur
-    - programmer détection contour
     - programmer object matching
 
   - Controller
@@ -60,8 +54,11 @@ $ rosrun image_view image_view image:=my_camera/image_rect_color
     - contrôle position trapéz.
     - faire mesures position
 
------------
+  - Divers
+    - Affiner structure pages mémoire
 
+-----------
+start 16h35
 
 # Planning 
 4/12: transfert image + calibration   !!! OK !!! 
@@ -104,7 +101,26 @@ https://docs.opencv.org/master/d4/d86/group__imgproc__filter.html#gacea54f142e81
 https://docs.opencv.org/master/d2/d2c/tutorial_sobel_derivatives.html
 - cv::findContours
 - cv::threshold: GRAY to BIN 	
+
 - matching: surf descriptor ?
+  - floodfill algorithm?
+  - hough transform
+  - binary dilation
+  - rectangle detection: OpenCV (look in samples/squares.c)
+    0. rectangles <- {}
+    1. image <- load image
+    2. for every channel:
+      2.1  image_canny <- apply canny edge detector to this channel
+      2.2  for threshold in bunch_of_increasing_thresholds:
+        2.2.1   image_thresholds[threshold] <- apply threshold to this channel
+      2.3  for each contour found in {image_canny} U image_thresholds:
+        2.3.1   Approximate contour with polygons
+        2.3.2   if the approximation has four corners and the angles are close to 90 degrees.
+          2.3.2.1    rectangles <- rectangles U {contour}
+  - Harris + center of gravity + moments (cv::cornerHarris + cv::threshold)
+  - PCL to build door detection?
+
+
 - OpenCV stores internally a RGB image as a BGR one.
 - Quid Blurring on the color image ?
 
@@ -114,6 +130,19 @@ Confimé !!
 - discuter choix RGB vs HSV
 
 - expliquer qu'au début on trouvait Harris intéressant, puis finalement inutile.
+
+- Parler du Scharr operator
+
+# Matching step sources
+- Hough lines https://docs.opencv.org/2.4/doc/tutorials/imgproc/imgtrans/hough_lines/hough_lines.html
+-> OpenCV: HoughLines and HoughLinesP
+
+- Tuned Harris algo (p.248)
+https://books.google.be/books?id=J1QoDwAAQBAJ&pg=PA239&lpg=PA239&dq=door+detection+opencv&source=bl&ots=HATCdKbllA&sig=fvGqEZBrXsFLIzEu4jWbMVUaL4Y&hl=fr&sa=X&ved=0ahUKEwi7rLq67_rXAhXoCMAKHZKdBMc4KBDoAQgtMAA#v=onepage&q=door%20detection%20opencv&f=false
+
+- https://stackoverflow.com/questions/1817442/how-to-recognize-rectangles-in-this-image
+
+- https://stackoverflow.com/questions/1817442/how-to-recognize-rectangles-in-this-image
 
 # Structure Rapport TFE
 - Abstract: 1p

@@ -75,3 +75,6 @@
 - Fin code contrôle en position (sans trapéz.)
 - Transfert des raw images de la caméra frontale
 - Calibration des raw images
+- Programmation et calibration du filtre couleur
+- Programmation et calibration du détecteur de contour
+- Programmation et calibration de l'étape de matching

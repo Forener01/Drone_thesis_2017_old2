@@ -29,6 +29,10 @@ void ImageFlow::calib_imageCb(const sensor_msgs::ImageConstPtr &msg) {
 }
 
 void ImageFlow::image_processor(const cv::Mat bgr_img) {
+
+  /**********************************
+   ********* COLOR FILTERING ********
+   **********************************/
   // Applying red-color filtering
   // door_a115: BGR [17, 21, 104];
   // door_lab: BGR [29, 30, 121];
@@ -131,7 +135,9 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
 
   // processed_image_pub.publish(processed_img);
 
-  /* SOBEL OPERATOR */
+  /*********************************
+   ********* SOBEL OPERATOR ********
+   *********************************/
   int ksize = 3;
   int scale = 1;
   int delta = 0;
@@ -161,6 +167,34 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
   cv::convertScaleAbs(grad_y, abs_grad_y);
   cv::addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad);
   cv::imshow("Sobel - Direct", grad);
+
+  using namespace cv;
+  using namespace std;
+  /**********************************
+   ********* HOUGH TRANSFORM ********
+   **********************************/
+  // WITHOUT color-filtering
+  cvtColor(grad, gradBGR, CV_GRAY2BGR);
+  vector<Vec4i> lines;
+  HoughLinesP(grad, lines, 3, CV_PI / 180, 250, 250, 5);
+  for (size_t i = 0; i < lines.size(); i++) {
+    Vec4i l = lines[i];
+    line(gradBGR, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255), 3,
+         CV_AA);
+  }
+  imshow("Hough Transform", gradBGR);
+
+  // WITH color-filtering
+  cvtColor(grad_filt, gradBGR_filt, CV_GRAY2BGR);
+  vector<Vec4i> lines_filt;
+  HoughLinesP(grad_filt, lines_filt, 1, CV_PI / 180, 50, 50, 5);
+  for (size_t i = 0; i < lines_filt.size(); i++) {
+    Vec4i l = lines_filt[i];
+    line(gradBGR_filt, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255),
+         3, CV_AA);
+  }
+
+  imshow("Hough Transform with color-filtering", gradBGR_filt);
 
   cv::waitKey(0);
 }

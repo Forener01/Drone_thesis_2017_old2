@@ -6,9 +6,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <cv.h>
 #include <cv_bridge/cv_bridge.h>
 #include <image_transport/image_transport.h>
 #include <iostream>
+#include <math.h>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/opencv.hpp>
@@ -34,7 +36,8 @@ private:
 
   cv::Mat converted_img, redfilt_upp_img, redfilt_low_img, redfilt_dark_img1,
       redfilt_dark_img2, redfilt_lu_img, redfilt_du_img, redfilt_ldu_img,
-      redfilt_img, hsv_img, gray_img, redfilt_sub, redfilt_final;
+      redfilt_img, hsv_img, gray_img, redfilt_sub, redfilt_final, hough_img,
+      gradBGR, gradBGR_filt;
 };
 
 #endif /* IMAGE_FLOW_HPP */
