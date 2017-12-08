@@ -1,0 +1,5 @@
+low-up-red_manual_final
+  cv::inRange(hsv_img, cv::Scalar(170, 40, 0), cv::Scalar(179, 255, 230),
+              redfilt_upp_img);
+  cv::inRange(hsv_img, cv::Scalar(0, 90, 0), cv::Scalar(5, 255, 230),
+              redfilt_low_img);

@@ -29,6 +29,7 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/thesis_aurian/include"
   "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/include"
   "/opt/ros/indigo/include"
+  "/usr/include/opencv"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

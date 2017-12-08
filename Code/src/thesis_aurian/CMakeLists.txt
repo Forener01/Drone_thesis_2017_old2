@@ -10,12 +10,15 @@ project(thesis_aurian)
 find_package(catkin REQUIRED COMPONENTS
   ardrone_autonomy
   ardrone_velocity
+  cv_bridge
   dynamic_reconfigure
   geometry_msgs
+  image_transport
   roscpp
   rospy
   message_generation
   nav_msgs
+  sensor_msgs
   std_msgs
 )
 
@@ -130,6 +133,7 @@ CATKIN_DEPENDS roscpp rospy std_msgs geometry_msgs nav_msgs ardrone_autonomy mes
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
+  ${OpenCV_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -176,6 +180,7 @@ add_executable(image_flow src/computer_vision/image_flow.cpp)
 # add_dependencies(simple_square_vel ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 # add_dependencies(controller_tud ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 # add_dependencies(test_controller ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(image_flow ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node

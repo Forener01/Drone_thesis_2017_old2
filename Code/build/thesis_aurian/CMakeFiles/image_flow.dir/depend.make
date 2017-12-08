@@ -6,6 +6,7 @@ thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /h
 thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/XmlRpcDecl.h
 thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/XmlRpcValue.h
 thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/ardrone_autonomy/Navdata.h
+thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/cv_bridge/cv_bridge.h
 thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/image_transport/camera_publisher.h
 thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/image_transport/camera_subscriber.h
 thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/image_transport/exception.h
@@ -70,7 +71,9 @@ thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /o
 thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/ros/wall_timer_options.h
 thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/rosconsole/macros_generated.h
 thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/sensor_msgs/CameraInfo.h
+thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/sensor_msgs/CompressedImage.h
 thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/sensor_msgs/Image.h
 thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/sensor_msgs/RegionOfInterest.h
+thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/sensor_msgs/image_encodings.h
 thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.o: /opt/ros/indigo/include/std_msgs/Header.h
 

@@ -61,17 +61,13 @@ $ rosrun image_view image_view image:=my_camera/image_rect_color
     - faire mesures position
 
 -----------
-start 9h55
-stop 13h55
-start 16h30
-pause 15 min
 
 
 # Planning 
 4/12: transfert image + calibration   !!! OK !!! 
-5/12: filtre rouge
-6/12: algo Sobel
-7/12: matching 
+5/12: filtre rouge                    !!! OK !!! 
+6/12: algo Sobel                      !!! OK !!!
+7/12: matching --> ratio porte 93.2/201
 8/12: matching
 9/12: fusion
 10/12: fusion 
@@ -104,10 +100,20 @@ inadéquat.
 - color conversion: https://docs.opencv.org/master/de/d25/imgproc_color_conversions.html
 - sobel conversion:
 https://docs.opencv.org/master/d4/d86/group__imgproc__filter.html#gacea54f142e81b6758cb6f375ce782c8d
+https://docs.opencv.org/master/d4/d86/group__imgproc__filter.html#gacea54f142e81b6758cb6f375ce782c8d
+https://docs.opencv.org/master/d2/d2c/tutorial_sobel_derivatives.html
+- cv::findContours
+- cv::threshold: GRAY to BIN 	
 - matching: surf descriptor ?
+- OpenCV stores internally a RGB image as a BGR one.
+- Quid Blurring on the color image ?
 
 - défaillance du décollage après trop de temps d'utilisation continue (3h+) ? 
 Confimé !!
+
+- discuter choix RGB vs HSV
+
+- expliquer qu'au début on trouvait Harris intéressant, puis finalement inutile.
 
 # Structure Rapport TFE
 - Abstract: 1p
