@@ -58,7 +58,8 @@ OLD
     - Affiner structure pages mémoire
 
 -----------
-start 16h35
+10h45-12h55
+15h-
 
 # Planning 
 4/12: transfert image + calibration   !!! OK !!! 
@@ -99,6 +100,14 @@ inadéquat.
 https://docs.opencv.org/master/d4/d86/group__imgproc__filter.html#gacea54f142e81b6758cb6f375ce782c8d
 https://docs.opencv.org/master/d4/d86/group__imgproc__filter.html#gacea54f142e81b6758cb6f375ce782c8d
 https://docs.opencv.org/master/d2/d2c/tutorial_sobel_derivatives.html
+
+    src_gray: In our example, the input image. Here it is CV_8U
+    grad_x/*grad_y*: The output image.
+    ddepth: The depth of the output image. We set it to CV_16S to avoid overflow.
+    x_order: The order of the derivative in x direction.
+    y_order: The order of the derivative in y direction.
+    scale, delta and BORDER_DEFAULT: We use default values.
+
 - cv::findContours
 - cv::threshold: GRAY to BIN 	
 
@@ -119,6 +128,7 @@ https://docs.opencv.org/master/d2/d2c/tutorial_sobel_derivatives.html
           2.3.2.1    rectangles <- rectangles U {contour}
   - Harris + center of gravity + moments (cv::cornerHarris + cv::threshold)
   - PCL to build door detection?
+- parler des color spaces et du choix fait https://www.learnopencv.com/color-spaces-in-opencv-cpp-python/
 
 
 - OpenCV stores internally a RGB image as a BGR one.
@@ -132,6 +142,10 @@ Confimé !!
 - expliquer qu'au début on trouvait Harris intéressant, puis finalement inutile.
 
 - Parler du Scharr operator
+
+- Comparer HoughLines avec HoughLinesP
+
+- Présenter les pires cas et les cas idéaux pour ouverture porte
 
 # Matching step sources
 - Hough lines https://docs.opencv.org/2.4/doc/tutorials/imgproc/imgtrans/hough_lines/hough_lines.html

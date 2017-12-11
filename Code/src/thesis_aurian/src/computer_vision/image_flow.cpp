@@ -141,15 +141,15 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
   int ksize = 3;
   int scale = 1;
   int delta = 0;
-  int ddepth = CV_64F;
+  int ddepth_filt = CV_64F;
   cv::Mat grad, grad_filt;
   cv::Mat grad_x_filt, grad_x, grad_y_filt, grad_y;
   cv::Mat abs_grad_x, abs_grad_x_filt, abs_grad_y, abs_grad_y_filt;
 
   // With color filter
-  cv::Sobel(redfilt_final, grad_x_filt, ddepth, 1, 0, ksize, scale, delta,
+  cv::Sobel(redfilt_final, grad_x_filt, ddepth_filt, 1, 0, ksize, scale, delta,
             cv::BORDER_DEFAULT);
-  cv::Sobel(redfilt_final, grad_y_filt, ddepth, 0, 1, ksize, scale, delta,
+  cv::Sobel(redfilt_final, grad_y_filt, ddepth_filt, 0, 1, ksize, scale, delta,
             cv::BORDER_DEFAULT);
   // converting back to CV_8U
   cv::convertScaleAbs(grad_x_filt, abs_grad_x_filt);
@@ -158,14 +158,16 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
   cv::imshow("Sobel - Color-filtered", grad_filt);
 
   // Without color filter
+  int ddepth = CV_8U;
   cv::Sobel(gray_img, grad_x, ddepth, 1, 0, ksize, scale, delta,
             cv::BORDER_DEFAULT);
   cv::Sobel(gray_img, grad_y, ddepth, 0, 1, ksize, scale, delta,
             cv::BORDER_DEFAULT);
   // converting back to CV_8U
-  cv::convertScaleAbs(grad_x, abs_grad_x);
-  cv::convertScaleAbs(grad_y, abs_grad_y);
-  cv::addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad);
+  // cv::convertScaleAbs(grad_x, abs_grad_x);
+  // cv::convertScaleAbs(grad_y, abs_grad_y);
+  // cv::addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad);
+  cv::addWeighted(grad_x, 0.5, grad_y, 0.5, 0, grad);
   cv::imshow("Sobel - Direct", grad);
 
   using namespace cv;
@@ -173,30 +175,133 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
   /**********************************
    ********* HOUGH TRANSFORM ********
    **********************************/
+
+  // Set1: threshold = 101; minLength = 66; maxLineGap = 12; thickness rho deg =
+  // 1
+  // Set2: threshold = 71; minLength = 32; maxLineGap = 11; thickness = 4; rho
+  // deg = 1
+  if (keypressed) {
+    if (k == 'R' || k == 'r') {
+      rho += 1;
+      ROS_INFO("rho = %f", rho);
+    } else if (k == 'E' || k == 'e') {
+      rho -= 1;
+      ROS_INFO("rho = %f", rho);
+    }
+
+    if (k == 'D' || k == 'd') {
+      deg += 5;
+      ROS_INFO("deg = %i", deg);
+    } else if (k == 'S' || k == 's') {
+      deg -= 5;
+      ROS_INFO("deg = %i", deg);
+    }
+
+    if (k == 'T' || k == 't') {
+      threshold += 5;
+      ROS_INFO("threshold = %i", threshold);
+    } else if (k == 'Y' || k == 'y') {
+      threshold -= 5;
+      ROS_INFO("threshold = %i", threshold);
+    }
+
+    if (k == 'L' || k == 'l') {
+      minLength += 2;
+      ROS_INFO("minLength = %f", minLength);
+    } else if (k == 'K' || k == 'k') {
+      minLength -= 2;
+      ROS_INFO("minLength = %f", minLength);
+    }
+
+    if (k == 'G' || k == 'g') {
+      maxLineGap += 1;
+      ROS_INFO("maxLineGap = %f", maxLineGap);
+    } else if (k == 'F' || k == 'f') {
+      maxLineGap -= 1;
+      ROS_INFO("maxLineGap = %f", maxLineGap);
+    }
+
+    if (k == 'P' || k == 'p') {
+      thickness += 1;
+      ROS_INFO("thickness = %i", thickness);
+    } else if (k == 'O' || k == 'o') {
+      thickness -= 1;
+      ROS_INFO("thickness = %i", thickness);
+    }
+
+    if (k == 'A' || k == 'a') {
+      ROS_INFO("rho = %f", rho);
+      ROS_INFO("deg = %i", deg);
+      ROS_INFO("threshold = %i", threshold);
+      ROS_INFO("minLength = %f", minLength);
+      ROS_INFO("maxLineGap = %f", maxLineGap);
+      ROS_INFO("thickness = %i", thickness);
+    }
+
+  } else {
+    // Hough Transform parameters
+    deg = 1;
+    rho = 1;
+    theta = CV_PI / 180 * deg;
+    threshold = 1;
+    minLength = 0;
+    maxLineGap = 0;
+    thickness = 1;
+  }
+
   // WITHOUT color-filtering
   cvtColor(grad, gradBGR, CV_GRAY2BGR);
   vector<Vec4i> lines;
-  HoughLinesP(grad, lines, 3, CV_PI / 180, 250, 250, 5);
+  HoughLinesP(grad, lines, rho, theta, threshold, minLength, maxLineGap);
   for (size_t i = 0; i < lines.size(); i++) {
     Vec4i l = lines[i];
-    line(gradBGR, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255), 3,
-         CV_AA);
+    line(gradBGR, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255),
+         thickness, CV_AA);
   }
   imshow("Hough Transform", gradBGR);
 
   // WITH color-filtering
   cvtColor(grad_filt, gradBGR_filt, CV_GRAY2BGR);
+  Mat Blank(grad_filt.rows, grad_filt.cols, CV_8UC3, Scalar(0, 0, 0));
   vector<Vec4i> lines_filt;
-  HoughLinesP(grad_filt, lines_filt, 1, CV_PI / 180, 50, 50, 5);
+  HoughLinesP(grad_filt, lines_filt, rho, theta, threshold, minLength,
+              maxLineGap);
   for (size_t i = 0; i < lines_filt.size(); i++) {
     Vec4i l = lines_filt[i];
-    line(gradBGR_filt, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255),
-         3, CV_AA);
+    line(gradBGR_filt, Point(l[0], l[1]), Point(l[2], l[3]),
+         Scalar(255, 255, 255), thickness, CV_AA);
+    line(Blank, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255),
+         thickness, CV_AA);
   }
 
-  imshow("Hough Transform with color-filtering", gradBGR_filt);
+  imshow("Hough Transform with color-filtering", Blank);
 
-  cv::waitKey(0);
+  // Canny WITHOUT color-filtering
+  Canny(gray_img, grad_canny, 50, 200, 3);
+  cvtColor(grad_canny, gradBGR_canny, CV_GRAY2BGR);
+  vector<Vec4i> lines_canny;
+  HoughLinesP(grad_canny, lines_canny, rho, theta, threshold, minLength,
+              maxLineGap);
+
+  for (size_t i = 0; i < lines_canny.size(); i++) {
+    Vec4i l = lines_canny[i];
+    line(gradBGR_canny, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255),
+         thickness, CV_AA);
+    line(Blank, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255),
+         thickness, CV_AA);
+  }
+
+  imshow("Hough Transform with Canny", Blank);
+
+  k = waitKey(0);
+  keypressed = true;
+
+  /**********************************
+   ********* MATCHING STEP **********
+   **********************************/
+  // Creation of the reference image
+  rectangle(Mat & img, Point pt1, Point pt2, const Scalar &color,
+            int thickness = 1, int lineType = 8, int shift = 0)¶
 }
 
 int main(int argc, char **argv) {
