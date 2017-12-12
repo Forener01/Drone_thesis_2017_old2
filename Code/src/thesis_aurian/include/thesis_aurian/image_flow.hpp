@@ -37,13 +37,15 @@ private:
   cv::Mat converted_img, redfilt_upp_img, redfilt_low_img, redfilt_dark_img1,
       redfilt_dark_img2, redfilt_lu_img, redfilt_du_img, redfilt_ldu_img,
       redfilt_img, hsv_img, gray_img, redfilt_sub, redfilt_final, hough_img,
-      gradBGR, gradBGR_filt, gradBGR_filt2, grad_canny, gradBGR_canny,
-      nofilt_img;
+      gradBGR, gradBGR_filt, gradGRAY_filt, gradBGR_filt2, grad_canny,
+      gradBGR_canny, nofilt_img, RealBinaryDoor, RefBinaryDoor, BackgroundGRAY;
 
   char k;
 
-  double rho, theta, minLength, maxLineGap;
-  int threshold, deg, thickness;
+  double rho, theta, minLength, maxLineGap, door_ratio, door_thickness_ratio,
+      scale_factor, res;
+  int threshold, deg, thickness, xx1, yy1, xx2, yy2, pixel_incr, img_width,
+      img_height, height_zoom, door_thickness;
   bool keypressed;
 };
 

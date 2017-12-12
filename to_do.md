@@ -58,14 +58,14 @@ OLD
     - Affiner structure pages mémoire
 
 -----------
-10h45-12h55
-15h-
+15h40-18h34
+18h50-19h50
 
 # Planning 
 4/12: transfert image + calibration   !!! OK !!! 
 5/12: filtre rouge                    !!! OK !!! 
 6/12: algo Sobel                      !!! OK !!!
-7/12: matching --> ratio porte 93.2/201
+7/12: matching 
 8/12: matching
 9/12: fusion
 10/12: fusion 

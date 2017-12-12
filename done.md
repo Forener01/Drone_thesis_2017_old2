@@ -77,4 +77,6 @@
 - Calibration des raw images
 - Programmation et calibration du filtre couleur
 - Programmation et calibration du détecteur de contour
+
+**S13 11/12**
 - Programmation et calibration de l'étape de matching

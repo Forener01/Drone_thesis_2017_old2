@@ -12,6 +12,12 @@ ImageFlow::ImageFlow() {
 
   // Publishers
   processed_image_pub = it.advertise("processed_image", 1);
+
+  // Image parameters
+  img_width = 640;
+  img_height = 360;
+  door_ratio = 0.4637;          // --> W/H = 93.2/201
+  door_thickness_ratio = 0.015; // --> T/H = 3/201
 }
 
 // void ImageFlow::imageCb(const sensor_msgs::Image &img_msg) {
@@ -164,90 +170,138 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
   cv::Sobel(gray_img, grad_y, ddepth, 0, 1, ksize, scale, delta,
             cv::BORDER_DEFAULT);
   // converting back to CV_8U
-  // cv::convertScaleAbs(grad_x, abs_grad_x);
-  // cv::convertScaleAbs(grad_y, abs_grad_y);
-  // cv::addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad);
-  cv::addWeighted(grad_x, 0.5, grad_y, 0.5, 0, grad);
+  cv::convertScaleAbs(grad_x, abs_grad_x);
+  cv::convertScaleAbs(grad_y, abs_grad_y);
+  cv::addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad);
   cv::imshow("Sobel - Direct", grad);
 
   using namespace cv;
   using namespace std;
+
   /**********************************
    ********* HOUGH TRANSFORM ********
    **********************************/
+
+  // if (keypressed) {
+  //   if (k == 'R' || k == 'r') {
+  //     rho += 1;
+  //     ROS_INFO("rho = %f", rho);
+  //   } else if (k == 'E' || k == 'e') {
+  //     rho -= 1;
+  //     ROS_INFO("rho = %f", rho);
+  //   }
+  //
+  //   if (k == 'D' || k == 'd') {
+  //     deg += 5;
+  //     ROS_INFO("deg = %i", deg);
+  //   } else if (k == 'S' || k == 's') {
+  //     deg -= 5;
+  //     ROS_INFO("deg = %i", deg);
+  //   }
+  //
+  //   if (k == 'T' || k == 't') {
+  //     threshold += 5;
+  //     ROS_INFO("threshold = %i", threshold);
+  //   } else if (k == 'Y' || k == 'y') {
+  //     threshold -= 5;
+  //     ROS_INFO("threshold = %i", threshold);
+  //   }
+  //
+  //   if (k == 'L' || k == 'l') {
+  //     minLength += 2;
+  //     ROS_INFO("minLength = %f", minLength);
+  //   } else if (k == 'K' || k == 'k') {
+  //     minLength -= 2;
+  //     ROS_INFO("minLength = %f", minLength);
+  //   }
+  //
+  //   if (k == 'G' || k == 'g') {
+  //     maxLineGap += 1;
+  //     ROS_INFO("maxLineGap = %f", maxLineGap);
+  //   } else if (k == 'F' || k == 'f') {
+  //     maxLineGap -= 1;
+  //     ROS_INFO("maxLineGap = %f", maxLineGap);
+  //   }
+  //
+  //   if (k == 'P' || k == 'p') {
+  //     thickness += 1;
+  //     ROS_INFO("thickness = %i", thickness);
+  //   } else if (k == 'O' || k == 'o') {
+  //     thickness -= 1;
+  //     ROS_INFO("thickness = %i", thickness);
+  //   }
+  //
+  //   if (k == 'A' || k == 'a') {
+  //     ROS_INFO("rho = %f", rho);
+  //     ROS_INFO("deg = %i", deg);
+  //     ROS_INFO("threshold = %i", threshold);
+  //     ROS_INFO("minLength = %f", minLength);
+  //     ROS_INFO("maxLineGap = %f", maxLineGap);
+  //     ROS_INFO("thickness = %i", thickness);
+  //   }
+  //
+  //   // // Calibration of the reference door rectangle
+  //   // pixel_incr = 1;
+  //   // if (k == 'X' || k == 'x') {
+  //   //   xx1 += pixel_incr;
+  //   //   ROS_INFO("x1 rectangle coord = %i", xx1);
+  //   // } else if (k == 'W' || k == 'w') {
+  //   //   xx1 -= pixel_incr;
+  //   //   ROS_INFO("x1 rectangle coord = %i", xx1);
+  //   // }
+  //   //
+  //   // if (k == 'B' || k == 'b') {
+  //   //   yy1 += pixel_incr;
+  //   //   ROS_INFO("y1 rectangle coord = %i", yy1);
+  //   // } else if (k == 'V' || k == 'v') {
+  //   //   yy1 -= pixel_incr;
+  //   //   ROS_INFO("y1 rectangle coord = %i", yy1);
+  //   // }
+  //   // if (k == ',' || k == '?') {
+  //   //   xx2 += pixel_incr;
+  //   //   ROS_INFO("x2 rectangle coord = %i", xx2);
+  //   // } else if (k == 'N' || k == 'n') {
+  //   //   xx2 -= pixel_incr;
+  //   //   ROS_INFO("x2 rectangle coord = %i", xx2);
+  //   // }
+  //   //
+  //   // if (k == ':' || k == '/') {
+  //   //   yy2 += pixel_incr;
+  //   //   ROS_INFO("y2 rectangle coord = %i", yy2);
+  //   // } else if (k == ';' || k == '.') {
+  //   //   yy2 -= pixel_incr;
+  //   //   ROS_INFO("y2 rectangle coord = %i", yy2);
+  //   // }
+  //
+  //   // Default parameters
+  // } else {
+  //   xx1 = 1;
+  //   yy1 = 1;
+  //   xx2 = 1;
+  //   yy2 = 1;
+  //   // Hough Transform parameters
+  //   deg = 1;
+  //   rho = 1;
+  //   theta = CV_PI / 180 * deg;
+  //   threshold = 1;
+  //   minLength = 1;
+  //   maxLineGap = 1;
+  //   thickness = 1;
+  // }
 
   // Set1: threshold = 101; minLength = 66; maxLineGap = 12; thickness rho deg =
   // 1
   // Set2: threshold = 71; minLength = 32; maxLineGap = 11; thickness = 4; rho
   // deg = 1
-  if (keypressed) {
-    if (k == 'R' || k == 'r') {
-      rho += 1;
-      ROS_INFO("rho = %f", rho);
-    } else if (k == 'E' || k == 'e') {
-      rho -= 1;
-      ROS_INFO("rho = %f", rho);
-    }
 
-    if (k == 'D' || k == 'd') {
-      deg += 5;
-      ROS_INFO("deg = %i", deg);
-    } else if (k == 'S' || k == 's') {
-      deg -= 5;
-      ROS_INFO("deg = %i", deg);
-    }
-
-    if (k == 'T' || k == 't') {
-      threshold += 5;
-      ROS_INFO("threshold = %i", threshold);
-    } else if (k == 'Y' || k == 'y') {
-      threshold -= 5;
-      ROS_INFO("threshold = %i", threshold);
-    }
-
-    if (k == 'L' || k == 'l') {
-      minLength += 2;
-      ROS_INFO("minLength = %f", minLength);
-    } else if (k == 'K' || k == 'k') {
-      minLength -= 2;
-      ROS_INFO("minLength = %f", minLength);
-    }
-
-    if (k == 'G' || k == 'g') {
-      maxLineGap += 1;
-      ROS_INFO("maxLineGap = %f", maxLineGap);
-    } else if (k == 'F' || k == 'f') {
-      maxLineGap -= 1;
-      ROS_INFO("maxLineGap = %f", maxLineGap);
-    }
-
-    if (k == 'P' || k == 'p') {
-      thickness += 1;
-      ROS_INFO("thickness = %i", thickness);
-    } else if (k == 'O' || k == 'o') {
-      thickness -= 1;
-      ROS_INFO("thickness = %i", thickness);
-    }
-
-    if (k == 'A' || k == 'a') {
-      ROS_INFO("rho = %f", rho);
-      ROS_INFO("deg = %i", deg);
-      ROS_INFO("threshold = %i", threshold);
-      ROS_INFO("minLength = %f", minLength);
-      ROS_INFO("maxLineGap = %f", maxLineGap);
-      ROS_INFO("thickness = %i", thickness);
-    }
-
-  } else {
-    // Hough Transform parameters
-    deg = 1;
-    rho = 1;
-    theta = CV_PI / 180 * deg;
-    threshold = 1;
-    minLength = 0;
-    maxLineGap = 0;
-    thickness = 1;
-  }
+  // Hough Transform parameters
+  deg = 1;
+  rho = 1;
+  theta = CV_PI / 180 * deg;
+  threshold = 71;
+  minLength = 32;
+  maxLineGap = 11;
+  thickness = 4;
 
   // WITHOUT color-filtering
   cvtColor(grad, gradBGR, CV_GRAY2BGR);
@@ -262,7 +316,7 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
 
   // WITH color-filtering
   cvtColor(grad_filt, gradBGR_filt, CV_GRAY2BGR);
-  Mat Blank(grad_filt.rows, grad_filt.cols, CV_8UC3, Scalar(0, 0, 0));
+  // Mat Blank(grad_filt.rows, grad_filt.cols, CV_8UC3, Scalar(0, 0, 0));
   vector<Vec4i> lines_filt;
   HoughLinesP(grad_filt, lines_filt, rho, theta, threshold, minLength,
               maxLineGap);
@@ -270,15 +324,16 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
     Vec4i l = lines_filt[i];
     line(gradBGR_filt, Point(l[0], l[1]), Point(l[2], l[3]),
          Scalar(255, 255, 255), thickness, CV_AA);
-    line(Blank, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255),
-         thickness, CV_AA);
+    // line(Blank, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255),
+    //      thickness, CV_AA);
   }
 
-  imshow("Hough Transform with color-filtering", Blank);
+  imshow("Hough Transform with color-filtering", gradBGR_filt);
 
   // Canny WITHOUT color-filtering
   Canny(gray_img, grad_canny, 50, 200, 3);
   cvtColor(grad_canny, gradBGR_canny, CV_GRAY2BGR);
+  Mat Black2(grad_canny.rows, grad_canny.cols, CV_8UC3, Scalar(0, 0, 0));
   vector<Vec4i> lines_canny;
   HoughLinesP(grad_canny, lines_canny, rho, theta, threshold, minLength,
               maxLineGap);
@@ -287,21 +342,48 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
     Vec4i l = lines_canny[i];
     line(gradBGR_canny, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255),
          thickness, CV_AA);
-    line(Blank, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255),
+    line(Black2, Point(l[0], l[1]), Point(l[2], l[3]), Scalar(0, 0, 255),
          thickness, CV_AA);
   }
 
-  imshow("Hough Transform with Canny", Blank);
+  imshow("Hough Transform with Canny", Black2);
 
-  k = waitKey(0);
-  keypressed = true;
-
+  // Conversion into binary image
+  cvtColor(gradBGR_filt, gradGRAY_filt, COLOR_BGR2GRAY);
+  cv::threshold(gradGRAY_filt, RealBinaryDoor, 100, 255, cv::THRESH_BINARY);
+  imshow("RealBinaryDoor", RealBinaryDoor);
   /**********************************
    ********* MATCHING STEP **********
    **********************************/
   // Creation of the reference image
-  rectangle(Mat & img, Point pt1, Point pt2, const Scalar &color,
-            int thickness = 1, int lineType = 8, int shift = 0)¶
+  /* Linetype:
+      8 (or omitted) - 8-connected line.
+      4 - 4-connected line.
+      CV_AA - antialiased line.
+  */
+  scale_factor = 0.75;
+  height_zoom = scale_factor * img_height; // 1 = door takes the full height
+  door_thickness = door_thickness_ratio * height_zoom;
+
+  xx1 = img_width / 2 - door_ratio * height_zoom / 2 - door_thickness / 2 - 1;
+  yy1 = img_height + door_thickness / 2;
+  xx2 = xx1 + door_ratio * height_zoom + door_thickness / 2;
+  yy2 = yy1 - height_zoom + door_thickness / 2;
+
+  Mat Background(grad_filt.rows, grad_filt.cols, CV_8UC3, Scalar(0, 0, 0));
+  rectangle(Background, Point(xx1, yy1), Point(xx2, yy2), Scalar(255, 255, 255),
+            door_thickness, 8);
+
+  // Conversion into binary door reference image
+  cvtColor(Background, BackgroundGRAY, COLOR_BGR2GRAY);
+  cv::threshold(BackgroundGRAY, RefBinaryDoor, 100, 255, cv::THRESH_BINARY);
+
+  imshow("Reference door rectangle", Background);
+  imshow("Reference GRAY door rectangle", BackgroundGRAY);
+  imshow("Reference BIN door rectangle", RefBinaryDoor);
+
+  k = waitKey(0);
+  keypressed = true;
 }
 
 int main(int argc, char **argv) {
