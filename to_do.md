@@ -60,15 +60,19 @@ OLD
 -----------
 15h40-18h34
 18h50-19h50
+20h15-
 
-# Planning 
-4/12: transfert image + calibration   !!! OK !!! 
-5/12: filtre rouge                    !!! OK !!! 
+# Planning
+4/12: transfert image + calibration   !!! OK !!!
+5/12: filtre rouge                    !!! OK !!!
 6/12: algo Sobel                      !!! OK !!!
-7/12: matching 
-8/12: matching
-9/12: fusion
-10/12: fusion 
+7->12/12: matching                    !!! OK !!!
+13/12: fusion + démo finale
+14/12: tester une autre méthode (LUT) + nettoyer le code
+15/12: plan page mémoire + start écriture mémoire
+15-24: controller part 5p/j
+25-31: computer vision part 5p/j
+1-7: relecture
 
 # Update meet 21/11
 - change name for "no control" wave (controller)
@@ -82,10 +86,10 @@ OLD
 la caméra frontale/ventrale. Ensuite, ils contrôlent ça, et le tout est lié à
 leur PTAM => trop compliqué de reprendre quoique ce soit.
 
-- Adapter prend du temps: il faut créer une architecture de communication ros 
+- Adapter prend du temps: il faut créer une architecture de communication ros
 et intégrer les noeuds appropriés aux bons endroits.
 
-- Quelques jours de perdu pendant campagne de mesures: controleur de vitesse 
+- Quelques jours de perdu pendant campagne de mesures: controleur de vitesse
 fonctionnait avec le marquage de base du DroneLab, mais pas à la DroneZone à
 cause du revêtement trop uniforme de celle-ci. Ordre de débug: erreurs de code,
 batteries défectueuses, pc portable trop peu puissant, et enfin, revêtement
@@ -134,7 +138,7 @@ https://docs.opencv.org/master/d2/d2c/tutorial_sobel_derivatives.html
 - OpenCV stores internally a RGB image as a BGR one.
 - Quid Blurring on the color image ?
 
-- défaillance du décollage après trop de temps d'utilisation continue (3h+) ? 
+- défaillance du décollage après trop de temps d'utilisation continue (3h+) ?
 Confimé !!
 
 - discuter choix RGB vs HSV
@@ -146,6 +150,8 @@ Confimé !!
 - Comparer HoughLines avec HoughLinesP
 
 - Présenter les pires cas et les cas idéaux pour ouverture porte
+
+- penser à faire une timing analysis
 
 # Matching step sources
 - Hough lines https://docs.opencv.org/2.4/doc/tutorials/imgproc/imgtrans/hough_lines/hough_lines.html

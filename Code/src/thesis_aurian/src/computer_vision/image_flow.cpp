@@ -361,6 +361,8 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
       4 - 4-connected line.
       CV_AA - antialiased line.
   */
+  xshifts = 320;
+  lshifts = 90;
   scale_factor = 0.75;
   height_zoom = scale_factor * img_height; // 1 = door takes the full height
   door_thickness = door_thickness_ratio * height_zoom;
@@ -370,13 +372,33 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
   xx2 = xx1 + door_ratio * height_zoom + door_thickness / 2;
   yy2 = yy1 - height_zoom + door_thickness / 2;
 
-  Mat Background(grad_filt.rows, grad_filt.cols, CV_8UC3, Scalar(0, 0, 0));
-  rectangle(Background, Point(xx1, yy1), Point(xx2, yy2), Scalar(255, 255, 255),
-            door_thickness, 8);
+
 
   // Conversion into binary door reference image
   cvtColor(Background, BackgroundGRAY, COLOR_BGR2GRAY);
   cv::threshold(BackgroundGRAY, RefBinaryDoor, 100, 255, cv::THRESH_BINARY);
+
+// Matching decision
+  for (k = 0; k < xshifts; k++){
+    xx1 -= 2*k;
+    xx2 -= 2*k;
+    for (j = O; j < yshifts; j++){
+      yy1 -= 2*j;
+      yy2 -= 2*j;
+      Mat Background(grad_filt.rows, grad_filt.cols, CV_8UC3, Scalar(0, 0, 0));
+      rectangle(Background, Point(xx1, yy1), Point(xx2, yy2), Scalar(255, 255, 255),
+                door_thickness, 8);
+      refcount = sum(RefBinaryDoor);
+      DoorComp = RealBinaryDoor * RefBinaryDoor / 255;
+      realcount = sum(DoorComp);
+      if (realcount >= img_tol * refcount) {
+        ROS_INFO("Door detected !");
+        detection_pub.publish(detected);
+        break;
+      }
+    }
+  }
+
 
   imshow("Reference door rectangle", Background);
   imshow("Reference GRAY door rectangle", BackgroundGRAY);

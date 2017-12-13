@@ -44,62 +44,40 @@ void Pose_Control::position_control(void) {
                pow(odo_msg.pose.pose.position.z, 2));
 
   tol = 0.3;
-  tolz = 0.25;
 
-  // Method #1
-  if (distX > tol) {
-    // pose_out.position.x =
-    //     current_pose_ref.position.x - odo_msg.pose.pose.position.x;
-    velInPID.linear.x = 0.25;
-  } else {
-    velInPID.linear.x = 0.0;
-    // pose_out.position.x = 0.0;
-    // ROS_DEBUG("Pos_X reached !");
+  if (pos_end) {    // Start a new trapezoidal profile
+    time_stamp = 0.0;
+    if (current_pose_ref.position.x > )
+    if (distX > tol) {
+      // pose_out.position.x =
+      //     current_pose_ref.position.x - odo_msg.pose.pose.position.x;
+      velInPID.linear.x = 0.25;
+    }
+
+    else {
+      velInPID.linear.x = 0.0;
+      // pose_out.position.x = 0.0;
+      // ROS_DEBUG("Pos_X reached !");
+    }
+
+    if (distY > tol) {
+      velInPID.linear.y = 0.10;
+    }
+
+    else {
+      velInPID.linear.y = 0.0;
+    }
+
+    if (distX < tol || distY < tol) {
+      ROS_INFO_THROTTLE(1, "Position reached !");
+      pos_end = true;
+    }
+  }
+  else {    // Continue the trapezoidal profile
+
   }
 
-  if (distY > tol) {
-    // pose_out.position.y =
-    //     current_pose_ref.position.y - odo_msg.pose.pose.position.y;
-    velInPID.linear.y = 0.10;
-  } else {
-    velInPID.linear.y = 0.0;
-    // pose_out.position.y = 0.0;
-    // ROS_DEBUG("Pos_Y reached !");
-  }
-  //
-  // if (distZ > tol) {
-  //   pose_out.position.z =
-  //       current_pose_ref.position.z - odo_msg.pose.pose.position.z;
-  // } else {
-  //   pose_out.position.z = 0.0;
-  // }
-  //
-  if (distX < tol || distY < tol) {
-    ROS_INFO_THROTTLE(1, "Position reached !");
-  }
 
-  // Method #2
-
-  // error_dist = sqrt(pow(distX, 2) - pow(distY, 2));
-
-  // if (distX > tolxy || distY > tolxy) {
-  //   // pose_out.position.x =
-  //   //     current_pose_ref.position.x - odo_msg.pose.pose.position.x;
-  //   // pose_out.position.y =
-  //   //     current_pose_ref.position.y - odo_msg.pose.pose.position.y;
-  //   // pose_out.position.z = 0.0;
-  //   velInPID.linear.x = 0.15;
-  //   velInPID.linear.y = 0.15;
-  //   velInPID.linear.z = 0.0;
-  // } else {
-  //   // pose_out.position.x = 0.0;
-  //   // pose_out.position.y = 0.0;
-  //   // pose_out.position.z = 0.0;
-  //   velInPID.angular.x = 0.0;
-  //   velInPID.angular.y = 0.0;
-  //   velInPID.angular.z = 0.0;
-  //   ROS_INFO_THROTTLE(0.5, "Position reached !");
-  // }
   velInPID.angular.z = 0.0;
   // pose_pub.publish(pose_out);
 
